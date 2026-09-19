@@ -17,7 +17,7 @@ Node 22+ recommended. Production export: `out/`. No server-side Next.js runtime 
 
 This is a polished **preview collection**, not a live bakery ordering launch. Products, prices, dates and imagery are samples. Cart/preview checkout work; real submission stays disabled until approved Google configuration and business details are supplied. No payments are collected.
 
-The source is committed locally; the push was blocked by missing Git authentication. GitHub Pages is preview-only under its usage limits; real ordering must move to a host that permits commercial transactions.
+The preview source is published on `main`. GitHub Pages is preview-only under its usage limits; real ordering must move to a host that permits commercial transactions.
 
 - [Architecture / MVVM](docs/architecture.md)
 - [Ordering flow](docs/ordering-flow.md)
