@@ -1,0 +1,214 @@
+import Image from "next/image";
+import Link from "next/link";
+import {
+  ArrowRight,
+  ArrowDown,
+  Heart,
+  CalendarDays,
+  ShoppingBag,
+  Sparkles,
+} from "lucide-react";
+import { asset } from "@/lib/config";
+import { catalogService } from "@/services/catalog-service";
+import { ProductCard } from "@/components/product-card";
+import { Parallax } from "@/components/motion";
+export function HomeView() {
+  return (
+    <>
+      <section className="hero">
+        <div className="hero-copy">
+          <p className="eyebrow">
+            <span className="tiny-spark">✳</span> A LITTLE SWEETNESS GOES A
+            LONG WAY
+          </p>
+          <h1>
+            Good things
+            <br />
+            come to those
+            <br />
+            who <em>treat.</em>
+            <span className="hand-star" aria-hidden="true">
+              ✳
+            </span>
+          </h1>
+          <p className="hero-description">
+            Flaky pastries. Happy little desserts.
+            <br />
+            Something lovely to look forward to.
+          </p>
+          <div className="hero-buttons">
+            <Link className="button primary" href="/menu/">
+              Find your little treat <ArrowRight size={18} />
+            </Link>
+            <Link className="text-link" href="/pickup/">
+              How it works <ArrowUp />
+            </Link>
+          </div>
+          <p className="hero-note">
+            <Heart size={15} /> A box of joy. A moment just for you.
+          </p>
+        </div>
+        <Parallax className="hero-scene">
+          <div className="hero-photo">
+            <Image
+              src={asset("hero")}
+              alt="Golden croissants and strawberry pastries on a sunlit ceramic platter — editorial concept imagery"
+              fill
+              priority
+              sizes="(max-width: 760px) 100vw, 55vw"
+            />
+          </div>
+          <div className="hero-stamp">
+            <span>A LITTLE</span>
+            <Heart size={27} strokeWidth={1.3} />
+            <span>BAKED HAPPINESS</span>
+          </div>
+          <div className="hero-caption">
+            <span className="handwritten">Your day, a little sweeter.</span>
+            <span aria-hidden="true">↗</span>
+          </div>
+          <span className="scene-star" aria-hidden="true">
+            ✳
+          </span>
+        </Parallax>
+        <a className="hero-scroll" href="#favorites">
+          A FEW SWEET INTRODUCTIONS <ArrowDown size={15} />
+        </a>
+      </section>
+      <div className="ribbon" aria-hidden="true">
+        <span>A little butter</span>
+        <Sparkles />
+        <span>A lot of heart</span>
+        <Sparkles />
+        <span>Something worth slowing down for</span>
+        <Sparkles />
+        <span>A little butter</span>
+        <Sparkles />
+      </div>
+      <section id="favorites" className="section favorites">
+        <div className="section-heading">
+          <div>
+            <p className="eyebrow">MEET YOUR NEXT HAPPY MOMENT</p>
+            <h2>
+              Love at first <em>bite.</em>
+            </h2>
+          </div>
+          <Link className="text-link" href="/menu/">
+            All the good stuff <ArrowRight size={18} />
+          </Link>
+        </div>
+        <p className="section-intro">
+          A first look at the sweet things we’re dreaming up. Sample menu &
+          prices.
+        </p>
+        <div className="product-grid">
+          {catalogService.featured().map((p) => (
+            <ProductCard key={p.id} product={p} />
+          ))}
+        </div>
+      </section>
+      <section className="how-section section">
+        <div className="section-heading centered">
+          <p className="eyebrow">LESS FUSS. MORE FLAKY GOODNESS.</p>
+          <h2>
+            Your treat. Your day.
+            <br />
+            <em>Easy as one, two, three.</em>
+          </h2>
+        </div>
+        <div className="steps">
+          {[
+            {
+              icon: ShoppingBag,
+              title: "Follow your cravings",
+              text: "A buttery pastry? Something chocolatey? Fill your box with whatever makes you smile.",
+            },
+            {
+              icon: CalendarDays,
+              title: "Make a little date",
+              text: "When orders open, choose an available pickup day and time that fits your plans.",
+            },
+            {
+              icon: Heart,
+              title: "Pick up the happiness",
+              text: "We’ll confirm the details. You swing by, collect your treats, and make someone’s day. Yours counts, too.",
+            },
+          ].map((s, i) => (
+            <div className="step" key={s.title}>
+              <span className="step-number">0{i + 1}</span>
+              <s.icon size={29} strokeWidth={1.2} />
+              <h3>{s.title}</h3>
+              <p>{s.text}</p>
+            </div>
+          ))}
+        </div>
+        <Link className="button secondary" href="/pickup/">
+          A little more about pickup <ArrowRight size={17} />
+        </Link>
+      </section>
+      <section className="story-section section">
+        <Parallax className="story-art">
+          <div className="story-arch">
+            <Image
+              src={asset("croissant")}
+              alt="An illustrated-by-AI golden butter croissant"
+              width={700}
+              height={500}
+            />
+          </div>
+          <span className="story-tag handwritten">
+            Flaky outside.
+            <br />
+            Soft spot inside.
+          </span>
+          <span className="story-star" aria-hidden="true">
+            ✳
+          </span>
+        </Parallax>
+        <div className="story-copy">
+          <p className="eyebrow">HELLO, SWEET THING.</p>
+          <h2>
+            A little bakery.
+            <br />A whole lot of <em>heart.</em>
+          </h2>
+          <p>
+            We believe a treat doesn’t need an occasion. Sometimes, the occasion
+            is a slow morning. A catch-up with a friend. Or simply making it to
+            Friday.
+          </p>
+          <p>
+            Angel’s Bakery is a place for those little moments. Come for
+            something sweet. Leave with something to look forward to.
+          </p>
+          <Link className="text-link" href="/about/">
+            A little about Angel’s <ArrowRight size={18} />
+          </Link>
+        </div>
+      </section>
+      <section className="sweet-banner">
+        <span className="banner-spark" aria-hidden="true">
+          ✳
+        </span>
+        <p className="eyebrow">GO ON. MAKE YOUR DAY.</p>
+        <h2>
+          There’s a little happiness
+          <br />
+          with <em>your name on it.</em>
+        </h2>
+        <Link className="button primary" href="/menu/">
+          Let’s find your favorite <ArrowRight size={18} />
+        </Link>
+        <Image
+          className="banner-cookie"
+          src={asset("cookie")}
+          width={350}
+          height={250}
+          alt=""
+        />
+      </section>
+    </>
+  );
+}
+function ArrowUp() {
+  return <span aria-hidden="true">↗</span>;
+}
