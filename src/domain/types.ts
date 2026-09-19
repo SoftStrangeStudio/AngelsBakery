@@ -1,4 +1,4 @@
-export type Category = "Pastries" | "Cookies" | "Desserts";
+export type Category = "Pastries" | "Cookies" | "Breads" | "Muffins" | "Desserts";
 export type Product = {
   id: string;
   name: string;

@@ -1,5 +1,6 @@
 export const basePath = "/AngelsBakery";
 export const asset = (name: string) => `${basePath}/images/${name}.webp`;
+export const sceneAsset = (name: string) => `${basePath}/images/scenes/${name}.webp`;
 export const orderEndpoint = process.env.NEXT_PUBLIC_ORDER_ENDPOINT || "";
 export const orderingEnabled =
   process.env.NEXT_PUBLIC_ORDERING_ENABLED === "true" &&

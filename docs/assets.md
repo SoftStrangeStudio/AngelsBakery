@@ -4,6 +4,9 @@
 - Hero prompt: premium natural editorial pastry platter, golden croissants/chocolate pastries/strawberry custard, ivory ceramic and butter-yellow linen, morning light, peach plaster, no text/logos/people.
 - Cutout prompt: consistent 2×2 food-photo sheet; full isolated croissant, strawberry Danish, chocolate cookie, lemon layer cake; warm 35-degree camera angle, genuine transparent alpha, no labels/plates/props.
 - Actual output contains alpha. `scripts/prepare-assets.mjs` crops quadrants and optimizes WebP with transparency retained. No runtime keying or chroma fringe.
+- The featured carousel now has twelve isolated subject assets: peanut butter cookies, chocolate chip cookies, cinnamon rolls, butter croissants, dense seeded sandwich bread, sourdough, dinner rolls, banana bread, blueberry muffins, brownies, fruit danishes, and cinnamon coffee cake.
+- Each featured product also has a matching full-setting scene under `public/images/scenes/`. The carousel uses isolated assets; product detail pages use the full-setting pair.
+- The dense seeded sandwich bread image is a visual concept. Gluten-free and dairy-free claims remain provisional until the recipe and cross-contact process are approved.
 - CSS provides texture, colors, layered borders/shadows and bounded parallax. Raster source subjects remain separate.
 - These are **concept images**, not photos/evidence of actual bakery products. Site disclosure is explicit; approve/replace before launch.
 - Isolated subject asset checklist: preserve alpha; inspect edges for halos/fringing; verify transparent pixels at mobile sizes; keep a stable fallback image; do not use the concept assets as proof of actual product appearance.

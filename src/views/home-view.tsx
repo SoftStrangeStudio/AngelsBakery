@@ -112,7 +112,7 @@ export function HomeView() {
         <Parallax className="story-art">
           <div className="story-arch">
             <Image
-              src={asset("croissant")}
+              src={asset("croissants")}
               alt="An illustrated-by-AI golden butter croissant"
               width={700}
               height={500}
@@ -162,7 +162,7 @@ export function HomeView() {
         </Link>
         <Image
           className="banner-cookie"
-          src={asset("cookie")}
+          src={asset("chocolate-chip-cookies")}
           width={350}
           height={250}
           alt=""
