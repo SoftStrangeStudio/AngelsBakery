@@ -16,7 +16,7 @@
 - Browser local navigation returned `net::ERR_BLOCKED_BY_CLIENT`; no bypass attempted. Local desktop/mobile visual and click-through checks are **unverified**.
 - Live Google authorization/deployment, browser cross-origin receipt, and Sheet write are **not configured / not verified**.
 - Approved menu, ingredients, pickup location/timezone/schedule, contact and privacy policies are not supplied. Real ordering remains disabled.
-- **Push failed:** no authenticated Git credentials in this shell (`could not read Username for 'https://github.com'`). Source/assets are committed locally. Remote main and its only Pages run still point to initial commit `1bc14f3`; no new CI/deployment or public-site verification occurred.
+- **Source delivery:** published to `main` through the authenticated GitHub connection as commit `7ec8caac8da5a75251065684e7b8d83d96999be9`. Actions and public Pages verification remain pending.
 - The Pages workflow forces ordering off, following the hosting usage limits. Real ordering requires a different approved host.
 
 ## Manual acceptance checklist
