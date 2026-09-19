@@ -28,6 +28,25 @@ export function useOrderViewModel() {
   const [consent, setConsent] = useState(false);
   const [website, setWebsite] = useState("");
   const requestRef = useRef<{ fingerprint: string; id: string } | null>(null);
+  const clientTokenRef = useRef<string | null>(null);
+  function getClientToken() {
+    if (clientTokenRef.current) return clientTokenRef.current;
+    try {
+      const stored = localStorage.getItem("angels-bakery-client-token");
+      if (stored && stored.length >= 8 && stored.length <= 120) {
+        clientTokenRef.current = stored;
+        return stored;
+      }
+      const token = crypto.randomUUID();
+      localStorage.setItem("angels-bakery-client-token", token);
+      clientTokenRef.current = token;
+      return token;
+    } catch {
+      const token = crypto.randomUUID();
+      clientTokenRef.current = token;
+      return token;
+    }
+  }
   useEffect(() => {
     let active = true;
     if (!orderingEnabled) {
@@ -130,6 +149,7 @@ export function useOrderViewModel() {
       const request: OrderRequest = {
         ...payload,
         requestId: requestRef.current.id,
+        clientToken: getClientToken(),
       };
       const receipt = await gateway.submit(request);
       bakery.dispatch({ type: "receipt", receipt });

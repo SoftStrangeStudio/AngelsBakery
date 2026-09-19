@@ -28,6 +28,8 @@ const HEADERS = {
   ],
   Settings: ["Key", "Value"],
 };
+const RATE_LIMIT_MS = 5000;
+const RATE_LIMIT_PREFIX = "LAST_SUBMISSION_";
 function sheet_() {
   const id = PropertiesService.getScriptProperties().getProperty("SHEET_ID");
   if (!id) throw new Error("NOT_CONFIGURED");
@@ -79,6 +81,31 @@ function text_(value, min, max) {
 }
 function safeCell_(value) {
   return /^[\s]*[=+\-@\t\r\n]/.test(value) ? "'" + value : value;
+}
+function actorKey_(email, clientToken) {
+  const raw = email + "|" + (clientToken || email);
+  const digest = Utilities.computeDigest(Utilities.DigestAlgorithm.SHA_256, raw)
+    .map((b) => ((b + 256) % 256).toString(16).padStart(2, "0"))
+    .join("");
+  return RATE_LIMIT_PREFIX + digest;
+}
+function rateLimited_(email, clientToken) {
+  const value = PropertiesService.getScriptProperties().getProperty(
+    actorKey_(email, clientToken),
+  );
+  const last = Number(value || 0);
+  return Number.isFinite(last) && last > 0 && Date.now() - last < RATE_LIMIT_MS;
+}
+function recordSubmission_(email, clientToken) {
+  try {
+    PropertiesService.getScriptProperties().setProperty(
+      actorKey_(email, clientToken),
+      String(Date.now()),
+    );
+  } catch (_) {
+    // A property-quota failure must not turn an accepted order into an
+    // ambiguous client error.
+  }
 }
 function slots_(orders, now) {
   return rows_("Pickup Dates").map((r) => {
@@ -134,6 +161,8 @@ function doPost(e) {
       input.consent !== true
     )
       throw new Error("INVALID_INPUT");
+    const clientToken =
+      input.clientToken === undefined ? "" : text_(input.clientToken, 8, 120);
     const c = input.customer;
     if (!c || typeof c !== "object") throw new Error("INVALID_INPUT");
     const customer = {
@@ -197,6 +226,8 @@ function doPost(e) {
         .length >= 3
     )
       throw new Error("RATE_LIMITED");
+    if (rateLimited_(customer.email, clientToken))
+      throw new Error("RATE_LIMITED");
     const slot = slots_(orders, Date.now()).find(
       (s) => s.id === pickupId && s.available,
     );
@@ -233,6 +264,7 @@ function doPost(e) {
     ];
     sheet_().getSheetByName("Orders").appendRow(row);
     SpreadsheetApp.flush();
+    recordSubmission_(customer.email, clientToken);
     return json_({ ok: true, receipt: receipt_(row) });
   } catch (error) {
     const allowed = [

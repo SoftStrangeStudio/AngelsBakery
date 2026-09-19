@@ -7,7 +7,7 @@
 - Production dependency audit (`npm audit --omit=dev`): zero known vulnerabilities at validation time.
 - Next.js production static export: passed; home, menu, twelve products, pickup, about, FAQ, contact, privacy, checkout, review, confirmation and not-found output.
 - Export link/asset scan: **17 HTML files**, all discovered local href/src URLs use `/AngelsBakery/` and resolve to exported files.
-- **15 automated tests passed**: cart corruption/bounds/totals, customer validation, date rollover, receipt guards, malformed response rejection, server pricing, idempotent replay, request conflicts, capacity/cancellation, cutoff/product availability, input/honeypot/consent checks, formula injection, closed server gate and per-email rate limiting.
+- **16 automated tests passed**: cart corruption/bounds/totals, customer validation, date rollover, receipt guards, malformed response rejection, server pricing, idempotent replay, request conflicts, capacity/cancellation, cutoff/product availability, input/honeypot/consent checks, formula injection, closed server gate, per-email rate limiting and five-second client-token rate limiting.
 - Google tests execute the actual Apps Script code in a mocked service environment. They do not prove a deployed Google connection or real concurrent cloud execution.
 - Twelve isolated product WebP assets and twelve matching full-setting scene WebP assets exist. Isolated alpha was inspected programmatically, including the dedicated dense seeded bread cutout.
 

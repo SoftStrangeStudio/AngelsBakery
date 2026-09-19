@@ -7,6 +7,7 @@ export default defineConfig([
   globalIgnores([
     "out/**",
     ".next/**",
+    "_next/**",
     "next-env.d.ts",
     "google-apps-script/**",
   ]),

@@ -51,7 +51,11 @@ export class GoogleOrderAdapter implements OrderGateway {
       throw new Error(
         result.code === "SLOT_UNAVAILABLE"
           ? "That pickup time just filled up. Please choose another date."
-          : "We couldn’t confirm your order. Please retry with the same order.",
+          : result.code === "RATE_LIMITED"
+            ? "Please wait a few seconds before sending another request."
+            : result.code === "NOT_OPEN"
+              ? "Ordering is not open yet. Please check back soon."
+              : "We couldn’t confirm your order. Please retry with the same order.",
       );
     return result.receipt;
   }

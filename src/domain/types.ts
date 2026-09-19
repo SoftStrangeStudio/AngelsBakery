@@ -25,6 +25,7 @@ export type Customer = {
 };
 export type OrderRequest = {
   requestId: string;
+  clientToken: string;
   items: CartItem[];
   pickupId: string;
   customer: Customer;

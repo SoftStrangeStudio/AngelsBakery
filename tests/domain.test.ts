@@ -81,6 +81,7 @@ test("adapter rejects opaque/malformed success; readable matching receipt is man
     await assert.rejects(
       new GoogleOrderAdapter("https://example.com").submit({
         requestId: "abc",
+        clientToken: "test-client-token",
         items: [],
         pickupId: "x",
         customer: {

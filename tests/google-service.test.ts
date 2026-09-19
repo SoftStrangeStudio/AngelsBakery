@@ -50,9 +50,16 @@ function harness(capacity = 2) {
     ],
   };
   let locked = false;
+  const properties: Record<string, string> = {};
   const context = createContext({
     PropertiesService: {
-      getScriptProperties: () => ({ getProperty: () => "private-test-sheet" }),
+      getScriptProperties: () => ({
+        getProperty: (key: string) =>
+          key === "SHEET_ID" ? "private-test-sheet" : properties[key] || null,
+        setProperty: (key: string, value: string) => {
+          properties[key] = value;
+        },
+      }),
     },
     SpreadsheetApp: {
       openById: () => ({
@@ -95,6 +102,7 @@ function harness(capacity = 2) {
   runInContext(code, context);
   const payload = () => ({
     requestId: randomUUID(),
+    clientToken: randomUUID(),
     items: [{ productId: "butter-croissant", quantity: 2 }],
     pickupId: "slot-1",
     customer: {
@@ -180,4 +188,15 @@ test("per-email rate limit bounds abuse", () => {
   const h = harness(10);
   for (let n = 0; n < 3; n++) assert.equal(h.submit(h.payload()).ok, true);
   assert.equal(h.submit(h.payload()).code, "RATE_LIMITED");
+});
+test("same client token is rate limited for five seconds", () => {
+  const h = harness(10);
+  const first = h.payload();
+  const token = randomUUID();
+  first.clientToken = token;
+  assert.equal(h.submit(first).ok, true);
+  const second = h.payload();
+  second.clientToken = first.clientToken;
+  assert.equal(h.submit(second).code, "RATE_LIMITED");
+  assert.equal(h.data.Orders.length, 2);
 });

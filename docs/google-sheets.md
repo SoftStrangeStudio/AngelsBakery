@@ -14,7 +14,7 @@ Before production configuration, move ordering to an approved host that permits 
 8. Deploy a versioned web app as owner. Guest ordering requires anonymous access; the owner must authorize this public endpoint. Never expose OAuth tokens. If Workspace policy prevents anonymous deployment, stop and choose an approved backend.
 9. Copy the deployment **`/exec`** URL, not `/dev`. It is public configuration.
 10. In a separate test deployment / test Sheet, enable server settings and test with synthetic details. Verify the browser reads redirect responses from the approved production origin. Content Service redirects to `script.googleusercontent.com`; never hide CORS failure with `mode: no-cors`.
-11. Verify one row per request; identical ID/payload retries return the original receipt; changed payload with same ID is rejected; full/expired dates reject writes. Compare the row and receipt.
+11. Verify one row per request; identical ID/payload retries return the original receipt; changed payload with same ID is rejected; a separate request from the same browser within five seconds returns `RATE_LIMITED`; full/expired dates reject writes. Compare the row and receipt.
 12. Approve public menu/contact/pickup/privacy/FAQ copy. In the approved production host's build settings, set `NEXT_PUBLIC_ORDER_ENDPOINT` and `NEXT_PUBLIC_ORDERING_ENABLED=true`, enable the production server, then rebuild. The Pages preview stays disabled.
 
 ## Schema
@@ -27,6 +27,8 @@ Before production configuration, move ordering to an approved host that permits 
 | Settings     | Key, Value                                                                                                                                                  |
 
 Customer formula characters are escaped. No customer lists, Sheet IDs, stack traces or secrets are returned. No emails, payments or automatic booking confirmation are implemented.
+
+The website sends a random `clientToken` so the server can identify a browser session for the five-second cooldown. It is not a secret and does not contain customer information. Apps Script stores only a hashed email/token key and timestamp in Script Properties; the Sheet remains the order record.
 
 ## GitHub Secrets, correctly separated
 
