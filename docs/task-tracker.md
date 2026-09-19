@@ -37,7 +37,7 @@
 
 ## Launch gates
 
-- **Delivery blocked:** local commit exists; `git push origin main` failed because this Git session lacks authenticated credentials. Connect authorized write access and retry the existing commit; do not rebuild a duplicate project.
+- **Source delivery:** implementation is published to `main` as commit `7ec8caac8da5a75251065684e7b8d83d96999be9`. Verify Actions and the public preview.
 - **Hosting decision:** Pages is preview-only under its usage limits. Real ordering needs an approved commercial host; Pages workflow forces ordering off.
 - Approve menu, USD currency, prices, ingredients, imagery, and cross-contact information.
 - Publish contact, pickup address, local timezone, dates/windows, cutoff and capacity.
