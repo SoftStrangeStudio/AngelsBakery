@@ -2,78 +2,40 @@ import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowRight,
-  ArrowDown,
   Heart,
   CalendarDays,
   ShoppingBag,
   Sparkles,
 } from "lucide-react";
-import { asset } from "@/lib/config";
 import { catalogService } from "@/services/catalog-service";
+import { asset } from "@/lib/config";
 import { ProductCard } from "@/components/product-card";
 import { Parallax } from "@/components/motion";
+import { PastryCarousel } from "@/components/pastry-carousel";
+import { SceneLayer } from "@/components/scene-layer";
 export function HomeView() {
   return (
     <>
-      <section className="hero">
-        <div className="hero-copy">
-          <p className="eyebrow">
-            <span className="tiny-spark">✳</span> A LITTLE SWEETNESS GOES A
-            LONG WAY
-          </p>
-          <h1>
-            Good things
-            <br />
-            come to those
-            <br />
-            who <em>treat.</em>
-            <span className="hand-star" aria-hidden="true">
-              ✳
-            </span>
-          </h1>
-          <p className="hero-description">
-            Flaky pastries. Happy little desserts.
-            <br />
-            Something lovely to look forward to.
-          </p>
-          <div className="hero-buttons">
-            <Link className="button primary" href="/menu/">
-              Find your little treat <ArrowRight size={18} />
-            </Link>
-            <Link className="text-link" href="/pickup/">
-              How it works <ArrowUp />
-            </Link>
-          </div>
-          <p className="hero-note">
-            <Heart size={15} /> A box of joy. A moment just for you.
-          </p>
-        </div>
-        <Parallax className="hero-scene">
-          <div className="hero-photo">
-            <Image
-              src={asset("hero")}
-              alt="Golden croissants and strawberry pastries on a sunlit ceramic platter — editorial concept imagery"
-              fill
-              priority
-              sizes="(max-width: 760px) 100vw, 55vw"
-            />
-          </div>
-          <div className="hero-stamp">
-            <span>A LITTLE</span>
-            <Heart size={27} strokeWidth={1.3} />
-            <span>BAKED HAPPINESS</span>
-          </div>
-          <div className="hero-caption">
-            <span className="handwritten">Your day, a little sweeter.</span>
-            <span aria-hidden="true">↗</span>
-          </div>
-          <span className="scene-star" aria-hidden="true">
-            ✳
-          </span>
-        </Parallax>
-        <a className="hero-scroll" href="#favorites">
-          A FEW SWEET INTRODUCTIONS <ArrowDown size={15} />
-        </a>
+      <section className="immersive-hero">
+        <SceneLayer depth="background" className="immersive-background" />
+        <SceneLayer depth="atmosphere" className="immersive-atmosphere" />
+        <SceneLayer depth="middle" className="immersive-middle">
+          <span className="scene-sun" aria-hidden="true" />
+          <span className="scene-line scene-line-one" aria-hidden="true" />
+          <span className="scene-line scene-line-two" aria-hidden="true" />
+        </SceneLayer>
+        <SceneLayer depth="subject" className="immersive-subject">
+          <PastryCarousel products={catalogService.all()} />
+        </SceneLayer>
+        <SceneLayer depth="foreground" className="immersive-foreground">
+          <span className="foreground-crumb foreground-crumb-one" aria-hidden="true">✳</span>
+          <span className="foreground-crumb foreground-crumb-two" aria-hidden="true">·</span>
+        </SceneLayer>
+        <SceneLayer depth="interaction" className="immersive-intro">
+          <p className="eyebrow"><Heart size={14} /> A LITTLE BAKED HAPPINESS</p>
+          <h1>Good things<br />come to those<br /><em>who treat.</em></h1>
+          <p>Flaky pastries, happy little desserts, and something lovely to look forward to.</p>
+        </SceneLayer>
       </section>
       <div className="ribbon" aria-hidden="true">
         <span>A little butter</span>
@@ -208,7 +170,4 @@ export function HomeView() {
       </section>
     </>
   );
-}
-function ArrowUp() {
-  return <span aria-hidden="true">↗</span>;
 }

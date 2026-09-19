@@ -19,6 +19,17 @@
 - **Source delivery:** published to `main` through the authenticated GitHub connection as commit `7ec8caac8da5a75251065684e7b8d83d96999be9`. Actions and public Pages verification remain pending.
 - The Pages workflow forces ordering off, following the hosting usage limits. Real ordering requires a different approved host.
 
+## Immersive shell acceptance criteria
+
+- The homepage opens with a centered pastry and partially visible neighboring pastries.
+- Previous, next, swipe, drag and keyboard controls select the same active product state.
+- Moving beyond either end wraps to the opposite end without an endpoint.
+- Autoplay pauses on hover, focus and interaction; reduced motion disables autoplay and floating motion.
+- Product name, description, price and links always match the active pastry.
+- The pickup CTA routes to the existing order flow and never submits an order directly.
+- The scene remains usable when decorative imagery fails and never hides the interaction layer.
+- Desktop, tablet, narrow mobile and `/AngelsBakery/` static export require visual inspection before delivery.
+
 ## Manual acceptance checklist
 
 - Desktop and narrow mobile: no horizontal overflow, nav/treat images readable, clear CTA, no hidden controls.

@@ -6,4 +6,5 @@
 - Actual output contains alpha. `scripts/prepare-assets.mjs` crops quadrants and optimizes WebP with transparency retained. No runtime keying or chroma fringe.
 - CSS provides texture, colors, layered borders/shadows and bounded parallax. Raster source subjects remain separate.
 - These are **concept images**, not photos/evidence of actual bakery products. Site disclosure is explicit; approve/replace before launch.
+- Isolated subject asset checklist: preserve alpha; inspect edges for halos/fringing; verify transparent pixels at mobile sizes; keep a stable fallback image; do not use the concept assets as proof of actual product appearance.
 - Self-hosted DM Sans / DM Serif Display via Fontsource (package license notices); Lucide icons (ISC). No external font/tracking request needed.

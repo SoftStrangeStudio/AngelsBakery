@@ -14,6 +14,8 @@ Next.js App Router builds static HTML and client bundles. GitHub Pages has no Ne
 
 Events flow from views to view-models to services/adapters and back as rendered state.
 
+The homepage pastry carousel is intentionally fixture-driven in its first visual slice. Its view-model owns the active index, looping, gestures, autoplay and reduced-motion state. It does not import the Google adapter, order endpoint or customer-order services. The carousel can therefore be redesigned without changing order submission plumbing.
+
 - Only IDs/quantities persist in localStorage; customer data stays in memory until a live submit.
 - Retry metadata contains a random key and SHA-256 digest, not plaintext customer information.
 - Server prices are authoritative. Approve/update the static menu to match before launch.
@@ -21,6 +23,7 @@ Events flow from views to view-models to services/adapters and back as rendered 
 - Preview dates cannot become a real submission.
 - Parallax is clamped, passive and frame-throttled. Reduced motion removes movement.
 - WebP pastry assets retain alpha. No runtime chroma-key shader / 3D library is necessary for this DOM storefront.
+- The immersive homepage uses explicit background, atmosphere, middle, subject, foreground and interaction layers. Decorative motion cannot move or delay the ordering controls.
 
 ## Security boundaries
 
