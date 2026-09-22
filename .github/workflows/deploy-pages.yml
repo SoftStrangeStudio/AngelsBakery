@@ -20,7 +20,7 @@ jobs:
       - run: npm ci
       - run: npm run check
         env:
-          # Pages is a design preview only. Real ordering needs a permitted host.
+          # Temporary non-ordering validation deployment for Angel’s actual website.
           NEXT_PUBLIC_ORDER_ENDPOINT: ""
           NEXT_PUBLIC_ORDERING_ENABLED: "false"
       - uses: actions/upload-pages-artifact@v3

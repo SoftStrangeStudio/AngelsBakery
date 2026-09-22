@@ -1,41 +1,46 @@
-# Validation evidence — 2026-09-19
+# Validation evidence
 
-## Passed locally
+## Current repair — 2026-09-22
 
-- ESLint: no errors/warnings.
-- TypeScript strict checking: passed.
-- Production dependency audit (`npm audit --omit=dev`): zero known vulnerabilities at validation time.
-- Next.js production static export: passed; home, menu, twelve products, pickup, about, FAQ, contact, privacy, checkout, review, confirmation and not-found output.
-- Export link/asset scan: **17 HTML files**, all discovered local href/src URLs use `/AngelsBakery/` and resolve to exported files.
-- **16 automated tests passed**: cart corruption/bounds/totals, customer validation, date rollover, receipt guards, malformed response rejection, server pricing, idempotent replay, request conflicts, capacity/cancellation, cutoff/product availability, input/honeypot/consent checks, formula injection, closed server gate, per-email rate limiting and five-second client-token rate limiting.
+- Angel’s Bakery is being validated as the actual customer-facing website, not as a portfolio proof or demo.
+- The current-source build regression was traced to commit `e82eea0d`: `src/app/globals.css` was replaced wholesale by one corrupted/non-CSS line. The preceding clean revision contained the complete 2,089-line stylesheet.
+- This repair restores the known-good stylesheet from the last clean source revision while preserving all later product, ordering-boundary and deployment work.
+- Acceptance for this repair is a successful **Validate** workflow on the delivered `main` revision: lint, TypeScript, automated tests, Next.js production export and export verification must all pass.
+- The temporary Pages deployment must be checked separately. A successful stale branch-root deployment is not proof that current source builds.
+
+## Previously established automated coverage
+
+- ESLint and TypeScript strict checking are part of `npm run check`.
+- The repository test suite covers cart corruption/bounds/totals, customer validation, date rollover, receipt guards, malformed response rejection, server pricing, idempotent replay, request conflicts, capacity/cancellation, cutoff/product availability, input/honeypot/consent checks, formula injection, the closed server gate, rate limiting and ordering-boundary behavior.
 - Google tests execute the actual Apps Script code in a mocked service environment. They do not prove a deployed Google connection or real concurrent cloud execution.
-- Twelve isolated product WebP assets and twelve matching full-setting scene WebP assets exist. Isolated alpha was inspected programmatically, including the dedicated dense seeded bread cutout.
+- Static export verification checks generated routes and local asset/link resolution under `/AngelsBakery/`.
 
-## Not yet verified
+## Not yet verified for launch
 
-- Browser local navigation returned `net::ERR_BLOCKED_BY_CLIENT`; no bypass attempted. Local desktop/mobile visual and click-through checks are **unverified**.
-- Live Google authorization/deployment, browser cross-origin receipt, and Sheet write are **not configured / not verified**.
-- Approved menu, ingredients, pickup location/timezone/schedule, contact and privacy policies are not supplied. Real ordering remains disabled.
-- **Source delivery:** pending the current verified commit. GitHub Pages visual verification remains pending.
-- The Pages workflow forces ordering off, following the hosting usage limits. Real ordering requires a different approved host.
+- Fresh desktop and narrow-mobile browser inspection against the exact repaired/deployed revision.
+- Live Google authorization/deployment, browser cross-origin receipt and private Sheet write.
+- Angel-approved menu, ingredients, pickup location/timezone/schedule, contact details and privacy/retention policy.
+- Commercial production hosting. GitHub Pages remains a temporary non-ordering validation deployment.
+- Real ordering remains disabled until the external configuration and approval gates are satisfied.
 
-## Immersive shell acceptance criteria
+## Website acceptance criteria
 
-- The homepage opens with a centered pastry and partially visible neighboring pastries.
+- The homepage opens with the intended immersive pastry carousel and clear bakery identity.
 - Previous, next, swipe, drag and keyboard controls select the same active product state.
-- Moving beyond either end wraps to the opposite end without an endpoint.
+- Moving beyond either end wraps correctly without a dead endpoint.
 - Autoplay pauses on hover, focus and interaction; reduced motion disables autoplay and floating motion.
 - Product name, description, price and links always match the active pastry.
-- The pickup CTA routes to the existing order flow and never submits an order directly.
-- The scene remains usable when decorative imagery fails and never hides the interaction layer.
-- Desktop, tablet, narrow mobile and `/AngelsBakery/` static export require visual inspection before delivery.
+- The pickup CTA routes into the order journey and never submits an order directly.
+- Menu/search/product routes, cart, pickup selection, review and negative states remain usable when decorative imagery fails.
+- Preview/pre-launch states never claim that a real order was received.
+- Desktop, tablet, narrow mobile and `/AngelsBakery/` static export require fresh visual inspection before commercial launch.
 
 ## Manual acceptance checklist
 
-- Desktop and narrow mobile: no horizontal overflow, nav/treat images readable, clear CTA, no hidden controls.
+- Desktop and narrow mobile: no horizontal overflow, navigation and product imagery readable, clear pickup CTA, no hidden controls.
 - Keyboard: skip link, menu filters, product add, cart controls, date radio group, labels/errors and consent usable; focus visible.
-- Reduced motion: no parallax or entrance/hover movement; all content remains visible.
-- Preview journey: add → adjust → pickup → fictional details → review; nothing is transmitted; no false receipt.
+- Reduced motion: no required parallax or entrance/hover movement; all content remains visible.
+- Pre-ordering journey: add → adjust → pickup → fictional details → review; nothing is transmitted; no false receipt.
 - Reload: cart survives; personal details do not persist.
-- Search no-results state works; direct product/checkout links refresh on Pages.
-- Live launch: synthetic test reaches private Sheet once; retries preserve receipt; closed/full/expired slots refuse; no secrets in exported bundles.
+- Search no-results state works; direct product/checkout links refresh on the deployed host.
+- Ordering launch: synthetic test reaches the private Sheet exactly once; retries preserve the receipt; closed/full/expired slots refuse; no secrets appear in exported bundles.

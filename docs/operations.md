@@ -1,15 +1,19 @@
-# Bakery handoff
+# Angel’s Bakery website handoff
 
-## Before launch
+This repository is Angel’s actual website implementation. The current deployment remains in a pre-ordering state until the business, hosting and Google integration gates below are approved.
 
-- Select an approved commercial host; GitHub Pages is a non-ordering preview only.
-- Approve products/pricing/currency/imagery/ingredients and cross-contact information.
-- Publish contact, address/timezone, cutoff rules, cancellations, payment arrangements.
+## Before ordering launch
+
+- Select an approved commercial host; GitHub Pages remains a temporary non-ordering validation deployment.
+- Approve products, pricing, currency, imagery, ingredients and cross-contact information.
+- Publish approved contact details, pickup address/timezone, cutoff rules, cancellations and payment arrangements.
 - Publish privacy contact, retention period and deletion process.
-- Test Google from deployed Pages using synthetic entries in a private test Sheet.
-- Enable ordering deliberately on both server and public build.
+- Deploy and configure the private Google Sheet / Apps Script service.
+- Test the deployed website with synthetic order data and verify exactly-once Sheet writes plus readable receipts.
+- Validate desktop and narrow-mobile customer journeys against the exact launch revision.
+- Enable ordering deliberately on both server and public build only after the above checks pass.
 
-## Daily routine
+## Daily routine after ordering opens
 
 1. Review `Received` rows; these are requests, not confirmed bookings.
 2. Contact each customer, confirm products, discuss ingredient needs, confirm pickup and payment.
