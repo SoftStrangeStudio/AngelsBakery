@@ -13,7 +13,7 @@ test("corrupt or unknown cart contents cannot enter the order", () => {
   assert.deepEqual(
     sanitizeCart([
       { productId: "unknown", quantity: 1 },
-      { productId: "butter-croissant", quantity: -1 },
+      { productId: "chocolate-chip-cookies", quantity: -1 },
     ]),
     [],
   );
@@ -21,16 +21,16 @@ test("corrupt or unknown cart contents cannot enter the order", () => {
 test("cart clamps quantity and deduplicates product ids", () => {
   assert.deepEqual(
     sanitizeCart([
-      { productId: "butter-croissant", quantity: 2 },
-      { productId: "butter-croissant", quantity: 99 },
+      { productId: "chocolate-chip-cookies", quantity: 2 },
+      { productId: "chocolate-chip-cookies", quantity: 99 },
     ]),
-    [{ productId: "butter-croissant", quantity: 12 }],
+    [{ productId: "chocolate-chip-cookies", quantity: 12 }],
   );
 });
-test("integer minor-unit totals and removal", () => {
-  const cart = setQuantity([], "butter-croissant", 2);
-  assert.equal(cartTotal(cart), 900);
-  assert.deepEqual(setQuantity(cart, "butter-croissant", 0), []);
+test("unpriced catalog items remain zero-value until approved and can be removed", () => {
+  const cart = setQuantity([], "chocolate-chip-cookies", 2);
+  assert.equal(cartTotal(cart), 0);
+  assert.deepEqual(setQuantity(cart, "chocolate-chip-cookies", 0), []);
 });
 test("customer validation requires name and real email shape", () => {
   assert.deepEqual(
@@ -57,6 +57,7 @@ test("customer validation requires name and real email shape", () => {
 test("preview pickup dates roll correctly across month/year boundaries", () => {
   const slots = previewPickupOptions(new Date("2026-12-30T23:59:00Z"));
   assert.equal(slots[0].date, "2027-01-02");
+  assert.equal(slots[0].window, "4:00 pm – 7:00 pm");
   assert.equal(slots.length, 4);
 });
 test("unverified, duplicate-mismatched or incomplete receipts cannot produce success", () => {
@@ -67,7 +68,7 @@ test("unverified, duplicate-mismatched or incomplete receipts cannot produce suc
     orderId: "AB-1234",
     total: 450,
     pickupDate: "2026-10-01",
-    pickupWindow: "10–12",
+    pickupWindow: "4–7 PM",
   };
   assert.equal(validReceipt(r, "id"), true);
   assert.equal(validReceipt(r, "different"), false);
