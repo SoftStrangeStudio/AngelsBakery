@@ -1984,15 +1984,15 @@ main {
 .scenic-frame:nth-child(4) { animation-delay: -12s; }
 .immersive-hero:has(.arc-carousel[data-paused="true"]) .scenic-frame { animation-play-state: paused; }
 @keyframes scenic-crossfade { 0%, 21% { opacity: 1; } 25%, 96% { opacity: 0; } 100% { opacity: 1; } }
-.arc-carousel { --arc-step: clamp(155px, 18vw, 245px); --arc-size: clamp(260px, 27vw, 360px); position: relative; width: 100%; height: 275px; background: var(--cream); border-radius: 50% 50% 0 0 / 42px 42px 0 0; box-shadow: 0 -2px 0 rgba(221,225,204,.7); }
+.arc-carousel { --arc-step: clamp(155px, 18vw, 245px); --arc-size: clamp(260px, 27vw, 360px); position: relative; width: 100%; height: 175px; background: var(--cream); border-radius: 50% 50% 0 0 / 42px 42px 0 0; box-shadow: 0 -2px 0 rgba(221,225,204,.7); }
 .arc-stage { position: absolute; inset: -115px 0 66px; touch-action: pan-y; }
-.arc-product { position: absolute; left: calc(50% + var(--slot) * var(--arc-step)); bottom: 0; width: var(--arc-size); height: var(--arc-size); padding: 0; border: 0; border-radius: 50%; background: none; transform: translateX(-50%) translateY(var(--drop)) rotate(calc(var(--slot) * 6deg)) scale(var(--scale)); transform-origin: center 80%; transition: left .75s cubic-bezier(.22,.7,.2,1), transform .75s cubic-bezier(.22,.7,.2,1), opacity .6s; -webkit-user-select: none; user-select: none; }
+.arc-product { position: absolute; left: calc(50% + var(--slot) * var(--arc-step)); bottom: 0; width: var(--arc-size); height: var(--arc-size); padding: 0; border: 0; border-radius: 50%; background: none; transform: translateX(-50%) translateY(var(--drop)) rotate(calc(var(--slot) * 6deg)) scale(var(--scale)); transform-origin: center 80%; transition: left .75s cubic-bezier(.22,.7,.2,1), transform .75s cubic-bezier(.22,.7,.2,1), opacity .45s, visibility 0s; -webkit-user-select: none; user-select: none; }
 .arc-product:active:not(:disabled) { transform: translateX(-50%) translateY(var(--drop)) rotate(calc(var(--slot) * 6deg)) scale(var(--scale)); }
 .arc-product img { display: block; width: 100%; height: 100%; object-fit: contain; pointer-events: none; filter: drop-shadow(0 10px 10px rgba(69,57,38,.12)); }
 .arc-product.is-selected { cursor: zoom-in; }
-.arc-distance-3 { visibility: hidden; pointer-events: none; }
 .arc-product:not(.is-selected) { opacity: .85; }
 .arc-product:not(.is-selected):hover { opacity: 1; }
+.arc-product.arc-distance-3, .arc-product.arc-distance-3:hover { opacity: 0; visibility: hidden; pointer-events: none; transition-delay: 0s, 0s, 0s, .45s; }
 .arc-controls { position: absolute; bottom: 15px; left: 50%; transform: translateX(-50%); display: flex; align-items: center; gap: 18px; }
 .arc-arrow, .arc-motion, .arc-scroll { display: grid; place-items: center; width: 44px; height: 44px; border: 0; background: transparent; color: var(--ink); border-radius: 50%; }
 .arc-arrow:hover, .arc-motion:hover, .arc-scroll:hover { background: #e5eadb; }
@@ -2009,7 +2009,7 @@ main {
 .pastry-lightbox img { display: block; width: auto; max-height: 77svh; object-fit: contain; border-radius: 10px; }
 .pastry-lightbox p { font-size: .85rem; text-align: center; padding: 8px; }
 .pastry-lightbox-close { position: absolute; top: 20px; right: 20px; display: grid; place-items: center; width: 44px; height: 44px; background: var(--cream); border: 0; border-radius: 50%; }
-@media (max-width: 1000px) { .header .nav { gap: 14px; font-size: 11px; } .arc-distance-3 { visibility: hidden; pointer-events: none; } }
+@media (max-width: 1000px) { .header .nav { gap: 14px; font-size: 11px; } }
 @media (max-width: 760px) {
   .header { height: 118px; grid-template-columns: 1fr 110px 1fr; padding: 0 18px; }
   .brand-wordmark, .brand-wordmark img { width: 112px; height: 112px; }
@@ -2018,9 +2018,9 @@ main {
   .mobile-toggle { display: grid; }
   .bag-link { display: none; }
   .immersive-hero { min-height: max(555px, calc(100svh - 152px)); }
-  .arc-carousel { --arc-step: 29vw; --arc-size: clamp(230px, 43vw, 300px); height: 235px; }
+  .arc-carousel { --arc-step: 29vw; --arc-size: clamp(230px, 43vw, 300px); height: 150px; }
   .arc-stage { inset: -92px 0 72px; }
-  .arc-distance-2 { visibility: hidden; pointer-events: none; }
+  .arc-product.arc-distance-2, .arc-product.arc-distance-2:hover { opacity: 0; visibility: hidden; pointer-events: none; transition-delay: 0s, 0s, 0s, .45s; }
   .arc-controls { gap: 0; bottom: 15px; }
   .arc-caption { min-width: 210px; }
   .arc-caption > p { font-size: 17px; }
@@ -2029,3 +2029,5 @@ main {
 }
 @media (max-width: 400px) { .arc-carousel { --arc-step: 38vw; } .arc-caption { min-width: 190px; } }
 @media (prefers-reduced-motion: reduce) { .scenic-frame { animation: none; opacity: 0; } .scenic-frame:first-child { opacity: 1; } .arc-product { transition: none; } }
+
+@starting-style { .arc-product, .arc-product:not(.is-selected) { opacity: 0; } }

@@ -1,2 +1,2 @@
-:HL["/AngelsBakery/_next/static/css/6012d06b3afb986a.css","style"]
-0:{"tree":{"name":"","param":null,"prefetchHints":4176,"slots":{"children":{"name":"menu","param":null,"prefetchHints":4192,"slots":{"children":{"name":"product","param":{"type":"d","key":"double-chocolate-muffins","siblings":[]},"prefetchHints":4192,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":4256,"slots":null}}}}}}},"staleTime":300,"buildId":"0IzUJMjhM9ENRrq7QUHeJ"}
+:HL["/AngelsBakery/_next/static/css/039ef8d103d05c56.css","style"]
+0:{"tree":{"name":"","param":null,"prefetchHints":4176,"slots":{"children":{"name":"menu","param":null,"prefetchHints":4192,"slots":{"children":{"name":"product","param":{"type":"d","key":"double-chocolate-muffins","siblings":[]},"prefetchHints":4192,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":4256,"slots":null}}}}}}},"staleTime":300,"buildId":"DEb3YSCJ06oIU84arDWbM"}

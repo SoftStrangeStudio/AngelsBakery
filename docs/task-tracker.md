@@ -60,3 +60,5 @@
 
 - AB-022: reuse the same outdoor/curved-pastry opening on home and `/menu/`; keep filters and the full seven-item menu below its scroll cue. Remove the oversized menu introduction.
 - AB-021: refresh the tracked repository-root static export and all image copies from the validated Next build. Add `npm run publish:root` as the repeatable delivery command; preserve the Actions `out/` deployment.
+
+- AB-022 follow-up: only carousel edge recycling/fade and banner depth changed (175px desktop, 150px phone). Local root-export browser checks passed in both directions, including opacity during exit/entry, invisible reset, swipe, viewer, controls and reduced motion. `npm run publish:root` passed all 19 tests and rebuilt the root snapshot.

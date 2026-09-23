@@ -18,7 +18,8 @@ const subscribeMotion = (notify: () => void) => {
 };
 
 export function usePastryCarouselViewModel(products: Product[]) {
-  const [activeIndex, setActiveIndex] = useState(0);
+  const [position, setPosition] = useState(0);
+  const activeIndex = wrapIndex(position, products.length);
   const [paused, setPaused] = useState(false);
   const [hovered, setHovered] = useState(false);
   const [viewerOpen, setViewerOpen] = useState(false);
@@ -27,8 +28,8 @@ export function usePastryCarouselViewModel(products: Product[]) {
   const pointer = useRef<{ x: number; y: number } | null>(null);
   const swiped = useRef(false);
   const go = useCallback((delta: number) => {
-    setActiveIndex((current) => wrapIndex(current + delta, products.length));
-  }, [products.length]);
+    setPosition((current) => current + delta);
+  }, []);
   const rotating = !paused && !hovered && !viewerOpen && !reducedMotion;
   useEffect(() => {
     if (!rotating || products.length < 2) return;
@@ -36,9 +37,9 @@ export function usePastryCarouselViewModel(products: Product[]) {
     return () => window.clearInterval(timer);
   }, [go, rotating, products.length]);
   return {
-    active: products[activeIndex], activeIndex, paused, reducedMotion, rotating,
+    active: products[activeIndex], activeIndex, position, paused, reducedMotion, rotating,
     viewerOpen, setViewerOpen, setHovered, setPaused,
-    select: (index: number) => { setPaused(true); setActiveIndex(wrapIndex(index, products.length)); },
+    select: (index: number) => { setPaused(true); setPosition((current) => current + arcOffset(index, wrapIndex(current, products.length), products.length)); },
     step: (delta: number) => { setPaused(true); go(delta); },
     beginPointer: (x: number, y: number) => { pointer.current = { x, y }; swiped.current = false; },
     cancelPointer: () => { pointer.current = null; },
