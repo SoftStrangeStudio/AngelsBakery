@@ -1,6 +1,17 @@
 # Validation evidence
 
-## Current repair — 2026-09-22
+## Cream-and-sage redesign — 2026-09-23
+
+- Current source passes `npm run check`: lint, strict TypeScript, 19 tests, production static export, local URL verification across 20 HTML files, and decoding of all 20 referenced images. All seven product cutouts have transparent alpha.
+- Fresh local Chromium inspection of the actual exported website passed at 1440×900 and 390×844. Evidence: [desktop](evidence/cream-sage-desktop.jpg), [phone](evidence/cream-sage-phone.jpg).
+- Verified all seven carousel entries, next/previous, wrap in both directions, keyboard navigation, drag, realistic touch swipe, matching scene opening, Escape/close button, autoplay resume, pause, menu scroll cue, deep product route, and no horizontal overflow.
+- Reduced motion disables scenic animation and carousel autoplay. Phone image opening passed after swipe. A zero-duration synthetic swipe initially suppressed the next browser click; replaying a paced touch gesture resolved the test artifact without changing the tap behavior.
+- No JavaScript errors or non-aborted failed requests. Navigation-cancelled Next.js prefetch requests are excluded from network failures.
+- Four owner-supplied outdoor backgrounds remain. New assets are seven generated cutouts, seven matching concept scenes and two generated dog marks. See `assets.md` and `asset-prompts.md` for provenance.
+- Deployment uses the existing Actions workflow: build this source into `out`, upload Pages artifact, then deploy under `/AngelsBakery/`. Actions and public asset verification must be checked on the delivery commit; local validation alone is not a deployment claim.
+- Coverage does not establish commercial launch readiness or live order processing; existing ordering gates remain closed.
+
+## Historical repair — 2026-09-22
 
 - Angel’s Bakery is being validated as the actual customer-facing website, not as a portfolio proof or demo.
 - The current-source build regression was traced to commit `e82eea0d`: `src/app/globals.css` was replaced wholesale by one corrupted/non-CSS line. The preceding clean revision contained the complete 2,089-line stylesheet.
@@ -17,7 +28,7 @@
 
 ## Not yet verified for launch
 
-- Fresh desktop and narrow-mobile browser inspection against the exact repaired/deployed revision.
+- Live commercial-host checkout and order integration validation; the redesign’s local desktop/phone checks above are complete.
 - Live Google authorization/deployment, browser cross-origin receipt and private Sheet write.
 - Angel-approved menu, ingredients, pickup location/timezone/schedule, contact details and privacy/retention policy.
 - Commercial production hosting. GitHub Pages remains a temporary non-ordering validation deployment.

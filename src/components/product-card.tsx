@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Plus, Check } from "lucide-react";
 import type { Product } from "@/domain/types";
-import { asset, money, orderingEnabled } from "@/lib/config";
+import { sceneAsset, money, orderingEnabled } from "@/lib/config";
 import { useBakery } from "@/view-models/bakery-provider";
 export function AddToBox({
   product,
@@ -49,7 +49,7 @@ export function ProductCard({ product }: { product: Product }) {
     <article className={`product-card ${product.image}`}>
       <div className="product-art">
         <Link href={`/menu/${product.id}/`} tabIndex={-1} aria-hidden="true">
-          <Image src={asset(product.image)} alt="" width={650} height={450} />
+          <Image src={sceneAsset(product.id)} alt="" width={650} height={450} />
         </Link>
         <span className="product-category">{product.category}</span>
         <AddToBox product={product} />

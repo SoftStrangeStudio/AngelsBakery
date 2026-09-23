@@ -35,6 +35,14 @@
 | AB-024 | Real order reaches private Sheet exactly once              | 017–019    | Blocked: configuration / approval | Deploy Google service, approve menu, verify test request |
 | AB-025 | Main-branch handoff / operational docs                     | All        | In progress                       | Record validated delivery and remaining launch gates     |
 
+## Redesign delivery — 2026-09-23
+
+- AB-022: cream/sage dog identity and curved seven-product carousel implemented; fresh desktop and phone browser checks passed, including touch swipe, image viewer, keyboard, wrapping, autoplay and reduced motion.
+- AB-020: `npm run check` passes 19 tests, lint/type checks, static export/link checks and 20 referenced-image decodes.
+- AB-026: seven transparent cutouts, seven matching product scenes and two dog marks delivered; all current product image references replaced. Generated concepts remain subject to owner approval; ingredient claims are not inferred from pictures.
+- AB-021/025: deliver this change directly to main and verify the resulting Pages workflow/public assets. Deployment evidence belongs to that delivery revision in Actions.
+- AB-023/024: commercial checkout and live Google integration remain outside this visual redesign and blocked by the existing launch gates.
+
 ## Launch gates
 
 - **Website identity:** this is Angel’s actual website implementation. GitHub Pages is only the temporary non-ordering validation host, not a substitute for the commercial launch host.

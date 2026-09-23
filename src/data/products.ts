@@ -1,7 +1,7 @@
 import type { Product } from "../domain/types";
 
 // Real Angel’s Bakery bake-sale catalog. Prices remain unpublished until Angel approves them.
-// Existing image keys are intentionally retained until the dedicated product-image push.
+// Generated concept cutouts; matching scenes use the stable product ID.
 export const products: Product[] = [
   {
     id: "snickerdoodles",
@@ -10,7 +10,7 @@ export const products: Product[] = [
     price: 0,
     description: "Soft, cinnamon-sugar cookies with crinkled tops and a cozy bakery finish.",
     note: "Cinnamon sugar · Saturday bake sale",
-    image: "cookie",
+    image: "products/snickerdoodles",
     allergens: ["Ingredient review pending"],
     featured: true,
   },
@@ -21,7 +21,7 @@ export const products: Product[] = [
     price: 0,
     description: "Soft golden sugar cookies with lightly sugared tops and a tender center.",
     note: "Soft & simple · Saturday bake sale",
-    image: "cookie",
+    image: "products/sugar-cookies",
     allergens: ["Ingredient review pending"],
     featured: true,
   },
@@ -32,7 +32,7 @@ export const products: Product[] = [
     price: 0,
     description: "Classic peanut butter cookies with fork-crosshatch tops and a rich roasted-peanut flavor.",
     note: "Classic crosshatch · Saturday bake sale",
-    image: "peanut-butter-cookies",
+    image: "products/peanut-butter-cookies",
     allergens: ["Peanuts", "Ingredient review pending"],
     featured: true,
   },
@@ -43,7 +43,7 @@ export const products: Product[] = [
     price: 0,
     description: "Thick cookies with soft centers and plenty of chocolate chips and chunks throughout.",
     note: "Chocolate-packed · Saturday bake sale",
-    image: "chocolate-chip-cookies",
+    image: "products/chocolate-chip-cookies",
     allergens: ["Ingredient review pending"],
     featured: true,
   },
@@ -54,7 +54,7 @@ export const products: Product[] = [
     price: 0,
     description: "Rich chocolate brownies with a shiny cracked top and a dense, fudgy middle.",
     note: "Fudgy center · Saturday bake sale",
-    image: "chocolate-brownies",
+    image: "products/brownies",
     allergens: ["Ingredient review pending"],
     featured: true,
   },
@@ -65,18 +65,18 @@ export const products: Product[] = [
     price: 0,
     description: "Golden bakery-style muffins with blueberries throughout and a crumbly top.",
     note: "Blueberry-filled · Saturday bake sale",
-    image: "blueberry-muffins",
+    image: "products/blueberry-muffins",
     allergens: ["Ingredient review pending"],
     featured: true,
   },
   {
     id: "double-chocolate-muffins",
-    name: "Double Chocolate Muffins",
+    name: "Double Chocolate Chip Muffins",
     category: "Muffins",
     price: 0,
     description: "Deep chocolate muffins topped with generous chocolate chunks for an extra-rich bite.",
     note: "Double chocolate · Saturday bake sale",
-    image: "cake",
+    image: "products/double-chocolate-muffins",
     allergens: ["Ingredient review pending"],
     featured: true,
   },

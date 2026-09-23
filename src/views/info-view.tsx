@@ -63,7 +63,7 @@ export function InfoView({
           </div>
           <div className="about-photo">
             <Image
-              src={asset("hero")}
+              src={asset("scenes/snickerdoodles")}
               alt="Warm editorial spread of Angel’s Saturday bake-sale menu"
               fill
               sizes="(max-width: 760px) 100vw, 45vw"

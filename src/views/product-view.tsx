@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft, Heart, ShoppingBag } from "lucide-react";
 import type { Product } from "@/domain/types";
-import { asset, money, orderingEnabled } from "@/lib/config";
+import { sceneAsset, money, orderingEnabled } from "@/lib/config";
 import { AddToBox, ProductCard } from "@/components/product-card";
 import { catalogService } from "@/services/catalog-service";
 export function ProductView({ product }: { product: Product }) {
@@ -11,7 +11,7 @@ export function ProductView({ product }: { product: Product }) {
       <Link className="text-link back-link" href="/menu/"><ArrowLeft size={16} /> Back to Saturday’s menu</Link>
       <div className="product-detail">
         <div className={`detail-art ${product.image}`}>
-          <Image src={asset(product.image)} alt={`${product.name} — editorial product imagery`} width={800} height={600} priority />
+          <Image src={sceneAsset(product.id)} alt={`${product.name} — editorial product imagery`} width={800} height={600} priority />
         </div>
         <div className="detail-copy">
           <p className="eyebrow">{product.category} · SATURDAY BAKE SALE</p>

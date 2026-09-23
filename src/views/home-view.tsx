@@ -2,17 +2,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Heart, CalendarDays, ShoppingBag, Sparkles } from "lucide-react";
 import { catalogService } from "@/services/catalog-service";
-import { asset } from "@/lib/config";
+import { asset, sceneAsset } from "@/lib/config";
 import { ProductCard } from "@/components/product-card";
 import { Parallax } from "@/components/motion";
 import { PastryCarousel } from "@/components/pastry-carousel";
 import { ScenicBackdrop } from "@/components/scenic-backdrop";
-
-const galleryProducts = ["chocolate-chip-cookies", "blueberry-muffins", "peanut-butter-cookies"]
-  .flatMap((id) => {
-    const product = catalogService.find(id);
-    return product ? [product] : [];
-  });
 
 export function HomeView() {
   return (
@@ -20,7 +14,7 @@ export function HomeView() {
       <section className="immersive-hero">
         <h1 className="sr-only">Angel’s Bakery Saturday bake sale</h1>
         <ScenicBackdrop />
-        <PastryCarousel products={galleryProducts} />
+        <PastryCarousel products={catalogService.all()} />
       </section>
       <div className="ribbon" aria-hidden="true"><span>Every Saturday</span><Sparkles /><span>4–7 PM</span><Sparkles /><span>Cookies · brownies · muffins</span><Sparkles /><span>Angel’s Bakery</span><Sparkles /></div>
       <section id="favorites" className="section favorites">
@@ -42,7 +36,7 @@ export function HomeView() {
       </section>
       <section className="story-section section">
         <Parallax className="story-art">
-          <div className="story-arch"><Image src={asset("chocolate-brownies")} alt="Editorial image of Angel’s Bakery brownies" width={700} height={500} /></div>
+          <div className="story-arch"><Image src={sceneAsset("brownies")} alt="Editorial image of Angel’s Bakery brownies" width={700} height={500} /></div>
           <span className="story-tag handwritten">Saturday treats.<br />A little extra joy.</span>
           <span className="story-star" aria-hidden="true">✳</span>
         </Parallax>
@@ -59,7 +53,7 @@ export function HomeView() {
         <p className="eyebrow">SATURDAY · 4–7 PM</p>
         <h2>There’s a little happiness<br />waiting for <em>Saturday.</em></h2>
         <Link className="button primary" href="/menu/">See Saturday’s menu <ArrowRight size={18} /></Link>
-        <Image className="banner-cookie" src={asset("chocolate-chip-cookies")} width={350} height={250} alt="" />
+        <Image className="banner-cookie" src={asset("products/chocolate-chip-cookies")} width={350} height={250} alt="" />
       </section>
     </>
   );

@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     title: "Angel’s Bakery — A little baked happiness",
     description: "Good things come to those who treat.",
     images: [
-      { url: "/AngelsBakery/images/hero.webp", width: 1536, height: 1024 },
+      { url: "/AngelsBakery/images/scenes/snickerdoodles.webp", width: 1000, height: 750 },
     ],
   },
   robots: { index: true, follow: true },

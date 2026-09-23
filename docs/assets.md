@@ -1,16 +1,27 @@
 # Artwork provenance
 
-- Homepage outdoor background photographs were supplied by the site owner in this design request. `public/images/outdoors/yard-morning.jpg`, `orchard.webp`, `sunset-wide.jpg`, and `sunset.webp` are copies of `IMG_9435(1).jpg`, `IMG_9438.webp`, `IMG_9439(1).jpg`, and `IMG_9439.webp`, respectively. The sunset images are similar views but retain the four supplied source files. They rotate slowly; reduced-motion mode shows the first still photo.
-- The homepage gallery and menu still use the editorial concept product images described below. The exact photos of Angel’s finished baked goods were not present in the available uploads or this repository; replace the catalog image keys and review all routes when those originals become available. A larger gallery image discloses its editorial nature in the picture viewer.
+## Current website set — 2026-09-23
 
-- Original OpenAI-generated imagery, 2026-09-19; no scraped third-party photographs.
-- Hero prompt: premium natural editorial pastry platter, golden croissants/chocolate pastries/strawberry custard, ivory ceramic and butter-yellow linen, morning light, peach plaster, no text/logos/people.
-- Cutout prompt: consistent 2×2 food-photo sheet; full isolated croissant, strawberry Danish, chocolate cookie, lemon layer cake; warm 35-degree camera angle, genuine transparent alpha, no labels/plates/props.
-- Actual output contains alpha. `scripts/prepare-assets.mjs` crops quadrants and optimizes WebP with transparency retained. No runtime keying or chroma fringe.
-- The featured carousel now has twelve isolated subject assets: peanut butter cookies, chocolate chip cookies, cinnamon rolls, butter croissants, dense seeded sandwich bread, sourdough, dinner rolls, banana bread, blueberry muffins, brownies, fruit danishes, and cinnamon coffee cake.
-- Each featured product also has a matching full-setting scene under `public/images/scenes/`. The carousel uses isolated assets; product detail pages use the full-setting pair.
-- The dense seeded sandwich bread image is a visual concept. Gluten-free and dairy-free claims remain provisional until the recipe and cross-contact process are approved.
-- CSS provides texture, colors, layered borders/shadows and bounded parallax. Raster source subjects remain separate.
-- These are **concept images**, not photos/evidence of actual bakery products. Site disclosure is explicit; approve/replace before launch.
-- Isolated subject asset checklist: preserve alpha; inspect edges for halos/fringing; verify transparent pixels at mobile sizes; keep a stable fallback image; do not use the concept assets as proof of actual product appearance.
-- Self-hosted DM Sans / DM Serif Display via Fontsource (package license notices); Lucide icons (ISC). No external font/tracking request needed.
+The cream-and-sage design and two dog mascots follow the owner-supplied brand board `06fe0053-165d-4bd0-845f-5a5114ec8b12.png`. The primary logo and compact dog mark were newly generated from that reference. Neither adds a dietary claim.
+
+All seven current products have new OpenAI-generated concept imagery:
+
+| Stable product ID | Transparent carousel/cart image | Menu/detail/viewer image |
+| --- | --- | --- |
+| snickerdoodles | `products/snickerdoodles.webp` | `scenes/snickerdoodles.webp` |
+| sugar-cookies | `products/sugar-cookies.webp` | `scenes/sugar-cookies.webp` |
+| peanut-butter-cookies | `products/peanut-butter-cookies.webp` | `scenes/peanut-butter-cookies.webp` |
+| chocolate-chip-cookies | `products/chocolate-chip-cookies.webp` | `scenes/chocolate-chip-cookies.webp` |
+| brownies | `products/brownies.webp` | `scenes/brownies.webp` |
+| blueberry-muffins | `products/blueberry-muffins.webp` | `scenes/blueberry-muffins.webp` |
+| double-chocolate-muffins | `products/double-chocolate-muffins.webp` | `scenes/double-chocolate-muffins.webp` |
+
+Paths above are relative to `public/images/`. Brand files are `brand/brand-primary.webp` and `brand/brand-small.webp`. Each photographic scene was generated using its matching cutout as a reference. Source outputs were converted to WebP with alpha retained; no runtime chroma keying is used. The check command decodes every image referenced by the static HTML and verifies transparent product alpha.
+
+These images suggest handmade, gluten-free-style textures, but they are **concepts, not photographs of Angel’s actual products or evidence of ingredients/cross-contact safety**. Product pages, the image viewer, and the footer disclose concept imagery. Recipe approval remains separate. The current catalog contains only the seven owner-specified products.
+
+The four outdoor background photographs are owner-provided copies: `outdoors/yard-morning.jpg` from `IMG_9435(1).jpg`; `outdoors/orchard.webp` from `IMG_9438.webp`; `outdoors/sunset-wide.jpg` from `IMG_9439(1).jpg`; and `outdoors/sunset.webp` from `IMG_9439.webp`. They rotate slowly, pause with the pastry rotation control, and become a single still photo under reduced motion.
+
+Older generated assets remain historical source material; current page references use the set above. No scraped third-party food photography was used. DM Sans / DM Serif Display remain self-hosted through Fontsource; icons are Lucide.
+
+See [generation prompts](asset-prompts.md).

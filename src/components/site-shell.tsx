@@ -1,10 +1,11 @@
 "use client";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { ArrowUpRight, Heart, Menu, ShoppingBag, Sparkles, X } from "lucide-react";
 import { useBakery } from "@/view-models/bakery-provider";
-import { orderingEnabled } from "@/lib/config";
+import { orderingEnabled, asset } from "@/lib/config";
 export function Header() {
   const [open, setOpen] = useState(false);
   const { count } = useBakery();
@@ -18,7 +19,7 @@ export function Header() {
         <Sparkles size={13} aria-hidden="true" />
       </div>
       <header className="header">
-        <Link className="wordmark" href="/" aria-label="Angel’s Bakery home">Angel’s<span>BAKERY</span></Link>
+        <Link className="wordmark brand-wordmark" href="/" aria-label="Angel’s Bakery home"><Image src={asset("brand/brand-primary")} alt="Angel’s Bakery — two dog mascots" width={640} height={640} priority /></Link>
         <nav aria-label="Main navigation" className={open ? "nav open" : "nav"}>
           {[["/menu/", "Saturday menu"],["/about/", "About Angel’s"],["/pickup/", "Bake sale info"]].map(([href, label]) => (
             <Link key={href} href={href} aria-current={path === href || path === href.slice(0, -1) ? "page" : undefined} onClick={() => setOpen(false)}>{label}</Link>
@@ -40,7 +41,7 @@ export function Footer() {
     <footer className="footer">
       <div className="footer-top">
         <div>
-          <Link href="/" className="wordmark">Angel’s<span>BAKERY</span></Link>
+          <Link href="/" className="wordmark footer-wordmark"><Image src={asset("brand/brand-small")} alt="Angel’s Bakery dog mascots" width={100} height={100} />Angel’s<span>BAKERY</span></Link>
           <p>Saturday Bake Sale<br />Every Saturday · 4–7 PM</p>
         </div>
         <div>
