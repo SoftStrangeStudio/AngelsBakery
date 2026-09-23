@@ -8,7 +8,7 @@ import { Parallax } from "@/components/motion";
 import { PastryCarousel } from "@/components/pastry-carousel";
 import { ScenicBackdrop } from "@/components/scenic-backdrop";
 
-const galleryProducts = ["chocolate-chip-cookies", "blueberry-muffins", "brownies", "peanut-butter-cookies"]
+const galleryProducts = ["chocolate-chip-cookies", "blueberry-muffins", "peanut-butter-cookies"]
   .flatMap((id) => {
     const product = catalogService.find(id);
     return product ? [product] : [];
