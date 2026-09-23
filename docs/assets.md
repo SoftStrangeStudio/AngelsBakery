@@ -1,5 +1,8 @@
 # Artwork provenance
 
+- Homepage outdoor background photographs were supplied by the site owner in this design request. `public/images/outdoors/yard-morning.jpg`, `orchard.webp`, `sunset-wide.jpg`, and `sunset.webp` are copies of `IMG_9435(1).jpg`, `IMG_9438.webp`, `IMG_9439(1).jpg`, and `IMG_9439.webp`, respectively. The sunset images are similar views but retain the four supplied source files. They rotate slowly; reduced-motion mode shows the first still photo.
+- The homepage gallery and menu still use the editorial concept product images described below. The exact photos of Angel’s finished baked goods were not present in the available uploads or this repository; replace the catalog image keys and review all routes when those originals become available. A larger gallery image discloses its editorial nature in the picture viewer.
+
 - Original OpenAI-generated imagery, 2026-09-19; no scraped third-party photographs.
 - Hero prompt: premium natural editorial pastry platter, golden croissants/chocolate pastries/strawberry custard, ivory ceramic and butter-yellow linen, morning light, peach plaster, no text/logos/people.
 - Cutout prompt: consistent 2×2 food-photo sheet; full isolated croissant, strawberry Danish, chocolate cookie, lemon layer cake; warm 35-degree camera angle, genuine transparent alpha, no labels/plates/props.

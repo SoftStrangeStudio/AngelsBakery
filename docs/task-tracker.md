@@ -15,7 +15,7 @@
 | AB-004 | Typed catalog, cart, customer, pickup, request, receipt    | 003        | Implemented                       | Review approved catalog                                  |
 | AB-005 | Clearly labeled pre-launch catalog                         | 004        | Implemented                       | Approve real products                                    |
 | AB-006 | Catalog service owns lookup source                         | 005        | Implemented                       | Keep fixtures distinct from approved live prices         |
-| AB-007 | Editorial homepage and generated assets                    | 006        | Implemented                       | Fresh browser review                                     |
+| AB-007 | Outdoor-photo homepage and editorial product gallery       | 006        | Implemented; actual bakery product photos pending | Replace concepts when originals are supplied            |
 | AB-008 | Menu filters, search, empty state                          | 006        | Implemented                       | Fresh browser review                                     |
 | AB-009 | Static product routes and allergen caution                 | 006        | Implemented                       | Approve recipes before ordering launch                   |
 | AB-010 | Persist sanitized product selections only                  | 004        | Implemented                       | Storage-unavailable check                                |
@@ -30,7 +30,7 @@
 | AB-019 | Adapter never accepts opaque response as success           | 016,018    | Implemented                       | Real-browser CORS test                                   |
 | AB-020 | Lint, typecheck, tests, build in CI                        | 001        | Implemented                       | Verify repaired build on current `main`                  |
 | AB-021 | Temporary Pages validation deployment / project base path   | 002,020    | Pending current-main verification | Verify Actions deployment and deployed revision          |
-| AB-022 | Layered design, alpha cutouts, responsive / reduced motion | 007        | Implemented                       | Browser inspection                                       |
+| AB-022 | Photo rotation, gallery, responsive / reduced motion       | 007        | Implemented                       | Fresh desktop/mobile browser inspection                  |
 | AB-023 | Actual website journey / negative cases verified           | 008–015    | In progress                       | Fresh deployed desktop/mobile validation                 |
 | AB-024 | Real order reaches private Sheet exactly once              | 017–019    | Blocked: configuration / approval | Deploy Google service, approve menu, verify test request |
 | AB-025 | Main-branch handoff / operational docs                     | All        | In progress                       | Record validated delivery and remaining launch gates     |

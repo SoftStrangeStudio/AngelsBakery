@@ -1959,131 +1959,142 @@ main {
   }
 }
 
-/* Immersive featured pastry scene */
+/* Outdoor photograph and Saturday bake-sale gallery */
 .immersive-hero {
   position: relative;
-  min-height: min(900px, 92vh);
-  overflow: hidden;
+  min-height: max(640px, calc(100svh - 137px));
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
   isolation: isolate;
+  overflow: hidden;
+  background: #6390bd;
+}
+.scenic-backdrop { position: absolute; inset: 0; z-index: -1; overflow: hidden; }
+.scenic-frame {
+  object-fit: cover;
+  opacity: 0;
+  animation: scenic-crossfade 48s linear infinite;
+}
+.scenic-frame:first-child { opacity: 1; animation-delay: 0s; }
+.scenic-frame:nth-child(2) { animation-delay: -36s; }
+.scenic-frame:nth-child(3) { animation-delay: -24s; }
+.scenic-frame:nth-child(4) { animation-delay: -12s; }
+@keyframes scenic-crossfade {
+  0%, 21% { opacity: 1; }
+  25%, 96% { opacity: 0; }
+  100% { opacity: 1; }
+}
+.pastry-gallery {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  min-height: 255px;
   background: var(--cream);
+  border-radius: 32px 32px 0 0;
+  box-shadow: 0 -8px 38px rgba(36, 39, 29, .08);
+}
+.pastry-gallery-inner {
+  width: min(1550px, 100%);
+  min-height: 255px;
+  margin: auto;
+  padding: 23px 4.5% 25px 35%;
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+.pastry-feature {
+  position: absolute;
+  left: max(3%, calc((100% - 1550px) / 2 + 3%));
+  bottom: 7px;
+  width: min(33vw, 465px);
+  height: 330px;
+  padding: 0;
+  background: none;
+  border: 0;
+  border-radius: 22px;
+  overflow: hidden;
+  cursor: zoom-in;
+  box-shadow: 0 20px 32px rgba(66, 43, 25, .17);
+}
+.pastry-feature img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.pastry-thumbnails {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  gap: 15px;
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: thin;
+  padding: 8px 3px 14px;
+}
+.pastry-thumb {
+  flex: 0 0 clamp(140px, 16vw, 235px);
+  height: 184px;
+  padding: 0;
+  border: 2px solid transparent;
+  border-radius: 20px;
+  background: var(--paper);
+  overflow: hidden;
+  scroll-snap-align: start;
+}
+.pastry-thumb.selected { border-color: var(--rose); }
+.pastry-thumb img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.pastry-thumb:hover img { transform: scale(1.04); }
+.pastry-scroll {
+  flex: 0 0 42px;
   display: grid;
   place-items: center;
-  padding: 7rem 4vw 4rem;
-}
-.scene-layer {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-}
-.scene-layer-background { z-index: 0; }
-.scene-layer-atmosphere { z-index: 1; }
-.scene-layer-middle { z-index: 2; }
-.scene-layer-subject { z-index: 3; }
-.scene-layer-foreground { z-index: 4; }
-.scene-layer-interaction { z-index: 5; }
-.immersive-background {
-  background: linear-gradient(135deg, rgba(246, 222, 201, .95), rgba(252, 247, 238, .72)), url("/AngelsBakery/images/hero.webp") center / cover;
-  transform: scale(1.05);
-  filter: saturate(.82) brightness(1.06);
-}
-.immersive-background::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(90deg, rgba(252,247,238,.9) 0%, rgba(252,247,238,.2) 48%, rgba(252,247,238,.6) 100%);
-}
-.immersive-atmosphere {
-  opacity: .38;
-  background-image: radial-gradient(circle at 16% 28%, rgba(255,255,255,.9) 0 1px, transparent 2px), radial-gradient(circle at 76% 22%, rgba(255,255,255,.7) 0 1px, transparent 2px), radial-gradient(circle at 60% 78%, rgba(185,116,85,.2) 0 2px, transparent 3px);
-  background-size: 180px 180px, 240px 240px, 300px 300px;
-  animation: bakery-drift 18s linear infinite;
-}
-.immersive-middle::before {
-  content: "";
-  position: absolute;
-  width: 42vw;
-  height: 42vw;
-  max-width: 560px;
-  max-height: 560px;
-  left: 50%;
-  top: 52%;
-  transform: translate(-50%, -50%);
+  width: 42px;
+  height: 48px;
   border-radius: 50%;
-  background: rgba(255, 244, 196, .42);
-  filter: blur(25px);
 }
-.scene-sun {
-  position: absolute;
-  top: 12%;
-  right: 13%;
-  width: 8rem;
-  height: 8rem;
-  border-radius: 50%;
-  background: rgba(255, 221, 119, .65);
-  filter: blur(5px);
-}
-.scene-line {
-  position: absolute;
-  width: 36vw;
-  border-top: 1px solid rgba(84, 53, 41, .2);
-  transform: rotate(-8deg);
-}
-.scene-line-one { top: 24%; left: -3%; }
-.scene-line-two { bottom: 21%; right: -4%; transform: rotate(13deg); }
-.immersive-subject { display: grid; place-items: center; pointer-events: auto; }
-.immersive-foreground { pointer-events: none; }
-.foreground-crumb { position: absolute; color: var(--rose); font-size: 2rem; }
-.foreground-crumb-one { left: 18%; top: 25%; transform: rotate(18deg); }
-.foreground-crumb-two { right: 20%; bottom: 25%; font-size: 4rem; }
-.immersive-intro {
-  inset: auto auto 2.5rem 4vw;
-  width: min(270px, 26vw);
-  height: auto;
+.pastry-scroll:hover { transform: translateY(4px); }
+.pastry-lightbox {
+  border: 0;
+  border-radius: 16px;
+  padding: 14px;
+  background: var(--cream);
   color: var(--ink);
+  max-width: min(92vw, 1050px);
+  max-height: 92vh;
+  box-shadow: 0 25px 80px rgba(0, 0, 0, .3);
 }
-.immersive-intro .eyebrow { display: flex; align-items: center; gap: .4rem; }
-.immersive-intro h1 { font-size: clamp(2.25rem, 4vw, 4.8rem); line-height: .94; margin: .5rem 0 1rem; }
-.immersive-intro h1 em { color: var(--rose); }
-.immersive-intro > p:last-child { max-width: 19rem; font-size: .95rem; line-height: 1.5; }
-.pastry-carousel { width: min(800px, 68vw); margin-left: 10vw; color: var(--ink); pointer-events: auto; }
-.carousel-heading { display: flex; justify-content: space-between; align-items: center; padding: 0 1rem; }
-.carousel-counter { font-size: .8rem; letter-spacing: .08em; }
-.carousel-stage { position: relative; height: clamp(280px, 47vw, 520px); display: flex; align-items: center; justify-content: center; }
-.carousel-active, .carousel-neighbor { position: absolute; transition: transform .65s cubic-bezier(.2,.75,.25,1), opacity .65s ease, filter .65s ease; }
-.carousel-active { width: min(480px, 54vw); z-index: 2; filter: drop-shadow(0 32px 24px rgba(80, 45, 29, .2)); animation: pastry-float 6s ease-in-out infinite; }
-.carousel-active img, .carousel-neighbor img { width: 100%; height: auto; display: block; }
-.carousel-neighbor { width: min(270px, 30vw); opacity: .46; filter: blur(1px) saturate(.75); }
-.carousel-neighbor-previous { transform: translateX(-112%) rotate(-9deg) scale(.72); }
-.carousel-neighbor-next { transform: translateX(112%) rotate(9deg) scale(.72); }
-.carousel-arrow { position: absolute; z-index: 4; width: 3rem; height: 3rem; border: 1px solid rgba(61,41,36,.24); border-radius: 50%; background: rgba(252,247,238,.8); color: var(--ink); display: grid; place-items: center; cursor: pointer; transition: transform .2s ease, background .2s ease; }
-.carousel-arrow:hover { transform: scale(1.08); background: var(--paper); }
-.carousel-arrow:focus-visible, .carousel-motion-toggle:focus-visible { outline: 3px solid var(--rose); outline-offset: 4px; }
-.carousel-arrow-left { left: 3%; }
-.carousel-arrow-right { right: 3%; }
-.carousel-details { text-align: center; max-width: 500px; margin: -1rem auto 0; }
-.carousel-details h2 { font-size: clamp(2rem, 4vw, 3.7rem); margin: .35rem 0 .5rem; }
-.carousel-details > p:not(.eyebrow) { line-height: 1.55; margin: 0 auto; max-width: 38rem; }
-.carousel-meta { display: flex; justify-content: center; align-items: center; gap: 1rem; margin: .9rem 0; }
-.carousel-meta strong { font-size: 1.25rem; }
-.carousel-meta span { color: var(--rose); font-size: .9rem; }
-.carousel-actions { display: flex; justify-content: center; align-items: center; gap: 1.1rem; flex-wrap: wrap; }
-.carousel-motion-toggle { margin-top: .9rem; display: inline-flex; align-items: center; gap: .35rem; border: 0; background: transparent; color: var(--ink); font: inherit; font-size: .76rem; cursor: pointer; opacity: .7; }
-@keyframes pastry-float { 0%, 100% { transform: translateY(0) rotate(-1deg); } 50% { transform: translateY(-8px) rotate(1deg); } }
-@keyframes bakery-drift { from { transform: translate3d(0, 0, 0); } to { transform: translate3d(20px, -14px, 0); } }
+.pastry-lightbox::backdrop { background: rgba(20, 17, 16, .78); }
+.pastry-lightbox img { display: block; width: auto; max-height: 75vh; object-fit: contain; }
+.pastry-lightbox p { font-size: .85rem; text-align: center; padding: 8px; }
+.pastry-lightbox-close {
+  position: absolute;
+  top: 22px;
+  right: 22px;
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  background: var(--cream);
+  border: 0;
+  border-radius: 50%;
+}
 @media (max-width: 900px) {
-  .immersive-hero { min-height: auto; padding: 6rem 1.25rem 3rem; display: block; }
-  .immersive-intro { position: relative; inset: auto; width: auto; text-align: center; margin: 0 auto 1rem; }
-  .immersive-intro .eyebrow { justify-content: center; }
-  .immersive-intro h1 { font-size: clamp(2.5rem, 10vw, 4rem); }
-  .immersive-intro > p:last-child { margin: 0 auto; }
-  .pastry-carousel { width: 100%; margin: 0; }
-  .carousel-stage { height: min(76vw, 420px); }
-  .carousel-active { width: min(72vw, 390px); }
-  .carousel-neighbor { width: min(35vw, 190px); }
-  .carousel-neighbor-previous { transform: translateX(-105%) rotate(-8deg) scale(.68); }
-  .carousel-neighbor-next { transform: translateX(105%) rotate(8deg) scale(.68); }
+  .immersive-hero { min-height: max(600px, calc(100svh - 126px)); }
+  .pastry-gallery { min-height: 222px; }
+  .pastry-gallery-inner { min-height: 222px; padding: 20px 3% 20px 36%; gap: 8px; }
+  .pastry-feature { width: 34%; height: 255px; left: 2%; }
+  .pastry-thumb { flex-basis: 145px; height: 152px; }
+  .pastry-scroll { flex-basis: 34px; width: 34px; }
+}
+@media (max-width: 600px) {
+  .immersive-hero { min-height: max(575px, calc(100svh - 100px)); }
+  .pastry-gallery { min-height: 222px; border-radius: 20px 20px 0 0; }
+  .pastry-gallery-inner { min-height: 222px; padding: 82px 12px 15px; align-items: flex-end; gap: 6px; }
+  .pastry-feature { left: 16px; bottom: 109px; width: min(42vw, 190px); height: 178px; border-radius: 15px; }
+  .pastry-thumbnails { gap: 9px; padding: 5px 2px 9px; }
+  .pastry-thumb { flex-basis: 110px; height: 99px; border-radius: 11px; }
+  .pastry-scroll { align-self: flex-end; margin-bottom: 28px; }
+  .pastry-lightbox { padding: 8px; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .immersive-atmosphere, .carousel-active { animation: none; }
-  .carousel-active, .carousel-neighbor { transition-duration: .01ms; }
+  .scenic-frame { animation: none; opacity: 0; }
+  .scenic-frame:first-child { opacity: 1; }
 }

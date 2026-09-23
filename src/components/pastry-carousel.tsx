@@ -1,76 +1,51 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
-import { ArrowRight, ChevronLeft, ChevronRight, Pause, Play } from "lucide-react";
+import { useRef } from "react";
+import { ArrowDown, X } from "lucide-react";
 import type { Product } from "@/domain/types";
-import { asset, money, orderingEnabled } from "@/lib/config";
+import { asset } from "@/lib/config";
 import { usePastryCarouselViewModel } from "@/view-models/use-pastry-carousel-view-model";
-
-function PastryImage({ product, active = false }: { product: Product; active?: boolean }) {
-  return (
-    <Image
-      src={asset(product.image)}
-      alt={active ? `${product.name} — editorial product imagery` : ""}
-      aria-hidden={!active}
-      width={700}
-      height={500}
-      priority={active}
-    />
-  );
-}
 
 export function PastryCarousel({ products }: { products: Product[] }) {
   const vm = usePastryCarouselViewModel(products);
+  const picture = useRef<HTMLDialogElement>(null);
   if (!vm.active) return null;
 
   return (
-    <section
-      className="pastry-carousel"
-      aria-roledescription="carousel"
-      aria-label="Saturday bake sale menu"
-      onMouseEnter={vm.pause}
-      onMouseLeave={vm.resume}
-      onFocus={vm.pause}
-      onBlur={vm.resume}
-      onPointerDown={(event) => vm.beginPointer(event.clientX)}
-      onPointerUp={(event) => vm.endPointer(event.clientX)}
-      onPointerCancel={() => vm.endPointer(0)}
-    >
-      <div className="carousel-heading">
-        <p className="eyebrow">WHAT ARE YOU PICKING UP THIS SATURDAY?</p>
-        <p className="carousel-counter" aria-live="polite">
-          {vm.activeIndex + 1} / {products.length}
-        </p>
-      </div>
-      <div className="carousel-stage">
-        <button className="carousel-arrow carousel-arrow-left" type="button" aria-label="Previous baked good" onClick={() => { vm.pause(); vm.go(-1); }}>
-          <ChevronLeft aria-hidden="true" />
+    <div className="pastry-gallery" aria-label="Featured bakery imagery">
+      <div className="pastry-gallery-inner">
+        <button
+          className="pastry-feature"
+          type="button"
+          aria-label={`Open larger editorial image for ${vm.active.name}`}
+          onClick={() => picture.current?.showModal()}
+        >
+          <Image src={asset(vm.active.image)} alt="" width={700} height={500} priority />
         </button>
-        <div className="carousel-neighbor carousel-neighbor-previous" aria-hidden="true"><PastryImage product={vm.previous} /></div>
-        <div className="carousel-active" role="group" aria-label={`${vm.active.name}, featured baked good`}><PastryImage product={vm.active} active /></div>
-        <div className="carousel-neighbor carousel-neighbor-next" aria-hidden="true"><PastryImage product={vm.next} /></div>
-        <button className="carousel-arrow carousel-arrow-right" type="button" aria-label="Next baked good" onClick={() => { vm.pause(); vm.go(1); }}>
-          <ChevronRight aria-hidden="true" />
-        </button>
-      </div>
-      <div className="carousel-details">
-        <p className="eyebrow">{vm.active.category} · SATURDAY BAKE SALE</p>
-        <h2>{vm.active.name}</h2>
-        <p>{vm.active.description}</p>
-        <div className="carousel-meta">
-          <strong>{orderingEnabled ? money(vm.active.price) : "Price coming soon"}</strong>
-          <span>{vm.active.note}</span>
+        <div className="pastry-thumbnails" aria-label="Choose a baked good">
+          {products.map((product, index) => (
+            <button
+              key={product.id}
+              className={index === vm.activeIndex ? "pastry-thumb selected" : "pastry-thumb"}
+              type="button"
+              aria-label={`Show ${product.name} image`}
+              aria-pressed={index === vm.activeIndex}
+              onClick={() => vm.select(index)}
+            >
+              <Image src={asset(product.image)} alt="" width={260} height={195} />
+            </button>
+          ))}
         </div>
-        <div className="carousel-actions">
-          <Link className="button primary" href="/menu/">See Saturday’s menu <ArrowRight size={17} /></Link>
-          <Link className="text-link" href={`/menu/${vm.active.id}/`}>See the details <ArrowRight size={16} /></Link>
-        </div>
-        <button type="button" className="carousel-motion-toggle" aria-label={vm.paused ? "Resume pastry carousel" : "Pause pastry carousel"} onClick={() => (vm.paused ? vm.resume() : vm.pause())}>
-          {vm.paused ? <Play size={14} /> : <Pause size={14} />}
-          {vm.paused ? "Resume" : "Pause"}
-        </button>
+        <a className="pastry-scroll" href="#favorites" aria-label="Scroll to the Saturday menu">
+          <ArrowDown size={27} strokeWidth={1.6} aria-hidden="true" />
+        </a>
       </div>
-    </section>
+      <dialog ref={picture} className="pastry-lightbox" aria-label={`${vm.active.name} editorial image`}>
+        <button className="pastry-lightbox-close" type="button" onClick={() => picture.current?.close()} aria-label="Close image"><X aria-hidden="true" /></button>
+        <Image src={asset(vm.active.image)} alt={`Editorial image representing ${vm.active.name}`} width={1000} height={750} />
+        <p>Editorial concept image · {vm.active.name}</p>
+      </dialog>
+    </div>
   );
 }

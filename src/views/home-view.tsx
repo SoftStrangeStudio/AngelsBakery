@@ -6,25 +6,21 @@ import { asset } from "@/lib/config";
 import { ProductCard } from "@/components/product-card";
 import { Parallax } from "@/components/motion";
 import { PastryCarousel } from "@/components/pastry-carousel";
-import { SceneLayer } from "@/components/scene-layer";
+import { ScenicBackdrop } from "@/components/scenic-backdrop";
+
+const galleryProducts = ["chocolate-chip-cookies", "blueberry-muffins", "brownies", "peanut-butter-cookies"]
+  .flatMap((id) => {
+    const product = catalogService.find(id);
+    return product ? [product] : [];
+  });
+
 export function HomeView() {
   return (
     <>
       <section className="immersive-hero">
-        <SceneLayer depth="background" className="immersive-background" />
-        <SceneLayer depth="atmosphere" className="immersive-atmosphere" />
-        <SceneLayer depth="middle" className="immersive-middle">
-          <span className="scene-sun" aria-hidden="true" />
-          <span className="scene-line scene-line-one" aria-hidden="true" />
-          <span className="scene-line scene-line-two" aria-hidden="true" />
-        </SceneLayer>
-        <SceneLayer depth="subject" className="immersive-subject"><PastryCarousel products={catalogService.all()} /></SceneLayer>
-        <SceneLayer depth="foreground" className="immersive-foreground"><span className="foreground-crumb foreground-crumb-one" aria-hidden="true">✳</span><span className="foreground-crumb foreground-crumb-two" aria-hidden="true">·</span></SceneLayer>
-        <SceneLayer depth="interaction" className="immersive-intro">
-          <p className="eyebrow"><Heart size={14} /> SATURDAY BAKE SALE</p>
-          <h1>A little happiness<br />baked for<br /><em>Saturday.</em></h1>
-          <p>Cookies, brownies and muffins every Saturday from 4–7 PM.</p>
-        </SceneLayer>
+        <h1 className="sr-only">Angel’s Bakery Saturday bake sale</h1>
+        <ScenicBackdrop />
+        <PastryCarousel products={galleryProducts} />
       </section>
       <div className="ribbon" aria-hidden="true"><span>Every Saturday</span><Sparkles /><span>4–7 PM</span><Sparkles /><span>Cookies · brownies · muffins</span><Sparkles /><span>Angel’s Bakery</span><Sparkles /></div>
       <section id="favorites" className="section favorites">
