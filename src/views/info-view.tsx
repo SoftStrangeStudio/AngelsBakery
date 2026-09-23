@@ -4,28 +4,28 @@ import { ArrowRight, Heart, CalendarDays, ShoppingBag } from "lucide-react";
 import { asset } from "@/lib/config";
 export const faqs = [
   [
-    "Can I place an order yet?",
-    "Not just yet. You’re exploring a preview of Angel’s Bakery. You can browse the sample menu and try building a box, but no real orders or payments are being taken.",
+    "When is the bake sale?",
+    "Angel’s Bakery holds its bake sale every Saturday from 4:00 PM to 7:00 PM.",
   ],
   [
-    "How will pickup work?",
-    "When ordering opens, you’ll choose an available date and collection window, send an order request, and receive confirmation from the bakery. The pickup address and instructions will be shared before you collect.",
+    "Can I reserve an order yet?",
+    "Not yet. The real Saturday menu is published, but prices, reservation rules, and the final ordering setup are still being approved. No orders or payments are being taken through the website yet.",
+  ],
+  [
+    "Where is the Saturday bake sale?",
+    "The bake-sale location will be published here after Angel confirms the final public location details.",
   ],
   [
     "Can you accommodate food allergies?",
-    "Final ingredients and cross-contact information are still being confirmed. Please speak with the bakery before ordering for anyone with an allergy. A note on an order is not confirmation that it can be accommodated.",
+    "Final ingredients and cross-contact information are still being confirmed. Please speak with the bakery before relying on any item for someone with an allergy.",
   ],
   [
     "When do I pay?",
-    "This website does not collect card details or payments. Payment arrangements and the final total will be confirmed by the bakery before you commit.",
-  ],
-  [
-    "What if I need to change my order?",
-    "Contact the bakery using the details in your order confirmation, with your request number. Changes depend on the baking schedule and are not guaranteed.",
+    "Payment arrangements are not published yet. The website does not collect card details or payments.",
   ],
   [
     "Are these photos of the actual products?",
-    "The preview uses AI-created editorial imagery to explore the feel of Angel’s Bakery. The sample products, prices, and pictures will be reviewed and replaced or approved before ordering opens.",
+    "The menu uses AI-created editorial product imagery for the seven baked goods Angel has confirmed for the Saturday bake sale. Actual appearance may vary.",
   ],
 ];
 export function InfoView({
@@ -42,30 +42,29 @@ export function InfoView({
             <h1>
               Small moments.
               <br />
-              <em>Sweet memories.</em>
+              <em>Sweet Saturdays.</em>
             </h1>
             <p className="lead">
-              A treat doesn’t need a special occasion. It can be the special
-              occasion.
+              Angel’s Bakery is centered around a simple weekly bake sale every
+              Saturday from 4–7 PM.
             </p>
             <p>
-              That’s the feeling behind Angel’s Bakery: something warm,
-              thoughtful, and just a little indulgent. A box to share with your
-              favorite people. A quiet moment with your coffee. A sweet reason
-              to slow down.
+              The menu is focused on cookies, brownies, and muffins — familiar
+              baked goods made for bringing home, sharing, or enjoying on the
+              spot.
             </p>
             <p>
-              We’re getting ready to share more. For now, take a look around our
-              preview collection and imagine your next little happy moment.
+              Check the Saturday menu before you come by. Prices, location, and
+              reservation details will be added as soon as Angel approves them.
             </p>
             <Link className="button primary" href="/menu/">
-              Find something lovely <ArrowRight size={18} />
+              See Saturday’s menu <ArrowRight size={18} />
             </Link>
           </div>
           <div className="about-photo">
             <Image
               src={asset("hero")}
-              alt="Sunlit pastry platter, created as editorial concept imagery"
+              alt="Warm editorial spread of Angel’s Saturday bake-sale menu"
               fill
               sizes="(max-width: 760px) 100vw, 45vw"
             />
@@ -74,9 +73,9 @@ export function InfoView({
         <section className="sweet-banner">
           <Heart size={35} strokeWidth={1} />
           <h2>
-            For the everyday.
+            Every Saturday.
             <br />
-            <em>And the little celebrations.</em>
+            <em>4–7 PM.</em>
           </h2>
         </section>
       </>
@@ -85,28 +84,28 @@ export function InfoView({
     return (
       <section className="section narrow">
         <div className="page-heading">
-          <p className="eyebrow">YOUR DAY, A LITTLE SWEETER</p>
+          <p className="eyebrow">SATURDAY BAKE SALE · 4–7 PM</p>
           <h1>
-            Pickup, <em>made simple.</em>
+            Saturday, <em>made sweeter.</em>
           </h1>
-          <p>Good things are worth looking forward to.</p>
+          <p>One weekly bake sale with Angel’s current menu in one place.</p>
         </div>
         <div className="info-steps">
           {[
             [
               ShoppingBag,
-              "Choose your little treats",
-              "Browse the collection and build your box. Sample menu items and prices are shown while we prepare to open.",
+              "See this Saturday’s menu",
+              "Browse the seven baked goods Angel has confirmed for the weekly bake sale.",
             ],
             [
               CalendarDays,
-              "Pick a day that feels right",
-              "Once orders open, available pickup dates and time windows will appear at checkout. Please wait for confirmation before making plans.",
+              "Come by from 4–7 PM",
+              "The bake sale happens every Saturday from 4:00 PM to 7:00 PM.",
             ],
             [
               Heart,
-              "Come collect a little happiness",
-              "The bakery will confirm your order, address, collection instructions, and payment arrangements. Bring your request number and your sweet tooth.",
+              "Pick your favorites",
+              "Prices, the public location, and reservation details will appear here after Angel approves them.",
             ],
           ].map(([Icon, title, text]) => {
             const I = Icon as typeof Heart;
@@ -123,15 +122,15 @@ export function InfoView({
         </div>
         <div className="preview-notice">
           <p>
-            <b>A note before you plan your visit.</b>
+            <b>Location and reservation details are still being finalized.</b>
             <br />
-            Our pickup address, opening schedule, order cutoff, and payment
-            arrangements haven’t been published yet. Preview dates are examples
-            only.
+            Saturday 4–7 PM is confirmed. The exact public location, prices,
+            ordering rules, and payment arrangements will be published after
+            Angel approves them.
           </p>
         </div>
         <Link className="button primary" href="/menu/">
-          Find your little treat <ArrowRight size={18} />
+          See Saturday’s menu <ArrowRight size={18} />
         </Link>
       </section>
     );
@@ -143,7 +142,7 @@ export function InfoView({
           <h1>
             Good <em>questions.</em>
           </h1>
-          <p>A little clarity, before the first bite.</p>
+          <p>A little clarity before Saturday.</p>
         </div>
         <div className="faq-list">
           {faqs.map(([q, a]) => (
@@ -170,18 +169,16 @@ export function InfoView({
           Let’s talk <em>treats.</em>
         </h1>
         <p>
-          Planning a little celebration? Wondering about a pastry?
+          Have a question about Saturday’s menu?
           <br />
           We’re looking forward to hearing from you.
         </p>
         <div className="contact-card">
-          <h2>Our hello is coming soon.</h2>
+          <h2>Contact details are coming soon.</h2>
           <p>
-            We’re still setting up the bakery’s contact details. A direct way to
-            reach us will be published here before orders open.
-          </p>
-          <p>
-            No message form yet means no messages disappearing into the ether.
+            Angel’s public contact method is still being finalized. It will be
+            published here before online reservations or customer information
+            collection opens.
           </p>
         </div>
         <Link href="/faq/" className="button secondary">
@@ -197,34 +194,24 @@ export function InfoView({
       </h1>
       <h2>While you explore</h2>
       <p>
-        This preview saves product selections in your browser so your box
-        survives a page refresh. It does not send preview orders. Contact
-        details entered into the preview stay in the page’s memory and disappear
-        when it is reloaded. Please use fictional details to test it.
+        The site may save menu selections in your browser so your box survives a
+        page refresh. Online ordering is not open, and the current public site
+        does not send order requests.
       </p>
-      <h2>When real ordering opens</h2>
+      <h2>When ordering opens</h2>
       <p>
-        Order requests will send your name, email, optional phone, order
-        details, pickup choice, and optional note to the bakery’s Google service
-        and private order sheet. These details are for handling your request,
-        not marketing. Do not include payment card details or sensitive health
-        information.
-      </p>
-      <h2>Storage and site hosting</h2>
-      <p>
-        Your browser may store a random retry identifier and a digest of your
-        request to help prevent duplicate submissions. The website does not use
-        advertising trackers or analytics. GitHub Pages hosts the website and
-        may process technical request information under its own privacy policy.
+        Order requests will send the customer details needed to handle a request
+        to the bakery’s private Google service and order sheet. Do not include
+        payment-card details or sensitive health information.
       </p>
       <h2>Before launch</h2>
       <p>
-        The bakery must publish its contact information, data-retention period,
+        The bakery will publish its contact information, data-retention period,
         and a way to request access or deletion before accepting real customer
         information. This notice will be updated at that time.
       </p>
       <Link className="text-link" href="/menu/">
-        Back to the sweet things <ArrowRight size={16} />
+        Back to Saturday’s menu <ArrowRight size={16} />
       </Link>
     </section>
   );

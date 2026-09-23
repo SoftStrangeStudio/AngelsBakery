@@ -64,7 +64,7 @@ export function BakeryProvider({ children }: { children: ReactNode }) {
       dispatch({
         type: "hydrate",
         items: sanitizeCart(
-          JSON.parse(localStorage.getItem("angels-bakery-bag-v1") || "[]"),
+          JSON.parse(localStorage.getItem("angels-bakery-bag-v2") || "[]"),
         ),
       });
     } catch {
@@ -75,7 +75,7 @@ export function BakeryProvider({ children }: { children: ReactNode }) {
     if (state.hydrated) {
       try {
         localStorage.setItem(
-          "angels-bakery-bag-v1",
+          "angels-bakery-bag-v2",
           JSON.stringify(state.items),
         );
       } catch {

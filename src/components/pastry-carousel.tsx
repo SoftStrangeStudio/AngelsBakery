@@ -4,14 +4,14 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, ChevronLeft, ChevronRight, Pause, Play } from "lucide-react";
 import type { Product } from "@/domain/types";
-import { asset, money } from "@/lib/config";
+import { asset, money, orderingEnabled } from "@/lib/config";
 import { usePastryCarouselViewModel } from "@/view-models/use-pastry-carousel-view-model";
 
 function PastryImage({ product, active = false }: { product: Product; active?: boolean }) {
   return (
     <Image
       src={asset(product.image)}
-      alt={active ? `${product.name} — concept imagery` : ""}
+      alt={active ? `${product.name} — editorial product imagery` : ""}
       aria-hidden={!active}
       width={700}
       height={500}
@@ -28,7 +28,7 @@ export function PastryCarousel({ products }: { products: Product[] }) {
     <section
       className="pastry-carousel"
       aria-roledescription="carousel"
-      aria-label="Featured pastries"
+      aria-label="Saturday bake sale menu"
       onMouseEnter={vm.pause}
       onMouseLeave={vm.resume}
       onFocus={vm.pause}
@@ -38,62 +38,35 @@ export function PastryCarousel({ products }: { products: Product[] }) {
       onPointerCancel={() => vm.endPointer(0)}
     >
       <div className="carousel-heading">
-        <p className="eyebrow">WHAT ARE YOU PICKING UP THIS WEEK?</p>
+        <p className="eyebrow">WHAT ARE YOU PICKING UP THIS SATURDAY?</p>
         <p className="carousel-counter" aria-live="polite">
           {vm.activeIndex + 1} / {products.length}
         </p>
       </div>
-
       <div className="carousel-stage">
-        <button
-          className="carousel-arrow carousel-arrow-left"
-          type="button"
-          aria-label="Previous pastry"
-          onClick={() => { vm.pause(); vm.go(-1); }}
-        >
+        <button className="carousel-arrow carousel-arrow-left" type="button" aria-label="Previous baked good" onClick={() => { vm.pause(); vm.go(-1); }}>
           <ChevronLeft aria-hidden="true" />
         </button>
-        <div className="carousel-neighbor carousel-neighbor-previous" aria-hidden="true">
-          <PastryImage product={vm.previous} />
-        </div>
-        <div className="carousel-active" role="group" aria-label={`${vm.active.name}, featured pastry`}>
-          <PastryImage product={vm.active} active />
-        </div>
-        <div className="carousel-neighbor carousel-neighbor-next" aria-hidden="true">
-          <PastryImage product={vm.next} />
-        </div>
-        <button
-          className="carousel-arrow carousel-arrow-right"
-          type="button"
-          aria-label="Next pastry"
-          onClick={() => { vm.pause(); vm.go(1); }}
-        >
+        <div className="carousel-neighbor carousel-neighbor-previous" aria-hidden="true"><PastryImage product={vm.previous} /></div>
+        <div className="carousel-active" role="group" aria-label={`${vm.active.name}, featured baked good`}><PastryImage product={vm.active} active /></div>
+        <div className="carousel-neighbor carousel-neighbor-next" aria-hidden="true"><PastryImage product={vm.next} /></div>
+        <button className="carousel-arrow carousel-arrow-right" type="button" aria-label="Next baked good" onClick={() => { vm.pause(); vm.go(1); }}>
           <ChevronRight aria-hidden="true" />
         </button>
       </div>
-
       <div className="carousel-details">
-        <p className="eyebrow">{vm.active.category} · SAMPLE COLLECTION</p>
+        <p className="eyebrow">{vm.active.category} · SATURDAY BAKE SALE</p>
         <h2>{vm.active.name}</h2>
         <p>{vm.active.description}</p>
         <div className="carousel-meta">
-          <strong>{money(vm.active.price)}</strong>
+          <strong>{orderingEnabled ? money(vm.active.price) : "Price coming soon"}</strong>
           <span>{vm.active.note}</span>
         </div>
         <div className="carousel-actions">
-          <Link className="button primary" href="/order/">
-            Choose a pickup date <ArrowRight size={17} />
-          </Link>
-          <Link className="text-link" href={`/menu/${vm.active.id}/`}>
-            See the details <ArrowRight size={16} />
-          </Link>
+          <Link className="button primary" href="/menu/">See Saturday’s menu <ArrowRight size={17} /></Link>
+          <Link className="text-link" href={`/menu/${vm.active.id}/`}>See the details <ArrowRight size={16} /></Link>
         </div>
-        <button
-          type="button"
-          className="carousel-motion-toggle"
-          aria-label={vm.paused ? "Resume pastry carousel" : "Pause pastry carousel"}
-          onClick={() => (vm.paused ? vm.resume() : vm.pause())}
-        >
+        <button type="button" className="carousel-motion-toggle" aria-label={vm.paused ? "Resume pastry carousel" : "Pause pastry carousel"} onClick={() => (vm.paused ? vm.resume() : vm.pause())}>
           {vm.paused ? <Play size={14} /> : <Pause size={14} />}
           {vm.paused ? "Resume" : "Pause"}
         </button>
