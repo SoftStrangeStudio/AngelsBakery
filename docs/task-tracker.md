@@ -55,3 +55,8 @@
 - Verify readable cross-origin availability and request receipts from the approved public origin.
 - Test retries, full / expired slots, invalid requests and operator confirmation.
 - Only then enable ordering at both public build-time and server settings.
+
+## Menu and root export correction — 2026-09-23
+
+- AB-022: reuse the same outdoor/curved-pastry opening on home and `/menu/`; keep filters and the full seven-item menu below its scroll cue. Remove the oversized menu introduction.
+- AB-021: refresh the tracked repository-root static export and all image copies from the validated Next build. Add `npm run publish:root` as the repeatable delivery command; preserve the Actions `out/` deployment.

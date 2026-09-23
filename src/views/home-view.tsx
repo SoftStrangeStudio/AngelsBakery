@@ -5,17 +5,12 @@ import { catalogService } from "@/services/catalog-service";
 import { asset, sceneAsset } from "@/lib/config";
 import { ProductCard } from "@/components/product-card";
 import { Parallax } from "@/components/motion";
-import { PastryCarousel } from "@/components/pastry-carousel";
-import { ScenicBackdrop } from "@/components/scenic-backdrop";
+import { BakeryHero } from "@/components/bakery-hero";
 
 export function HomeView() {
   return (
     <>
-      <section className="immersive-hero">
-        <h1 className="sr-only">Angel’s Bakery Saturday bake sale</h1>
-        <ScenicBackdrop />
-        <PastryCarousel products={catalogService.all()} />
-      </section>
+      <BakeryHero title="Angel’s Bakery Saturday bake sale" />
       <div className="ribbon" aria-hidden="true"><span>Every Saturday</span><Sparkles /><span>4–7 PM</span><Sparkles /><span>Cookies · brownies · muffins</span><Sparkles /><span>Angel’s Bakery</span><Sparkles /></div>
       <section id="favorites" className="section favorites">
         <div className="section-heading">

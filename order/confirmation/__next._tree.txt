@@ -1,2 +1,2 @@
-:HL["/AngelsBakery/_next/static/css/60044e869712fc76.css","style"]
-0:{"tree":{"name":"","param":null,"prefetchHints":4176,"slots":{"children":{"name":"order","param":null,"prefetchHints":4192,"slots":{"children":{"name":"confirmation","param":null,"prefetchHints":4192,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":4256,"slots":null}}}}}}},"staleTime":300,"buildId":"Oo1FgKqHVjNXm92OCF7bN"}
+:HL["/AngelsBakery/_next/static/css/6012d06b3afb986a.css","style"]
+0:{"tree":{"name":"","param":null,"prefetchHints":4176,"slots":{"children":{"name":"order","param":null,"prefetchHints":4192,"slots":{"children":{"name":"confirmation","param":null,"prefetchHints":4192,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":4256,"slots":null}}}}}}},"staleTime":300,"buildId":"0IzUJMjhM9ENRrq7QUHeJ"}

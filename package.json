@@ -8,7 +8,8 @@
     "typecheck": "tsc --noEmit",
     "lint": "eslint .",
     "test": "node --import tsx --test tests/*.test.ts",
-    "check": "npm run lint && npm run typecheck && npm test && npm run build && node scripts/verify-export.mjs && node scripts/verify-images.mjs"
+    "check": "npm run lint && npm run typecheck && npm test && npm run build && node scripts/verify-export.mjs && node scripts/verify-images.mjs",
+    "publish:root": "npm run check && node scripts/sync-root-export.mjs"
   },
   "dependencies": {
     "@fontsource-variable/dm-sans": "^5.3.0",

@@ -8,8 +8,8 @@ Before real orders are accepted, select and approve a host that permits the busi
 
 The source and assets are published on `main`.
 
-1. Commit source, lockfile, generated assets, tests and workflows to `main`.
-2. Settings → Pages → Source: **GitHub Actions** for the temporary validation deployment. Branch-root publishing does not rebuild the Next.js source and can become stale.
+1. Run `npm run publish:root` before delivery. It validates and builds source, then replaces only generated root routes/assets with the fresh `out/` export. Commit source and this root snapshot together to `main`.
+2. Settings → Pages → Source: **GitHub Actions** for the temporary validation deployment. The checked-in root snapshot supports existing main/root publishing too; it must be refreshed with `npm run publish:root` whenever source or public images change.
 3. The workflow validates the repository, exports `out`, uploads the Pages artifact and deploys it.
 4. The Pages build keeps live ordering off. Missing configuration never produces fake success.
 5. Check **Validate** and **Deploy bakery to Pages** in Actions. Resolve permission/environment approval gates rather than bypassing them.

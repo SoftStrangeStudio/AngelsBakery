@@ -1,5 +1,13 @@
 # Validation evidence
 
+## Menu/root correction — 2026-09-23
+
+- `npm run publish:root` passed all 19 tests, lint, TypeScript, static URL and image decoding checks. All 198 exported files matched the root copies byte-for-byte.
+- Fresh Chromium checks served the repository root, opening `/menu/` at 1440×900 and 390×844. Both now show the outdoor background and curved seven-product carousel. [Desktop](evidence/menu-root-desktop.jpg) · [Phone](evidence/menu-root-phone.jpg).
+- Passed selection, wrap, keyboard, drag, paced touch swipe, matching image viewer, autoplay resume, reduced motion, scroll cue, category filter, no-results/reset and a product deep link. No page errors or non-aborted network failures.
+- Live deployment verification is separate from this local root-export evidence and must target the delivered commit.
+
+
 ## Cream-and-sage redesign — 2026-09-23
 
 - Current source passes `npm run check`: lint, strict TypeScript, 19 tests, production static export, local URL verification across 20 HTML files, and decoding of all 20 referenced images. All seven product cutouts have transparent alpha.

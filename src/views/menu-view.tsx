@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import { ProductCard } from "@/components/product-card";
+import { BakeryHero } from "@/components/bakery-hero";
 import { catalogService } from "@/services/catalog-service";
 export function MenuView() {
   const [category, setCategory] = useState("Everything");
@@ -10,12 +11,10 @@ export function MenuView() {
     `${p.name} ${p.description}`.toLowerCase().includes(query.toLowerCase()),
   );
   return (
-    <section className="section menu-page">
-      <div className="page-heading">
-        <p className="eyebrow">THIS SATURDAY · 4–7 PM</p>
-        <h1>Fresh from <em>Angel’s oven.</em></h1>
-        <p>Cookies, brownies and muffins for Angel’s Saturday Bake Sale.<br />Prices and reservation details will be published after final approval.</p>
-      </div>
+    <>
+    <BakeryHero title="Angel’s Bakery Saturday menu" />
+    <section id="favorites" className="section menu-page">
+      <div className="section-heading"><h2>Saturday menu</h2></div>
       <div className="menu-tools">
         <div className="filters" role="group" aria-label="Filter treats">
           {["Everything", "Cookies", "Muffins", "Desserts"].map((c) => (
@@ -31,5 +30,6 @@ export function MenuView() {
       )}
       <aside className="allergen-note"><b>A thoughtful note about allergies</b><p>Ingredient and cross-contact details are still being confirmed. Please do not rely on this website for allergy-related decisions yet.</p></aside>
     </section>
+    </>
   );
 }
