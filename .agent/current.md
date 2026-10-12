@@ -1,3 +1,37 @@
+## Publication authorized — 2026-10-12
+
+User requested pushing the completed redesign to main and GitHub Pages. Refreshing the checked-in static export via publish:root; screenshots remain local.
+
+## Latest refinement — complete, quiet footer
+
+Full-width scenic footer, compact content-height information cards and one subdued fine-print panel. Five viewport widths fit. Evidence: `output/playwright/bakery-quiet-footer-*.png`. Local only.
+
+## Latest refinement — narrower opening cards
+
+Reduced opening-card widths and staggered stacked notes to expose more scenery. Six viewport captures show no horizontal overflow. Evidence: `output/playwright/bakery-narrow-*.png`. Local only.
+
+## Latest refinement — layered closing notes
+
+Closing invitation and shared footer now use taped ruled-paper overlays on the existing Gilsum orchard photo. Original links and disclosures remain. Local only.
+
+## Latest refinement — smaller ruled opening notes
+
+The latest user screenshot establishes three opening notes. Matched that arrangement with smaller typography/padding and faint notebook lines; retained lower Saturday section. Screens: `output/playwright/bakery-lined-*.png`. Local only.
+
+## Latest clarification — lower Saturday section
+
+The attached screenshot identifies the lower “Your treat. Your Saturday” section. Its landscape is taller, the headline sits on a taped note, and the three steps are now Polaroid photo cards with their original copy and menu/pickup links. The mistaken unreviewed top-hero redesign was reverted. Five viewport widths fit; reduced motion disables scenery movement; full `npm run check` passes. Local only.
+
+# Current pass — Still photos and Gilsum — 2026-10-12
+
+The user authorized a local-only homepage cleanup: remove the carousel entirely, preserve the existing seven Polaroid cards and wording, add Gilsum landscape bands above/below them, compare screenshots at five sizes, and run the full check. No commit/push/deploy. Latest owner refinement is complete: the upper Gilsum image now extends behind one taped note combining the Saturday eyebrow, original headline and facts. Compared window/tablet/phone/small-phone screenshots; full check passed.
+
+Implementation: removed carousel component/view-model and its three obsolete unit cases, removed 195 unused hero/carousel CSS rules, and introduced scoped hero/scenery CSS modules. Existing Parallax supplies scroll movement; reduced motion remains supported. Home and menu share the simplified hero. Baselines and comparison captures are under `output/playwright/bakery-still-*`. Final comparison complete at five sizes with no overflow. Full `npm run check` passed (17 retained tests, 20 HTML exports, 9 referenced images); menu filters/search/product link and preview-box add/remove were browser-checked. Both landscape bands stop moving under reduced motion. Completion evidence is recorded once in `docs/task-tracker.md`.
+
+The prior main push reached `7ae5f04`; the owner later chose Pages temporarily. The older release-state notes below describe earlier checkpoints, not authorization to publish this pass.
+
+---
+
 # Current Work
 
 ## Five-pass visual rethink — local review complete — 2026-10-12

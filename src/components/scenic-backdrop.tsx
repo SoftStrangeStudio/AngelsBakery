@@ -1,28 +1,21 @@
 import Image from "next/image";
 import { basePath } from "@/lib/config";
+import { Parallax } from "@/components/motion";
+import styles from "./scenic-backdrop.module.css";
 
-const photos = [
-  { file: "yard-morning.jpg", position: "center 52%" },
-  { file: "orchard.webp", position: "center 55%" },
-  { file: "sunset-wide.jpg", position: "center 55%" },
-  { file: "sunset.webp", position: "center 55%" },
-];
-
-export function ScenicBackdrop() {
+// Owner-provided Gilsum photograph; provenance is recorded in docs/assets.md.
+export function ScenicBackdrop({ framed = false, priority = false, cover = false, photo = "yard-morning.jpg" }: { framed?: boolean; priority?: boolean; cover?: boolean; photo?: "yard-morning.jpg" | "orchard.webp" }) {
   return (
-    <div className="scenic-backdrop" aria-hidden="true">
-      {photos.map((photo) => (
+    <div className={`${styles.landscape} ${framed ? styles.framed : ""} ${cover ? styles.cover : ""}`} aria-hidden="true">
+      <Parallax className={styles.photo}>
         <Image
-          className="scenic-frame"
-          key={photo.file}
-          src={`${basePath}/images/outdoors/${photo.file}`}
+          src={`${basePath}/images/outdoors/${photo}`}
           alt=""
           fill
           sizes="100vw"
-          loading="eager"
-          style={{ objectPosition: photo.position }}
+          loading={priority ? "eager" : "lazy"}
         />
-      ))}
+      </Parallax>
     </div>
   );
 }

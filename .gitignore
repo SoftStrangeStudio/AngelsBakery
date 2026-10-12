@@ -8,3 +8,4 @@ out/
 .clasp.json
 test-results/
 .playwright-mcp/
+.playwright-cli/

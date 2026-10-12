@@ -1,0 +1,54 @@
+.landscape {
+  position: relative;
+  height: clamp(64px, 6vw, 80px);
+  overflow: hidden;
+  background: #a6b5a1;
+}
+
+.photo {
+  position: absolute;
+  inset: -28px 0;
+  transform: translateY(var(--parallax, 0px));
+}
+
+.landscape.cover {
+  position: absolute;
+  inset: 0;
+  height: 100%;
+}
+
+.photo img {
+  object-fit: cover;
+  object-position: center 55%;
+  filter: saturate(.65) sepia(.06) brightness(1.08);
+}
+
+.landscape::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgb(255 250 240 / 16%);
+  pointer-events: none;
+}
+
+.framed {
+  margin: 0 14px 24px;
+  border: 8px solid #fffaf0;
+  box-shadow: 0 8px 20px rgb(45 35 28 / 8%);
+}
+
+@media (max-width: 760px) {
+  .framed { margin: 0 7px 18px; border-width: 5px; }
+}
+
+@media (min-width: 761px) and (max-height: 850px) {
+  .landscape { height: 64px; }
+}
+
+@media (max-width: 760px) and (max-height: 700px) {
+  .landscape { height: 48px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .photo { transform: none; }
+}

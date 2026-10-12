@@ -12,7 +12,7 @@ export function MenuView() {
   );
   return (
     <>
-    <BakeryHero title="Soft Strange Bakery Saturday menu" className="menu-hero" />
+    <BakeryHero title="Soft Strange Bakery Saturday menu" />
     <section id="favorites" className="section menu-page">
       <div className="section-heading"><h2>Saturday menu</h2></div>
       <div className="menu-tools">

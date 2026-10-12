@@ -1,3 +1,5 @@
-:HL["/AngelsBakery/_next/static/css/0f7b58b40da21119.css","style"]
-1:[["children",{"s":"__PAGE__","h":160}]]
-0:{"b":"7YzI0HfqE--DSV45sQmmw","t":{"t":{"s":"","h":80,"c":"$Q1"}}}
+:HL["/AngelsBakery/_next/static/css/fe0b53560c4d21e7.css","style"]
+:HL["/AngelsBakery/_next/static/css/ffebd3addee5cfd3.css","style"]
+:HL["/AngelsBakery/_next/static/css/5767af9f60d27922.css","style"]
+1:[["children",{"s":"__PAGE__","h":128}]]
+0:{"b":"AtNiyC4Bu6B3SiTrtat1W","t":{"t":{"s":"","h":16,"c":"$Q1"}}}

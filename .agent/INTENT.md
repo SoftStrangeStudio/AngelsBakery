@@ -4,11 +4,11 @@ Purpose: One current, checked interpretation of the user's direction for the bak
 
 ## Current intent
 
-Refine the existing Soft Strange Bakery website in place through five visual review passes. The page should feel homey and personal, almost like a baking blog, rather than oversized, symmetrical, and too professional. Keep existing wording substantially intact and preserve the current customer journeys; use the passes to rethink composition rather than repeat one-off size tweaks.
+Keep the cozy homemade Polaroid appearance, warm paper, sage framing, existing bakery photos and wording. Remove the carousel entirely. The seven existing photo cards are the main display, framed above and below by the owner-provided Gilsum landscape with gentle page-scroll movement. Latest refinement: extend the upper landscape behind a single taped note containing “This Saturday,” the original headline and all four Saturday details; replace the separate headline block and facts ribbon with that overlay. Reduced motion makes the landscape still.
 
-Latest screenshot readback: the carousel is too orderly and makes the page feel streamlined. Break the symmetry, reduce the blank-sky emphasis, and keep the bakery facts readable without giving them a large promotional footprint.
+Clean up the obsolete carousel state, controls and accumulated hero styling; preserve the service/view-model/view architecture, routes, base path and ordering safeguards. Compare screenshots before and after at desktop, windowed, tablet and phone sizes. This pass is local only: do not commit, push or deploy. Earlier carousel-retention directions below are historical and superseded by this request.
 
-Latest local review: the first short-window collage still clipped the pastry cutouts against the hero's top edge. Keep the compact first screen, but fit the whole loose cluster inside the paper frame.
+Latest clarified scope: the request for a taller image and different Polaroid note cards refers to the lower “Your treat. Your Saturday” section, not the homepage opening. Preserve the accepted opening. Present the lower section with a tall landscape, taped heading and three photo cards for choosing treats, Saturday details and taking something home; reuse factual copy and imagery.
 
 ## Ongoing collaboration intent
 
@@ -19,7 +19,7 @@ Latest local review: the first short-window collage still clipped the pastry cut
 - Keep sharing fresh screenshot frames in chat at useful aspect ratios, including windowed desktop, tablet, and mobile.
 - Treat “production ready” carefully: complete and verify local source/user journeys, but keep the documented business approvals, approved host, Google deployment, and receipt evidence as separate gates. Do not call a local build a public launch or a successful real order.
 
-## Direction-to-work map
+## Earlier direction-to-work map (historical)
 
 | User thought | Design implication | Check |
 | --- | --- | --- |
@@ -49,7 +49,7 @@ Latest local review: the first short-window collage still clipped the pastry cut
 
 ## Derived launch-safe choice
 
-- The local preview/export uses `noindex, nofollow`. GitHub Pages is not an approved host for this customer-facing business site under current GitHub terms; keep public deployment on hold until a suitable commercial host and customer-facing details are approved. This is an implementation choice derived from the existing hosting/business gates, not new user-provided content direction.
+- The local preview/export uses `noindex, nofollow`. The user subsequently chose the existing Pages site for now. This new photo redesign is explicitly local only; that earlier hosting choice does not authorize publishing this pass.
 - The shared skip link should place keyboard focus on the main landmark across routes; use a programmatically focusable main target while preserving the existing skip-link wording and layout.
 - Finite static information and product routes should reject ungenerated params, so unknown slugs cannot trigger request-time generation against `output: "export"`.
 
@@ -58,7 +58,7 @@ Latest local review: the first short-window collage still clipped the pastry cut
 - The exact blog-like details (for example, whether the user wants dated posts or a more informal visual rhythm) are open; do not add new content or page structures unless their feedback points there.
 - “Homey” has been read as a visual tone, not permission to change copy or business facts.
 
-## Five current visual passes
+## Earlier five visual passes (historical)
 
 1. **Opening — complete:** the existing Saturday headline leads a cropped landscape and loose three-treat collage; other bakes stay selectable, and the name marker is a small handwritten paper note.
 2. **Saturday facts — complete:** the existing four phrases are a compact, taped paper note with a named landmark; wording is unchanged.
@@ -109,3 +109,12 @@ User readback: the carousel still makes the page feel too streamlined. Keep the 
 5. Recheck crop, fit, selection and reduced-motion behavior across all target sizes after the visual passes. **Complete:** five sizes fit, and reduced-motion navigation remains functional.
 
 The first implementation and its screenshots are recorded in `THOUGHTS.md`; the full project validation passed. Local preview stays on port 3001.
+
+
+Latest opening preference (2026-10-12): follow the supplied three-note screenshot, with slightly smaller taped Polaroid notes and faint ruled paper lines. Preserve the wording, three paper colors, scenery and responsive readability.
+
+- Closing-section direction (2026-10-12): layered ruled notecards and Polaroid paper over a different owner-provided Gilsum photo. Keep scenery visible, notes cozy and readable, and footer navigation/disclosures intact.
+
+- Opening-card fit: avoid full-width stacked notes. Leave visible scenery beside each card, using narrower widths and gentle stagger without clipping text.
+
+- Footer clarification: retain a complete full-width footer with compact, quiet information cards; group copyright/privacy/disclosures into one subdued area instead of separate prominent strips.

@@ -1,0 +1,37 @@
+.section { margin: 24px 14px 0; padding-bottom: 48px; }
+.landscape { position: relative; min-height: 300px; padding: 70px 24px 64px; border: 9px solid #fffdf8; box-shadow: 0 7px 18px rgb(60 50 44 / 10%); }
+.headingNote { position: relative; width: fit-content; max-width: 100%; margin: 0 auto; padding: 25px 36px; text-align: center; background: #fff6dd url("/AngelsBakery/images/brand/soft-strange-grain.svg") center / 320px; box-shadow: 0 5px 14px rgb(45 35 28 / 16%); transform: rotate(-.6deg); }
+.headingNote::before, .card::before { content: ""; position: absolute; z-index: 1; top: -9px; left: calc(50% - 31px); width: 62px; height: 17px; background: rgb(169 189 166 / 86%); transform: rotate(3deg); }
+.headingNote h2 { font-family: var(--serif); font-size: clamp(26px, 3vw, 40px); font-weight: 400; line-height: 1.18; margin-top: 9px; }
+.headingNote h2 em { color: #617b60; }
+.cards { position: relative; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); align-items: start; gap: 28px; max-width: 1180px; margin: -30px auto 0; padding-inline: 26px; }
+.card { position: relative; padding: 12px 12px 20px; background: #fffdf8; box-shadow: 0 8px 20px rgb(60 50 44 / 13%); transform: rotate(-1deg); }
+.card:nth-child(2) { transform: rotate(1deg) translateY(15px); }
+.card:nth-child(2)::before { background: #d9bd83; }
+.card:nth-child(3) { transform: rotate(-.5deg); }
+.card:nth-child(3)::before { background: #c3afcc; }
+.card figure { margin: 0; }
+.card img { display: block; width: 100%; aspect-ratio: 1.6; object-fit: cover; }
+.card figcaption { padding: 11px 3px 7px; font-family: "Soft Strange Hand", cursive; font-size: 18px; text-align: center; color: #52644e; }
+.copy { padding: 8px 9px 0; }
+.number { font-family: "Soft Strange Hand", cursive; font-size: 17px; color: #7b8b71; }
+.copy h3 { margin: 5px 0 9px; font-family: var(--serif); font-weight: 400; font-size: 25px; line-height: 1.15; }
+.copy p { font-size: 13px; line-height: 1.65; }
+.copy a { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; margin-top: 10px; font-size: 12px; text-decoration: underline; text-underline-offset: 5px; }
+@media (max-width: 1000px) and (min-width: 761px) {
+  .cards { gap: 16px; padding-inline: 12px; }
+  .copy { padding-inline: 2px; }
+  .copy h3 { font-size: 22px; }
+  .card figcaption { font-size: 16px; }
+}
+@media (max-width: 760px) {
+  .section { margin-inline: 7px; padding-bottom: 24px; }
+  .landscape { min-height: 270px; padding: 65px 13px 50px; border-width: 5px; }
+  .headingNote { padding: 19px 14px; }
+  .headingNote h2 { font-size: clamp(24px, 6vw, 30px); }
+  .cards { grid-template-columns: minmax(0, 1fr); max-width: 450px; gap: 26px; padding-inline: 16px; margin-top: -20px; }
+  .card:nth-child(2) { transform: rotate(.7deg); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .headingNote, .card, .card:nth-child(2), .card:nth-child(3) { transform: none; }
+}

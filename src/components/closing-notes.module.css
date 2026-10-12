@@ -1,0 +1,73 @@
+.closing, .footer {
+  position: relative;
+  isolation: isolate;
+  border: 8px solid #fffaf0;
+  margin-inline: 14px;
+  background: #a6b5a1;
+}
+.closing { padding: 64px 24px 48px; }
+.footer { padding: 48px clamp(20px, 5vw, 72px) 28px; margin: 0; border: 0; border-top: 6px solid #a6b5a1; }
+.invitation, .cards > div {
+  position: relative;
+  background-color: var(--paper, #fff8e5);
+  background-image: repeating-linear-gradient(to bottom, transparent 0 27px, rgb(93 117 99 / 12%) 27px 28px), url("/AngelsBakery/images/brand/soft-strange-grain.svg");
+  background-size: auto, 320px;
+  border: 8px solid #fffdf5;
+  border-bottom-width: 16px;
+  box-shadow: 0 8px 20px rgb(35 43 30 / 22%);
+  color: #42513e;
+}
+.invitation::before, .cards > div::before {
+  content: "";
+  position: absolute;
+  top: -17px;
+  left: calc(50% - 32px);
+  width: 64px;
+  height: 20px;
+  background: rgb(169 189 166 / 90%);
+  transform: rotate(-3deg);
+}
+.invitation {
+  --paper: #f8e4dc;
+  width: min(100%, 760px);
+  margin-inline: auto;
+  padding: 28px 24px;
+  text-align: center;
+  transform: rotate(-.6deg);
+}
+.invitation h2 { font-family: var(--serif); font-weight: 400; letter-spacing: -.035em; margin: 14px 0 22px; font-size: clamp(28px, 3.2vw, 43px); line-height: 1.18; }
+.invitation :global(.eyebrow) { font-family: "Soft Strange Hand", cursive; font-size: 15px; letter-spacing: .08em; }
+.cards { position: relative; display: grid; grid-template-columns: 1.1fr 1fr 1fr; gap: 28px; max-width: 1040px; margin: 0 auto 28px; align-items: start; }
+.cards > div { min-width: 0; padding: 18px 22px; border-width: 4px; border-bottom-width: 8px; box-shadow: 0 4px 10px rgb(35 43 30 / 14%); transform: rotate(-.4deg); }
+.cards > div:nth-child(2) { --paper: #edf0e4; transform: rotate(.3deg); }
+.cards > div:nth-child(3) { --paper: #fff2cf; transform: rotate(-.2deg); }
+.cards > div:nth-child(3)::before { background: rgb(181 161 194 / 85%); }
+.cards p { font-size: 13px; line-height: 28px; }
+.cards :global(.eyebrow) { font-family: "Soft Strange Hand", cursive; font-size: 17px; letter-spacing: .035em; margin-bottom: 12px; }
+.cards a:not(.wordmark) { display: flex; gap: 10px; align-items: center; min-height: 44px; font-size: 13px; text-decoration: underline; text-underline-offset: 4px; }
+.cards a:hover { color: #263924; }
+.wordmark { display: flex; flex-direction: column; align-items: center; letter-spacing: normal; color: #42513e; width: max-content; max-width: 100%; margin-bottom: 16px; }
+.wordmark :global(.brand-script) { font-size: 28px; font-family: "Soft Strange Hand", cursive; font-weight: 400; letter-spacing: .015em; line-height: 1.1; white-space: nowrap; }
+.wordmark :global(.brand-kicker) { font-size: 9px; letter-spacing: .35em; margin-top: 8px; }
+.finePrint { position: relative; max-width: 1040px; margin: auto; padding: 14px 20px; background: #eef0e5; color: #42513e; border-top: 1px solid #c5cdbd; box-shadow: 0 3px 10px rgb(35 43 30 / 10%); }
+.bottom { display: flex; flex-wrap: wrap; gap: 8px 24px; align-items: center; justify-content: space-between; font-size: 11px; }
+.bottom span:nth-child(2) { display: flex; align-items: center; gap: 6px; }
+.bottom a { padding-block: 10px; text-decoration: underline; text-underline-offset: 3px; }
+.disclosure { margin-top: 10px; padding-top: 12px; border-top: 1px solid #c5cdbd; font-size: 11px; line-height: 1.7; }
+@media (max-width: 900px) {
+  .cards { gap: 18px; }
+  .cards > div { padding: 18px 14px; }
+}
+@media (max-width: 760px) {
+  .closing { margin-inline: 7px; border-width: 5px; }
+  .closing { padding: 48px 16px 32px; }
+  .invitation { padding: 22px 12px; }
+  .invitation h2 { font-size: 29px; }
+  .footer { padding: 36px 24px 22px; }
+  .cards { grid-template-columns: 1fr; gap: 28px; max-width: 440px; }
+  .cards > div { padding: 18px; width: 100%; }
+  .bottom { flex-direction: column; align-items: flex-start; gap: 6px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .invitation, .cards > div, .cards > div:nth-child(2), .cards > div:nth-child(3) { transform: none; }
+}

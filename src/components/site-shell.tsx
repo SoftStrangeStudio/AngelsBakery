@@ -2,6 +2,9 @@ import Link from "next/link";
 import { ArrowUpRight, Heart, Sparkles } from "lucide-react";
 import { orderingEnabled } from "@/lib/config";
 import { HeaderCartLink } from "@/components/header-cart-link";
+import { ScenicBackdrop } from "@/components/scenic-backdrop";
+import styles from "./closing-notes.module.css";
+
 export function Header() {
   return (
     <>
@@ -25,10 +28,11 @@ export function Header() {
 }
 export function Footer() {
   return (
-    <footer className="footer">
-      <div className="footer-top">
+    <footer className={styles.footer}>
+      <ScenicBackdrop cover photo="orchard.webp" />
+      <div className={styles.cards}>
         <div>
-          <Link href="/" className="wordmark footer-wordmark">
+          <Link href="/" className={`wordmark ${styles.wordmark}`}>
             <span className="brand-script">Soft Strange</span>
             <span className="brand-kicker">BAKERY</span>
           </Link>
@@ -45,14 +49,16 @@ export function Footer() {
           <Link href="/contact/">Let’s talk treats <ArrowUpRight size={14} /></Link>
         </div>
       </div>
-      <div className="footer-bottom">
-        <span>© {new Date().getFullYear()} Soft Strange Bakery</span>
-        <span>Made with a little extra <Heart size={13} aria-label="love" /></span>
-        <Link href="/privacy/">Privacy & your information</Link>
+      <div className={styles.finePrint}>
+        <div className={styles.bottom}>
+          <span>© {new Date().getFullYear()} Soft Strange Bakery</span>
+          <span>Made with a little extra <Heart size={13} aria-label="love" /></span>
+          <Link href="/privacy/">Privacy & your information</Link>
+        </div>
+        {!orderingEnabled && (
+          <p className={styles.disclosure}>Saturday menu confirmed · Prices, ingredients, pickup location and reservations are still being finalized · Editorial imagery is not photography of the bakery’s actual products.</p>
+        )}
       </div>
-      {!orderingEnabled && (
-        <p className="preview-footnote">Saturday menu confirmed · Prices, ingredients, pickup location and reservations are still being finalized · Editorial imagery is not photography of the bakery’s actual products.</p>
-      )}
     </footer>
   );
 }

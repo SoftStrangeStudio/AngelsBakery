@@ -15,7 +15,7 @@
 | AB-004 | Typed catalog, cart, customer, pickup, request, receipt    | 003        | Implemented                       | Review approved catalog                                  |
 | AB-005 | Clearly labeled pre-launch catalog                         | 004        | Implemented                       | Approve real products                                    |
 | AB-006 | Catalog service owns lookup source                         | 005        | Implemented                       | Keep fixtures distinct from approved live prices         |
-| AB-007 | Outdoor-photo homepage and editorial product gallery       | 006        | Current five-step carousel rethink and final multi-size review complete locally; owner review and actual bakery photos pending | Incorporate owner feedback; replace concepts when originals are supplied |
+| AB-007 | Outdoor-photo homepage and editorial product gallery       | 006        | Complete locally: seven still Polaroid cards, Gilsum scroll bands, five-size screenshot comparison | Incorporate owner feedback; replace concepts when originals are supplied |
 | AB-008 | Menu filters, search, empty state                          | 006        | Implemented; phone keyboard and live result status checked | Verify on approved deployed revision                     |
 | AB-009 | Static product routes and allergen caution                 | 006        | Implemented                       | Approve recipes before ordering launch                   |
 | AB-010 | Persist sanitized product selections only                  | 004        | Implemented; storage and keyboard quantities browser-checked | Keep personal details out of persisted state             |
@@ -30,10 +30,10 @@
 | AB-019 | Adapter never accepts opaque response as success           | 016,018    | Implemented                       | Real-browser CORS test                                   |
 | AB-020 | Lint, typecheck, tests, build in CI                        | 001        | `de6f061` passed GitHub Actions; all newer local commits passed `npm run check` | Run CI on the approved source delivery |
 | AB-021 | Static export and project base path validation                | 002,020    | Local export verified; public host not approved | Owner selects an assessed host; then verify its `/AngelsBakery/` path mapping |
-| AB-022 | Photo rotation, gallery, responsive / reduced motion       | 007        | Implemented; latest carousel and hero-note fit verified at five viewport sizes locally | Verify on approved current-source deployment             |
+| AB-022 | Still photos, landscape scroll, responsive / reduced motion       | 007        | Complete locally: five viewport sizes fit; both landscape bands scroll and become still with reduced motion | Verify on approved current-source deployment             |
 | AB-023 | Actual website journey / negative cases verified           | 008–015    | Local journeys, all 17 base-path routes, and exported unknown-route recovery reverified; public Pages auto-deployed an unapproved root export | Resolve Pages configuration; then verify on an approved host |
 | AB-024 | Real order reaches private Sheet exactly once              | 017–019    | Blocked: configuration / approval | Deploy Google service, approve menu, verify test request |
-| AB-025 | Main-branch handoff / operational docs                     | All        | Latest carousel, retention gate, mobile fit, hero fit and root export are committed locally, ahead of `origin/main`; Pages auto-published an unapproved snapshot | Resolve Pages configuration and host choice before source delivery |
+| AB-025 | Main-branch handoff / operational docs                     | All        | Prior main delivery reached `7ae5f04`; current still-photo redesign is uncommitted and local only | Review the local photo redesign; current instruction explicitly excludes commit/push/deploy |
 
 ## Redesign delivery — 2026-09-23
 
@@ -248,3 +248,63 @@
 - `npm run check` passed: lint, typecheck, 20 tests, static build/export verification and 18 image decodes. Local root export refreshed; no push/deploy. The later bullets in this entry close the carousel rethink locally.
 - Pass 2 refined the selected-name note with an uneven paper shape and irregular selector marks; Pass 3 gave arrows and corner actions a slight hand-set angle. Final browser review at 1536×900, 1280×720, 768×1024, 390×844 and 320×568 found no overflow. Reduced-motion Next still works at 320px with a 0s transition. `npm run check` passed after styling and the root export is refreshed locally. Final screenshot set is under `output/playwright/soft-strange-bakery/`; this carousel rethink is complete locally, not deployed.
 - Shared-carousel follow-up: checked `/menu/` at 1280×720 and 390×844, then corrected its 320px category filters to a balanced two-by-two layout. At 320×568 all filters fit above the fold; Muffins selection returned two cards and the document remained 320px wide. Full `npm run check` passed; root export refreshed locally.
+
+
+## Still photos and Gilsum framing — 2026-10-12
+
+- AB-007 / AB-022 complete locally: removed the shared carousel, controls, view-model, its three obsolete tests and 195 unused hero/carousel CSS rules (including an earlier unused hero implementation). Home keeps the seven existing Polaroid cards, exact copy and product order; the menu shares the simplified scenic hero. Hero and scenery styling now use small component CSS modules.
+- The owner-provided `yard-morning.jpg` frames the photo collection above and below. Existing Parallax supplies bounded page-scroll movement, with both bands reporting `transform: none` under reduced motion. No timed slideshow remains. Provenance was updated in `docs/assets.md`; existing product-image disclosures remain visible.
+- Before/after full-page screenshots: `output/playwright/bakery-still-{before,final}-{desktop,window,tablet,phone,small-phone}.png`. Viewport frames: `bakery-still-final-frame-*.png`. Compared 1536×900, 1280×720, 768×1024, 390×844 and 320×568; each document width equals its viewport, all seven photos remain, and no broken loaded images were found.
+- Comparison loop refinements: shifted the initial dark landscape crop toward the horizon, shortened compact-window bands, and tightened short-phone spacing. The first card begins at y=480 in 1280×720 and y=512 in 320×568 (initial new phone pass: y=569). Corrected the existing wordmark hover color after the browser interaction exposed low contrast on sage.
+- Direct browser checks: Muffins filter returns 2, an unmatched search returns 0, clearing it restores 7. A product link opens its detail page; adding one item opens the preview box with the existing no-order/no-payment notice. Removed the sample item afterward. No personal details or real order were submitted.
+- Validation: `npm run check` passes lint, typecheck, 17 retained business/service tests, production build, base-path/noindex checks across 20 HTML exports and decoding of 9 referenced images. The count dropped from 20 tests because only the three deleted carousel tests were removed. `git diff --check` passes; no runtime errors in the current browser navigation log.
+- Delivery: localhost:3001 remains available. No commit, push, deployment, or checked-in root-export refresh was performed; the new build exists in local ignored `out/`. Browser viewport is restored to 1280×720 on the homepage. Intent, thoughts, current-state notes and repository memory reflect this direction.
+
+
+### AB-007 / AB-022 follow-up — landscape note overlay
+
+- Extended the upper Gilsum photograph and overlaid one taped note containing “THIS SATURDAY,” the original headline and all four existing bake-sale details. Removed the separate facts ribbon and its obsolete CSS. The shared menu hero and lower photo band retain their existing sizing.
+- Screenshot review at 1280×720, 768×1024, 390×844 and 320×568 found no horizontal overflow or clipped card text; desktop capture at 1536×900 is also saved. Evidence: `output/playwright/bakery-overlay-{desktop,window,tablet,phone,small-phone}.png`.
+- `npm run check` passed: lint/typecheck, 17 tests, production build, 20 exported HTML base-path/noindex checks and 9 decoded images. No commit, push or deployment.
+
+
+### AB-007 / AB-022 follow-up — lower Saturday scrapbook section
+
+- User clarified the target with a screenshot: lower “Your treat. Your Saturday” section. Restored the opening hero to its previously accepted overlay note.
+- Extracted `SaturdaySection` and scoped CSS. The old narrow lower landscape and icon-only steps are replaced by a taller Gilsum photograph, taped heading note and three Polaroid cards using existing cookie, Gilsum and muffin imagery. Original step copy remains; added captions and direct menu/pickup links.
+- Screenshots: `output/playwright/bakery-saturday-notes-{desktop,window,tablet,phone,small-phone}.png`; reviewed 1536×900, 1280×720, 768×1024, 390×844 and 320×568. Document widths equal viewport widths and all three cards render. Scenery transform is none under reduced motion. Phone evidence uses viewport captures to avoid the browser's offscreen fixed-element artifact in tall element screenshots.
+- `npm run check` passed (17 tests, production build, 20 HTML exports, 9 decoded image assets). `git diff --check` passes. No commit, push or deployment.
+
+
+### AB-007 / AB-022 follow-up — smaller ruled opening notes
+
+- Matched the latest supplied three-note opening reference, reduced note size and added faint sage rules in the scoped hero CSS. Existing copy and menu/pickup destinations retained; lower Saturday component unchanged.
+- Screenshot evidence: `output/playwright/bakery-lined-{desktop,window,tablet,phone,small-phone}.png`; desktop and phone reviewed, five viewport widths checked. Local only.
+- Validation: `npm run check` passed (17 tests, static build, 20 HTML exports, 9 decoded images); all five document widths match their viewports.
+
+
+### AB-007 / AB-022 follow-up — layered closing invitation and footer
+
+- Added scoped ClosingNote and closing-notes CSS; adapted shared Footer to three taped ruled cards. ScenicBackdrop accepts the existing orchard image; provenance recorded. All original footer destinations, disclosure and ordering conditions retained.
+- Screenshot comparison: `output/playwright/bakery-footer-before.png`, `bakery-footer-{desktop,window,tablet,phone,small-phone}.png` and `bakery-footer-links-*`. First narrow-screen pass found a wordmark-width issue; fixed it before final capture. Local only, no commit/push/deployment.
+- Final validation: `npm run check` passed (17 tests, production static build, 20 HTML export checks, 9 decoded images). Five homepage viewport widths match; shared menu also fits at 320px. Reduced-motion scenery transform is none; all six footer links retain the base path. `git diff --check` passed.
+
+
+### AB-007 / AB-022 follow-up — reveal scenery around opening notes
+
+- Scoped hero CSS only: narrower desktop group, capped introduction width, smaller supporting cards staggered right/left when stacked. Copy and behavior unchanged.
+- Compared 1536, 1280, 768, 600, 390 and 320px widths; all document widths match the viewport. Screens: `output/playwright/bakery-narrow-*.png`. Local only.
+- `npm run check` and `git diff --check` passed.
+
+
+### AB-007 / AB-022 follow-up — complete, quieter footer
+
+- Full-width scenic footer with compact content-height cards, lighter borders/shadows and a single quiet sage fine-print panel. Preserved all six navigation links and conditional order/image disclosure.
+- Captured `output/playwright/bakery-quiet-footer-{desktop,window,tablet,phone,small-phone}.png`; all five viewport widths match document widths. Local only.
+- `npm run check` passed (17 tests, build/export and image verification); `git diff --check` passed.
+
+
+### Pages publication — 2026-10-12
+
+User authorized committing/pushing the completed redesign to main and publishing on Pages. Updated the root-export guard from the removed carousel to the retained product grid. Screenshot output remains local.
+- Full check passed. Publishing also needed the current Next static RSC `__next._index.txt` added to its explicit generated-file allowlist; reviewed that output before permitting it.

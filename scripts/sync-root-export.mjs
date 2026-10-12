@@ -4,13 +4,13 @@ import { execFileSync } from "node:child_process";
 // Only these generated locations may be replaced. Source/docs are never targets.
 const generated = [".nojekyll", "404.html", "404", "_not-found", "_next", "icon.svg",
   "about", "contact", "faq", "fonts", "images", "menu", "order", "pickup", "privacy",
-  "index.html", "index.txt", "__next.__PAGE__.txt", "__next._full.txt", "__next._tree.txt"];
+  "index.html", "index.txt", "__next.__PAGE__.txt", "__next._full.txt", "__next._index.txt", "__next._tree.txt"];
 const entries = await readdir("out");
 for (const name of entries) {
   if (!generated.includes(name)) throw new Error(`Unreviewed export path: ${name}`);
 }
 for (const route of ["index.html", "menu/index.html"]) {
-  if (!(await readFile(`out/${route}`, "utf8")).includes("arc-carousel")) {
+  if (!(await readFile(`out/${route}`, "utf8")).includes('class="product-grid')) {
     throw new Error(`Missing bakery gallery in ${route}`);
   }
 }

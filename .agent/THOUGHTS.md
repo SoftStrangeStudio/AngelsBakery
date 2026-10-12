@@ -303,3 +303,44 @@ Keep the seven bakes and the familiar controls, but let the opening feel like so
 - Pass 3 loosened the arrow and corner-action alignment to echo the handmade collage without changing labels or actions. Final review covered 1536×900, 1280×720, 768×1024, 390×844 and 320×568; page width matched each viewport. At 320px with reduced motion, Next changed the bake and transition duration stayed at 0s. `npm run check` passed after the styling pass, the root export was refreshed locally, and localhost:3001 returned 200.
 - Final captures: `output/playwright/soft-strange-bakery/soft-strange-bakery-carousel-final-wide-1536x900.png`, `output/playwright/soft-strange-bakery/soft-strange-bakery-carousel-final-window-1280x720.png`, `output/playwright/soft-strange-bakery/soft-strange-bakery-carousel-final-tablet-768x1024.png`, `output/playwright/soft-strange-bakery/soft-strange-bakery-carousel-final-mobile-390x844.png`, and `output/playwright/soft-strange-bakery/soft-strange-bakery-carousel-final-small-mobile-320x568.png`.
 - Keyboard ArrowRight moved to Peanut Butter Cookies while paused. The image viewer focused Close; Escape closed it and restored focus to that bake’s picture button.
+
+
+## 2026-10-12 — Still Polaroids and Gilsum framing
+
+The user explicitly asked to remove the carousel entirely, keep the existing cozy paper/soft-green/handmade Polaroid presentation, and focus on the included bakery photos. Gilsum scenery should frame the main photos above and below with gentle scroll movement. Keep wording, routes, business details, image provenance, ordering safeguards and reduced motion. Inspect first, capture baseline screenshots, compare desktop/window/tablet/phone renders iteratively, clean up the homepage implementation, run `npm run check`, and leave everything local without commit, push or deployment.
+
+Interpretation: retain the seven existing taped product cards as the main photo collection; do not duplicate them in a new hero gallery. Reuse the owner-provided yard-morning landscape in two decorative bands. Motion follows page scrolling via the existing Parallax component; there is no timer or photo rotation. The shared menu hero also becomes a simple scenic strip so carousel code can be removed completely.
+
+Comparison pass: captured five full-page baselines before editing. The first new desktop crop emphasized dark trees; adjusted the crop toward the horizon and reduced compact-window band height to preserve the first-fold balance. Full evidence and completion status live in the task tracker.
+
+Final review: the seven original cards and lower-page copy remain visually familiar. Short-phone spacing brings the first photo into the 320×568 frame; wordmark hover remains readable. Five-size captures, movement/reduced-motion checks and the full check are recorded in the task tracker. Everything remains local.
+
+
+## Landscape and overlaid Saturday card — 2026-10-12
+
+User direction: extend the landscape further down, overlay the note card on the picture, and make “This Saturday” part of that card. Readback: combine the existing eyebrow, headline and Saturday details on one taped paper card over a deeper Gilsum photo. Preserve the seven product cards and lower landscape. Implemented with a cover option on ScenicBackdrop and normal-flow card sizing so longer phone text expands safely. The standalone facts ribbon and its unused styling are removed.
+
+
+## Saturday section clarification — 2026-10-12
+
+The user asked for more content, a taller photo at the top, different note cards and Polaroid styling, then identified the lower “Your treat. Your Saturday / Easy as one, two, three” section with a screenshot. This corrects the initial interpretation that they meant the homepage opening. Reverted the unreviewed opening redesign to the previously accepted single overlay note. Applied the new work only to the lower Saturday section: taller Gilsum photo, taped heading note and three Polaroid cards with existing product/landscape images, original step copy, handwritten captions and menu/pickup links.
+
+
+## Smaller ruled opening notes — 2026-10-12
+
+User supplied a three-card opening reference and requested slightly smaller cards with lines. The current source still held the single-note version; used the supplied screenshot as the latest visual authority, restored its three-note content using existing copy and menu/pickup routes, and reduced typography/padding with faint sage notebook rules. Lower Saturday section remains intact.
+
+
+## Layered closing invitation and footer — 2026-10-12
+
+The user wants the bottom of the site to carry the same cozy ruled-note and Polaroid feel, with another Gilsum photo behind overlapping cards. Selected existing owner-provided orchard.webp after reviewing it against sunset-wide.jpg. The invitation becomes a blush taped note; the footer uses cream, sage and yellow cards with original links, business copy, privacy link and imagery/order disclosure. Existing parallax/reduced-motion behavior is reused. First phone comparison caught wordmark intrinsic-width overflow; corrected the logo styling and grid minimum widths.
+
+
+## Reveal more scenery — 2026-10-12
+
+User said stacked opening notes hide too much and must not occupy the whole width. Narrowed the opening group on desktop; capped the stacked introduction and set supporting cards to narrower widths, alternating right/left placement to reveal the landscape. Kept copy and ruled-paper styling intact.
+
+
+## Complete, quieter footer — 2026-10-12
+
+User clarified that the footer should remain a full footer with non-intrusive information cards. Expanded the scenic footer to the page edges, made the three information cards smaller and content-height with lighter borders/shadows, and consolidated the two wide legal/disclosure strips into one subdued sage fine-print panel. All navigation and disclosure text remains.

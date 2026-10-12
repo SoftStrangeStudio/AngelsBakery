@@ -1,22 +1,29 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Heart, CalendarDays, ShoppingBag, Sparkles } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { catalogService } from "@/services/catalog-service";
-import { asset, sceneAsset } from "@/lib/config";
+import { sceneAsset } from "@/lib/config";
 import { ProductCard } from "@/components/product-card";
 import { Parallax } from "@/components/motion";
 import { BakeryHero } from "@/components/bakery-hero";
+import { ClosingNote } from "@/components/closing-note";
+import { SaturdaySection } from "@/components/saturday-section";
 
 export function HomeView() {
   return (
     <>
-      <BakeryHero title="Soft Strange Bakery Saturday bake sale" featureEyebrow="THIS SATURDAY" featureHeadline="Fresh from Angel’s oven." />
-      <aside className="ribbon" aria-label="Bake sale details">
-        <span className="ribbon-item"><span className="ribbon-label">Every Saturday</span><Sparkles aria-hidden="true" /></span>
-        <span className="ribbon-item"><span className="ribbon-label">4–7 PM</span><Sparkles aria-hidden="true" /></span>
-        <span className="ribbon-item"><span className="ribbon-label">Cookies · brownies · muffins</span><Sparkles aria-hidden="true" /></span>
-        <span className="ribbon-item"><span className="ribbon-label">Soft Strange Bakery</span></span>
-      </aside>
+      <BakeryHero title="Soft Strange Bakery Saturday bake sale" featureEyebrow="THIS SATURDAY" featureHeadline="Fresh from Angel’s oven." featureDescription="Soft Strange Bakery brings cookies, brownies and muffins together for a weekly Saturday bake sale.">
+        <article>
+          <h3>Every Saturday</h3>
+          <p>4–7 PM</p>
+          <Link href="/pickup/">Bake sale information <ArrowRight size={17} /></Link>
+        </article>
+        <article>
+          <h3>Cookies · brownies · muffins</h3>
+          <p>Seven bake-sale favorites.</p>
+          <Link href="/menu/">See Saturday’s menu <ArrowRight size={17} /></Link>
+        </article>
+      </BakeryHero>
       <section id="favorites" className="section favorites">
         <div className="section-heading">
           <Link className="text-link" href="/menu/">See the full Saturday menu <ArrowRight size={18} /></Link>
@@ -24,15 +31,7 @@ export function HomeView() {
         <p className="section-intro">Seven bake-sale favorites: cookies, brownies and muffins. Prices and reservations will be published after final approval.</p>
         <div className="product-grid">{catalogService.featured().map((p) => <ProductCard key={p.id} product={p} />)}</div>
       </section>
-      <section className="how-section section">
-        <div className="section-heading centered"><p className="eyebrow">SATURDAY, MADE SIMPLE.</p><h2>Your treat. Your Saturday.<br /><em>Easy as one, two, three.</em></h2></div>
-        <div className="steps">{[
-          { icon: ShoppingBag, title: "Pick your favorites", text: "See what Angel is baking for this Saturday’s sale." },
-          { icon: CalendarDays, title: "Come by Saturday", text: "The bake sale runs every Saturday from 4–7 PM. Location details are being finalized." },
-          { icon: Heart, title: "Take home something sweet", text: "Choose from cookies, brownies and muffins made for the weekly bake sale." },
-        ].map((s, i) => <div className="step" key={s.title}><span className="step-number">0{i + 1}</span><s.icon size={29} strokeWidth={1.2} /><h3>{s.title}</h3><p>{s.text}</p></div>)}</div>
-        <Link className="button secondary" href="/pickup/">Saturday bake sale information <ArrowRight size={17} /></Link>
-      </section>
+      <SaturdaySection />
       <section className="story-section section">
         <Parallax className="story-art">
           <div className="story-arch"><Image src={sceneAsset("brownies")} alt="Editorial image of Soft Strange Bakery brownies" width={1000} height={750} /></div>
@@ -47,13 +46,7 @@ export function HomeView() {
           <Link className="text-link" href="/about/">A little about Angel’s <ArrowRight size={18} /></Link>
         </div>
       </section>
-      <section className="sweet-banner">
-        <span className="banner-spark" aria-hidden="true">✳</span>
-        <p className="eyebrow">SATURDAY · 4–7 PM</p>
-        <h2>There’s a little happiness<br />waiting for <em>Saturday.</em></h2>
-        <Link className="button primary" href="/menu/">See Saturday’s menu <ArrowRight size={18} /></Link>
-        <Image className="banner-cookie" src={asset("products/chocolate-chip-cookies")} width={350} height={250} alt="" />
-      </section>
+      <ClosingNote />
     </>
   );
 }
