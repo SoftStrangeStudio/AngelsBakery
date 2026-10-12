@@ -59,10 +59,10 @@ Latest screenshot readback: the carousel is too orderly and makes the page feel 
 ## Five current visual passes
 
 1. **Opening — complete:** the existing Saturday headline leads a cropped landscape and loose three-treat collage; other bakes stay selectable, and the name marker is a small handwritten paper note.
-2. **Saturday facts — next:** compact, legible note-like grouping; retain every existing phrase.
-3. **Featured bakes:** soft, slightly varied paper-card rhythm, without changing product facts or claims.
-4. **Story pacing:** use present headings and paragraphs to create a personal journal cadence; no invented dates, posts or business details.
-5. **Responsive coherence:** carry the same paper and collage language across windowed desktop, tablet and phone while preserving accessibility, motion settings and touch targets.
+2. **Saturday facts — complete:** the existing four phrases are a compact, taped paper note with a named landmark; wording is unchanged.
+3. **Featured bakes — complete:** the existing taped cards have a subtle stagger on wide desktop while keeping their order, product details and smaller-screen layout.
+4. **Story pacing — complete:** Angel’s existing story sits on a lightly taped paper card; no dates, posts or business details were invented.
+5. **Responsive coherence — checked:** windowed desktop, tablet, phone and small-phone views fit; reduced-motion behavior and the carousel remain usable.
 
 ## Double-check record
 

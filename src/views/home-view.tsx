@@ -11,12 +11,12 @@ export function HomeView() {
   return (
     <>
       <BakeryHero title="Soft Strange Bakery Saturday bake sale" featureEyebrow="THIS SATURDAY" featureHeadline="Fresh from Angel’s oven." />
-      <div className="ribbon" aria-hidden="true">
-        <span className="ribbon-item"><span className="ribbon-label">Every Saturday</span><Sparkles /></span>
-        <span className="ribbon-item"><span className="ribbon-label">4–7 PM</span><Sparkles /></span>
-        <span className="ribbon-item"><span className="ribbon-label">Cookies · brownies · muffins</span><Sparkles /></span>
+      <aside className="ribbon" aria-label="Bake sale details">
+        <span className="ribbon-item"><span className="ribbon-label">Every Saturday</span><Sparkles aria-hidden="true" /></span>
+        <span className="ribbon-item"><span className="ribbon-label">4–7 PM</span><Sparkles aria-hidden="true" /></span>
+        <span className="ribbon-item"><span className="ribbon-label">Cookies · brownies · muffins</span><Sparkles aria-hidden="true" /></span>
         <span className="ribbon-item"><span className="ribbon-label">Soft Strange Bakery</span></span>
-      </div>
+      </aside>
       <section id="favorites" className="section favorites">
         <div className="section-heading">
           <Link className="text-link" href="/menu/">See the full Saturday menu <ArrowRight size={18} /></Link>

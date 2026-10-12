@@ -15,7 +15,7 @@
 | AB-004 | Typed catalog, cart, customer, pickup, request, receipt    | 003        | Implemented                       | Review approved catalog                                  |
 | AB-005 | Clearly labeled pre-launch catalog                         | 004        | Implemented                       | Approve real products                                    |
 | AB-006 | Catalog service owns lookup source                         | 005        | Implemented                       | Keep fixtures distinct from approved live prices         |
-| AB-007 | Outdoor-photo homepage and editorial product gallery       | 006        | Implemented; five-pass visual iteration underway; actual bakery photos pending | Finish passes 2–5; replace concepts when originals are supplied |
+| AB-007 | Outdoor-photo homepage and editorial product gallery       | 006        | Five visual passes reviewed locally; owner review and actual bakery photos pending | Incorporate owner feedback; replace concepts when originals are supplied |
 | AB-008 | Menu filters, search, empty state                          | 006        | Implemented; phone keyboard and live result status checked | Verify on approved deployed revision                     |
 | AB-009 | Static product routes and allergen caution                 | 006        | Implemented                       | Approve recipes before ordering launch                   |
 | AB-010 | Persist sanitized product selections only                  | 004        | Implemented; storage and keyboard quantities browser-checked | Keep personal details out of persisted state             |
@@ -28,12 +28,12 @@
 | AB-017 | Google order-sheet schema / setup function                 | 004        | Blocked: external setup           | Owner creates private Sheet and sets Script Property     |
 | AB-018 | Apps Script validation / locking / idempotency             | 016        | Implemented, undeployed           | Tests, owner deployment                                  |
 | AB-019 | Adapter never accepts opaque response as success           | 016,018    | Implemented                       | Real-browser CORS test                                   |
-| AB-020 | Lint, typecheck, tests, build in CI                        | 001        | Implemented                       | Verify repaired build on current `main`                  |
+| AB-020 | Lint, typecheck, tests, build in CI                        | 001        | Pushed `fc9b0cf` passed GitHub Actions; newer local styling is not pushed | Verify CI after next source delivery                     |
 | AB-021 | Static export and project base path validation                | 002,020    | Local export verified; public host not approved | Owner selects an assessed host; then verify its `/AngelsBakery/` path mapping |
 | AB-022 | Photo rotation, gallery, responsive / reduced motion       | 007        | Implemented; local route sweep checked | Verify on approved current-source deployment             |
 | AB-023 | Actual website journey / negative cases verified           | 008–015    | In progress                       | Fresh deployed desktop/mobile validation                 |
 | AB-024 | Real order reaches private Sheet exactly once              | 017–019    | Blocked: configuration / approval | Deploy Google service, approve menu, verify test request |
-| AB-025 | Main-branch handoff / operational docs                     | All        | In progress                       | Record validated delivery and remaining launch gates     |
+| AB-025 | Main-branch handoff / operational docs                     | All        | `fc9b0cf` delivered; visual follow-up remains local | Deliver the reviewed visual follow-up and record remaining launch gates |
 
 ## Redesign delivery — 2026-09-23
 
@@ -221,3 +221,10 @@
 - AB-022 fit follow-up: grouped the homepage’s four bake-sale ribbon phrases so they remain visible in narrow desktop and phone windows without changing copy. Screens at 320×568, 390×844, 1024×768, 1280×720 and 1560×900 all match viewport width; fresh captures are in `output/soft-strange-bakery-ribbon-*.png`. Full `npm run check` passed; local preview remains available on port 3001.
 - AB-023 local accessibility follow-up: the Saturday banner is now inside the page banner landmark. Axe reports zero WCAG 2.0/2.1 A/AA or best-practice violations on 10 main customer routes; reduced-motion carousel behavior remains usable on mobile. Manual assistive-technology review and deployed-host checks remain open; details are in `docs/validation.md`.
 - AB-023 narrow-route recheck: all 17 current customer routes loaded at `/AngelsBakery/` with a title, H1 and `noindex, nofollow`; each document remained exactly 320px wide at a 320px viewport. Deployed current-source validation remains open pending host approval.
+
+## Five-pass journal refinement — 2026-10-12
+
+- AB-007 / AB-022: completed the local visual passes. The Saturday facts now sit on a compact taped note; the featured cards have a restrained wide-desktop stagger; Angel’s unchanged story copy sits on a paper card. The carousel collage and all existing wording remain intact.
+- Responsive evidence at 1280×720, 768×1024, 390×844 and 320×568 showed exact viewport/document-width matches. `/menu/`, `/menu/snickerdoodles/` and `/order/` each rendered at 320px with the expected title, main landmark and H1.
+- `npm run publish:root` passed lint, typecheck, 19 existing tests, the static build/export verification for 20 HTML pages and 18 referenced-image decodes. The root export was refreshed. Reduced-motion review at 390×844 confirmed 0s scene/carousel transitions, no card/story transforms, and working carousel navigation.
+- GitHub Actions `Validate` passed for pushed `fc9b0cfdc67194492fc8c9f136624d0f5f1ccd82` (run [38213113701](https://github.com/SoftStrangeStudio/AngelsBakery/actions/runs/38213113701)). The five-pass local styling follow-up is not included in that commit and has not been pushed. No public deployment or live-order test occurred; AB-021/023/024/025 and owner/host approval gates remain open.

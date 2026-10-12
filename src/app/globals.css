@@ -2685,3 +2685,70 @@ body {
   .arc-carousel { --arc-size: 132px; height: 96px; }
   .arc-stage { inset: -38px 0 34px; }
 }
+
+/* Keep the Saturday facts close to the page, like a note tucked into a journal. */
+.ribbon {
+  width: fit-content;
+  max-width: min(calc(100% - 28px), 820px);
+  margin: 8px auto 12px;
+  padding: 10px 18px 11px;
+  border: 1px solid #e5d7bd;
+  border-radius: 3px;
+  background-color: #fff6dd;
+  box-shadow: 0 4px 9px rgb(62 52 38 / 9%);
+  transform: rotate(-0.25deg);
+}
+
+.ribbon::before {
+  position: absolute;
+  top: -5px;
+  left: 50%;
+  width: 58px;
+  height: 11px;
+  content: "";
+  background: rgb(169 189 166 / 76%);
+  box-shadow: 0 1px 2px rgb(52 57 43 / 10%);
+  transform: translateX(-50%) rotate(2deg);
+}
+
+@media (max-width: 760px) {
+  .ribbon { width: calc(100% - 28px); margin-block: 8px 10px; }
+}
+
+/* Let the featured bakes feel pinned in by hand instead of placed on a grid. */
+@media (min-width: 1000px) {
+  .favorites .product-card:nth-child(3n + 2) {
+    transform: rotate(-0.65deg) translateY(8px);
+  }
+
+  .favorites .product-card:nth-child(3n) {
+    transform: rotate(0.8deg) translateY(-4px);
+  }
+}
+
+/* Set the existing Angel story on a lightly taped-in page. */
+.story-copy {
+  position: relative;
+  padding: clamp(22px, 3vw, 38px);
+  border: 1px solid #e6dbc9;
+  background: #fffaf0 url("/AngelsBakery/images/brand/soft-strange-grain.svg") center / 320px;
+  box-shadow: 0 7px 17px rgb(62 52 38 / 8%);
+  transform: rotate(-0.35deg);
+}
+
+.story-copy::before {
+  position: absolute;
+  top: -6px;
+  left: 50%;
+  width: 54px;
+  height: 11px;
+  content: "";
+  background: rgb(190 165 198 / 75%);
+  box-shadow: 0 1px 2px rgb(52 57 43 / 10%);
+  transform: translateX(-50%) rotate(-2deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .favorites .product-card,
+  .story-copy { transform: none; }
+}

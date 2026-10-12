@@ -36,3 +36,11 @@
 - Defined five sequential visual passes and completed Pass 1: moved the existing Saturday heading into the opening, cropped the landscape, and replaced the symmetrical carousel row with a loose three-treat composition and small handwritten note. All seven bakes remain selectable and current copy is retained.
 - Reviewed 1146×741, 1280×720, 768×1024, 390×844 and 320×568; document and control widths fit. Reduced-motion interaction remained functional. `npm run check` passed.
 - Passes 2–5 cover the facts strip, featured-bake cards, story pacing and cross-screen coherence.
+
+## 2026-10-12 — Five-pass visual rethink continued
+
+- Replaced the full-width facts ribbon with a centered paper note, preserving all four phrases and exposing the note as a named complementary landmark.
+- Added a restrained desktop stagger to the featured bake cards and a taped-paper treatment around Angel’s existing story copy. No business wording or product facts changed.
+- Reviewed the homepage at 1280×720, 768×1024, 390×844 and 320×568; every document width matched its viewport. Menu, product detail and empty-order routes also rendered at 320px with a main landmark and H1.
+- Reduced-motion review at 390×844 confirmed zero scene/carousel transition duration, no card/story transforms, and working carousel Next.
+- `npm run publish:root` passed lint, typecheck, all 19 tests, export verification for 20 HTML pages, and 18 image decodes; the root export was refreshed. The pass-two-through-five edits remain local after pushed `fc9b0cf`; public host, business-content and order approvals remain open.
