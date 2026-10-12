@@ -43,4 +43,4 @@
 - Added a restrained desktop stagger to the featured bake cards and a taped-paper treatment around Angel’s existing story copy. No business wording or product facts changed.
 - Reviewed the homepage at 1280×720, 768×1024, 390×844 and 320×568; every document width matched its viewport. Menu, product detail and empty-order routes also rendered at 320px with a main landmark and H1.
 - Reduced-motion review at 390×844 confirmed zero scene/carousel transition duration, no card/story transforms, and working carousel Next.
-- `npm run publish:root` passed lint, typecheck, all 19 tests, export verification for 20 HTML pages, and 18 image decodes; the root export was refreshed. The pass-two-through-five edits remain local after pushed `fc9b0cf`; public host, business-content and order approvals remain open.
+- `npm run publish:root` passed lint, typecheck, all 19 tests, export verification for 20 HTML pages, and 18 image decodes; the root export was refreshed. The pass-two-through-five edits were delivered in `afde023`; its GitHub Actions validation passed. Public host, business-content and order approvals remain open.

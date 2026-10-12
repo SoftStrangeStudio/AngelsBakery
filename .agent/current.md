@@ -7,7 +7,7 @@
 - Pass 5 reviewed 1280×720, 768×1024, 390×844 and 320×568. Each page width matched its viewport; menu, a product detail and empty order also rendered at 320px with their main landmark and heading.
 - Under reduced motion at 390×844, carousel/scenic transitions are `0s`, story/card transforms are removed and Next still advances the carousel. `npm run publish:root` passed lint, typecheck, 19 tests, the 20-page export verifier, and 18 image decodes; the root export was refreshed. After documentation edits, `git diff --check` passes, `localhost:3001/AngelsBakery/` returns HTTP 200, and root `_next` assets match `out/_next`.
 - Screenshots: `output/soft-strange-bakery-pass4-journal-full-1280.png`, `output/soft-strange-bakery-pass5-reduced-motion-mobile-390x844.png`, and `output/soft-strange-bakery-pass2-final-{window,tablet,mobile,small-mobile}-*.png`.
-- The previous source delivery `fc9b0cf` is on `origin/main` and its GitHub Actions validation succeeded. These five-pass styling changes are newer local edits and have not been pushed. The approved-host, business-content, live-ordering and deployed-route gates remain open.
+- The five-pass styling changes are delivered in `afde023` on `origin/main`; GitHub Actions `Validate` succeeded for that commit (run 38214140151). The approved-host, business-content, live-ordering and deployed-route gates remain open.
 
 ## Five-pass visual rethink — Pass 1, hand-assembled opening — 2026-10-12
 

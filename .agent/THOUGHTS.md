@@ -210,7 +210,7 @@ Append each new user thought with its date, exact wording where practical, conte
 - Pass 2 turns the four existing Saturday phrases into one small taped note rather than another full-width banner. Its text is exposed to assistive technology as a named landmark.
 - Pass 3 gives the already taped featured cards a restrained stagger on wide desktop. Pass 4 puts Angel’s existing story copy on a paper card without inventing posts, dates or business details.
 - Pass 5 rechecked windowed desktop, tablet, regular phone and small phone widths; all document widths match their viewport. Reduced motion removes the new static tilts and keeps carousel Next working.
-- Fresh evidence: `output/soft-strange-bakery-pass4-journal-full-1280.png`, `output/soft-strange-bakery-pass5-reduced-motion-mobile-390x844.png`, and `output/soft-strange-bakery-pass2-final-{window,tablet,mobile,small-mobile}-*.png`. The full source/export check passed. These local edits are not part of pushed commit `fc9b0cf` yet.
+- Fresh evidence: `output/soft-strange-bakery-pass4-journal-full-1280.png`, `output/soft-strange-bakery-pass5-reduced-motion-mobile-390x844.png`, and `output/soft-strange-bakery-pass2-final-{window,tablet,mobile,small-mobile}-*.png`. The full source/export check passed. These refinements were delivered in `afde023`, whose GitHub Actions validation succeeded.
 
 ## 2026-10-12 — Attached window fit compared with the current preview
 
