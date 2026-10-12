@@ -1,4 +1,4 @@
-:HL["/AngelsBakery/_next/static/css/cdae3e6a70759dff.css","style"]
+:HL["/AngelsBakery/_next/static/css/0f7b58b40da21119.css","style"]
 2:[["children",{"s":"__PAGE__","h":160}]]
 1:[["children",{"s":{"n":"info","t":"d","k":"faq","s":["_not-found","_global-error","icon.svg","menu","order"]},"h":65632,"c":"$Q2"}]]
-0:{"b":"4SIQSnlMeTN0t5I0vXcvb","t":{"t":{"s":"","h":131152,"c":"$Q1"}}}
+0:{"b":"7YzI0HfqE--DSV45sQmmw","t":{"t":{"s":"","h":131152,"c":"$Q1"}}}

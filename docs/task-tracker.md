@@ -28,12 +28,12 @@
 | AB-017 | Google order-sheet schema / setup function                 | 004        | Blocked: external setup           | Owner creates private Sheet and sets Script Property     |
 | AB-018 | Apps Script validation / locking / idempotency             | 016        | Implemented, undeployed           | Tests, owner deployment                                  |
 | AB-019 | Adapter never accepts opaque response as success           | 016,018    | Implemented                       | Real-browser CORS test                                   |
-| AB-020 | Lint, typecheck, tests, build in CI                        | 001        | `de6f061` passed GitHub Actions; local commit `5e6066d` passed `npm run check` | Run CI on the approved source delivery |
+| AB-020 | Lint, typecheck, tests, build in CI                        | 001        | `de6f061` passed GitHub Actions; all newer local commits passed `npm run check` | Run CI on the approved source delivery |
 | AB-021 | Static export and project base path validation                | 002,020    | Local export verified; public host not approved | Owner selects an assessed host; then verify its `/AngelsBakery/` path mapping |
-| AB-022 | Photo rotation, gallery, responsive / reduced motion       | 007        | Implemented; latest carousel verified at five viewport sizes locally | Verify on approved current-source deployment             |
-| AB-023 | Actual website journey / negative cases verified           | 008–015    | Local journeys and all 17 base-path routes reverified; public Pages auto-deployed an unapproved root export | Resolve Pages configuration; then verify on an approved host |
+| AB-022 | Photo rotation, gallery, responsive / reduced motion       | 007        | Implemented; latest carousel and hero-note fit verified at five viewport sizes locally | Verify on approved current-source deployment             |
+| AB-023 | Actual website journey / negative cases verified           | 008–015    | Local journeys, all 17 base-path routes, and exported unknown-route recovery reverified; public Pages auto-deployed an unapproved root export | Resolve Pages configuration; then verify on an approved host |
 | AB-024 | Real order reaches private Sheet exactly once              | 017–019    | Blocked: configuration / approval | Deploy Google service, approve menu, verify test request |
-| AB-025 | Main-branch handoff / operational docs                     | All        | Latest carousel, retention gate, mobile fit and root export are committed locally in `5e6066d`, not on `origin/main`; Pages auto-published an unapproved snapshot | Resolve Pages configuration and host choice before source delivery |
+| AB-025 | Main-branch handoff / operational docs                     | All        | Latest carousel, retention gate, mobile fit, hero fit and root export are committed locally, ahead of `origin/main`; Pages auto-published an unapproved snapshot | Resolve Pages configuration and host choice before source delivery |
 
 ## Redesign delivery — 2026-09-23
 

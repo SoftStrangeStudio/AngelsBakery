@@ -141,5 +141,12 @@
 
 - At 390×844, the “Add to preview box” action now fits inside the first screen (y=767–820, leaving 24px at the bottom); at 320×568 the product route remains 320px wide without horizontal overflow. Screenshot: `output/playwright/soft-strange-bakery/soft-strange-bakery-product-mobile-390x844.png`.
 - `npm run check` passed with all 20 tests, the 20-page export and 18 image decodes; the root export was refreshed locally and localhost:3001 returned HTTP 200.
-- The user asked to push to `main`; the work is prepared in local commit `5e6066d`, while `origin/main` remains `de6f061`. A push would trigger GitHub Pages system publication even though the repo documents Pages as an unapproved host, so the remote push waits for the host decision.
+- The user asked to push to `main`; the work is committed locally ahead of `origin/main`, which remains `de6f061`. A push would trigger GitHub Pages system publication even though the repo documents Pages as an unapproved host, so the remote push waits for the host decision.
 - Re-requested all 17 customer routes on the current localhost:3001 preview; each returned HTTP 200 with a title, main landmark, H1 and noindex metadata. This does not validate the public Pages deployment.
+
+## Windowed hero note fit — 2026-10-12
+
+- The real 1280×720 in-app screenshot showed “THIS SATURDAY” crossing the scenic strip. Moved the note lower in the desktop/tablet hero and tuned its type for short windows; the short-height override remains separate, and mobile placement is unchanged.
+- At 1280×720, the strip ends y=193, the note begins y=206 and ends y=276 inside the hero ending y=286; the first card starts y≈482. At 768×1024 the note starts 26px below the strip. At 390×844 and 320×568 widths match the viewport; at 320px the first card starts y≈645.
+- The in-app viewport was reset to its original 630×886 size and the homepage remains open. `npm run check` passed (20 tests, 20 exported pages, 18 image decodes); the checked-in root export was refreshed, and all 17 customer routes still return HTTP 200 with noindex metadata.
+- Current root export was served through a temporary `/AngelsBakery/` mapper: all 17 pages returned 200, the current stylesheet returned 200 with the note rule, and an unknown product returned 404 with the custom recovery page/menu link. Port 3002 was stopped; port 3001 remains live. AB-023 still awaits approval and validation on the selected production host.

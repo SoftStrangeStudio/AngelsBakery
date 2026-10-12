@@ -459,3 +459,15 @@
 
 - Re-requested all 17 customer pages on the current localhost:3001 preview. Every `/AngelsBakery/` route returned HTTP 200 with a title, main landmark, H1 and `noindex, nofollow`.
 - This is current local runtime evidence only; the public host and deployed revision remain unapproved/unverified.
+
+## Windowed hero note fit — 2026-10-12
+
+- In the selected in-app browser at 1280×720, the scenic strip ends at y=193 and the handwritten note now starts at y=206; the note ends at y=276 inside the hero bottom at y=286. The first product card begins at y≈482 and the document remains 1280px wide.
+- At 768×1024, the note starts 26px below the scenic strip; document width remains 768px. At 390×844 and 320×568, the mobile composition and exact viewport widths remain intact (first product card begins at y≈645 at 320px).
+- The responsive viewport override was reset; the in-app preview returned to its original 630×886 homepage view.
+
+## Static export route and recovery check — 2026-10-12
+
+- Served the current checked-in root export through a temporary local mapper at `/AngelsBakery/`. All 17 customer routes returned HTTP 200 with a title, main landmark, H1 and `noindex, nofollow`; the current `0f7b58b40da21119.css` stylesheet returned HTTP 200 and contained the hero-note rule.
+- `/AngelsBakery/menu/not-a-bake/` returned HTTP 404 with the custom “This treat wandered off” recovery page and a “Back to the menu” link. The temporary port-3002 server was stopped; localhost:3001 remains HTTP 200.
+- This verifies the local static artifact only. The public Pages host remains unapproved and is not evidence of production deployment.
