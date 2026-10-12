@@ -4,7 +4,7 @@ This repository is Angel’s actual website implementation. The current deployme
 
 ## Before ordering launch
 
-- Select and approve a commercial host before any public bakery deployment. GitHub Pages is not an approved host for this customer-facing business site, and its deployment workflow has been removed from this checkout.
+- Select and approve a commercial host before any public bakery deployment. GitHub Pages is not an approved host for this customer-facing business site. Although the custom Pages workflow was removed from this checkout, repository settings triggered GitHub’s system `pages build and deployment` workflow on a push to `main` on October 12, 2026 (run [38215201236](https://github.com/SoftStrangeStudio/AngelsBakery/actions/runs/38215201236)). The URL currently displays Soft Strange Bakery from the root export in `de6f061`, but that public deployment is not approved. The workspace root export has been refreshed locally; do not push it until the Pages configuration and approved host are resolved.
 - Approve products, pricing, currency, imagery, ingredients and cross-contact information.
 - Publish approved contact details, pickup address/timezone, cutoff rules, cancellations and payment arrangements.
 - Publish privacy contact, retention period and deletion process.

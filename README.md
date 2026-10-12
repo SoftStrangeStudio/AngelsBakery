@@ -1,6 +1,6 @@
 # Soft Strange Bakery
 
-The customer-facing bakery site for Angel’s bake sale, built with Next.js, React, TypeScript and MVVM-style services. The existing public Pages URL is **https://softstrangestudio.github.io/AngelsBakery/**, but it still serves the September 23, 2026 “Angel’s Bakery” snapshot; the current Soft Strange Bakery source in this checkout has not been deployed. A read-only check on October 12, 2026 also found no `noindex` directive and a missing icon response on that older deployment. Do not treat that URL as verification of the current rebrand.
+The customer-facing bakery site for Angel’s bake sale, built with Next.js, React, TypeScript and MVVM-style services. The public Pages URL is **https://softstrangestudio.github.io/AngelsBakery/**. A push to `main` on October 12, 2026 triggered GitHub’s Pages system workflow, and the URL now displays Soft Strange Bakery. That deployment used the root export from commit `de6f061`, which does not include the latest short-window carousel CSS correction; the workspace now has a refreshed, uncommitted root export. This deployment was not approved and is not launch evidence; do not use it as the bakery’s public host.
 
 ## Run
 
@@ -19,7 +19,7 @@ This repository is the real Angel’s Bakery website implementation. The website
 
 Products, prices, pickup dates, ingredients, imagery and contact details that are still marked as sample or pending approval must remain clearly labeled until Angel approves them. The application never treats a preview interaction as a submitted order, and no payments are collected by this site.
 
-This repository contains the actual customer-facing bakery site. GitHub's current [Pages limits](https://docs.github.com/en/pages/getting-started-with-github-pages/github-pages-limits) do not allow free hosting for an online business or a site primarily facilitating commercial transactions. The Pages deployment workflow has been removed from this checkout; pushes to `main` run validation only. Choose and approve a suitable commercial host before public deployment. Real ordering remains disabled until its separate business and service approvals are complete.
+This repository contains the actual customer-facing bakery site. GitHub's current [Pages limits](https://docs.github.com/en/pages/getting-started-with-github-pages/github-pages-limits) do not allow free hosting for an online business or a site primarily facilitating commercial transactions. Although the custom Pages workflow was removed from this checkout, repository settings triggered GitHub’s `pages build and deployment` system workflow on the October 12 push. Confirm or disable that Pages configuration before any further push that should not republish the site. Choose and approve a suitable commercial host before public deployment. Real ordering remains disabled until its separate business and service approvals are complete.
 
 - [Architecture / MVVM](docs/architecture.md)
 - [Ordering flow](docs/ordering-flow.md)

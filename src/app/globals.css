@@ -2417,6 +2417,24 @@ body {
   }
 }
 
+@media (max-width: 760px) {
+  .product-page {
+    padding-top: 38px;
+  }
+
+  .product-page .back-link {
+    margin-bottom: 24px;
+  }
+
+  .product-page .product-detail {
+    gap: 24px;
+  }
+
+  .product-page .detail-art {
+    aspect-ratio: 1.45;
+  }
+}
+
 @media (max-width: 760px) and (max-height: 700px) {
   .immersive-hero {
     min-height: clamp(220px, 33svh, 240px);
@@ -2542,6 +2560,20 @@ body {
   border-top: 0;
 }
 
+.arc-carousel::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  top: 4px;
+  left: 41%;
+  width: min(57%, 660px);
+  height: 78%;
+  border-radius: 54% 38% 16% 26%;
+  background: #eadfc9;
+  opacity: .64;
+  transform: rotate(-2deg);
+}
+
 .arc-stage {
   inset: -46px 0 38px;
 }
@@ -2556,9 +2588,9 @@ body {
 }
 
 .arc-product[data-slot="-2"] { --hand-shift: -31vw; --hand-rise: 2px; --hand-tilt: -8deg; }
-.arc-product[data-slot="-1"] { left: 51%; --hand-shift: 0px; --hand-rise: 18px; --hand-tilt: -9deg; }
-.arc-product[data-slot="0"] { left: 69%; --hand-shift: 0px; --hand-rise: -14px; --hand-tilt: 4deg; }
-.arc-product[data-slot="1"] { left: 86%; --hand-shift: 0px; --hand-rise: 12px; --hand-tilt: -5deg; }
+.arc-product[data-slot="-1"] { left: 50%; --hand-shift: 0px; --hand-rise: 7px; --hand-tilt: -13deg; }
+.arc-product[data-slot="0"] { left: 68%; --hand-shift: 0px; --hand-rise: -24px; --hand-tilt: 6deg; }
+.arc-product[data-slot="1"] { left: 88%; --hand-shift: 0px; --hand-rise: 22px; --hand-tilt: -10deg; }
 .arc-product[data-slot="2"] { --hand-shift: 32vw; --hand-rise: -12px; --hand-tilt: 9deg; }
 .arc-product[data-slot="3"] { --hand-shift: 43vw; --hand-rise: 8px; --hand-tilt: -4deg; }
 
@@ -2568,12 +2600,23 @@ body {
 .arc-caption {
   min-width: 0;
   flex: 0 1 auto;
-  padding: 6px 13px 4px;
+  padding: 7px 13px 5px;
   border: 0;
-  border-radius: 2px 5px 3px 6px;
-  background: #fff3ce;
+  border-radius: 4px 2px 5px 3px / 3px 5px 2px 4px;
+  background: linear-gradient(165deg, #fff4d1, #ffefbd 72%, #faedc9);
   box-shadow: 1px 4px 8px rgb(73 60 44 / 11%);
-  transform: rotate(-1.8deg);
+  transform: rotate(-2.4deg);
+}
+
+.arc-caption::before {
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: 35%;
+  width: 34%;
+  height: 9px;
+  background: rgb(177 191 161 / 72%);
+  transform: rotate(3deg);
 }
 
 .arc-caption > p {
@@ -2596,8 +2639,16 @@ body {
 }
 
 .arc-dots button { width: 19px; height: 20px; }
+.arc-dots button:nth-child(2n) { transform: translateY(1px) rotate(4deg); }
+.arc-dots button:nth-child(3n) { width: 16px; transform: translateY(-1px) rotate(-7deg); }
+.arc-dots button:nth-child(4n) { width: 22px; transform: translateY(2px) rotate(5deg); }
 .arc-dots button::after { top: 8px; left: 7px; width: 5px; height: 4px; border-radius: 1px 2px; transform: rotate(-18deg); }
 .arc-dots button:nth-child(3n)::after { transform: rotate(22deg); }
+.arc-dots button[aria-pressed="true"]::after { width: 6px; height: 6px; top: 7px; left: 6px; border-radius: 2px 3px 1px; }
+.arc-controls > .arc-arrow:first-child { transform: translateY(2px) rotate(-7deg); }
+.arc-controls > .arc-arrow:last-child { transform: translateY(-2px) rotate(7deg); }
+.arc-motion { transform: rotate(-4deg); }
+.arc-scroll { transform: rotate(3deg); }
 .arc-motion { bottom: 7px; left: 18px; }
 .arc-scroll { bottom: 7px; right: 18px; }
 
@@ -2751,4 +2802,26 @@ body {
 @media (prefers-reduced-motion: reduce) {
   .favorites .product-card,
   .story-copy { transform: none; }
+}
+
+@media (max-width: 360px) {
+  .menu-page {
+    padding-top: 42px;
+  }
+
+  .menu-page .menu-tools {
+    margin-top: 22px;
+  }
+
+  .menu-tools .filters {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(84px, max-content));
+    justify-content: center;
+    gap: 4px 8px;
+  }
+
+  .menu-tools .filters button {
+    min-width: 84px;
+    padding: 8px;
+  }
 }

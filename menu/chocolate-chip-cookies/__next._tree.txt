@@ -1,5 +1,5 @@
-:HL["/AngelsBakery/_next/static/css/5e26c9450577a6e0.css","style"]
+:HL["/AngelsBakery/_next/static/css/cdae3e6a70759dff.css","style"]
 3:[["children",{"s":"__PAGE__","h":160}]]
 2:[["children",{"s":{"n":"product","t":"d","k":"chocolate-chip-cookies","s":[]},"h":65632,"c":"$Q3"}]]
 1:[["children",{"s":"menu","h":131168,"c":"$Q2"}]]
-0:{"b":"FQEt0yQic2IZ1-X0iEcL-","t":{"t":{"s":"","h":131152,"c":"$Q1"}}}
+0:{"b":"4SIQSnlMeTN0t5I0vXcvb","t":{"t":{"s":"","h":131152,"c":"$Q1"}}}

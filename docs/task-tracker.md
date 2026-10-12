@@ -15,7 +15,7 @@
 | AB-004 | Typed catalog, cart, customer, pickup, request, receipt    | 003        | Implemented                       | Review approved catalog                                  |
 | AB-005 | Clearly labeled pre-launch catalog                         | 004        | Implemented                       | Approve real products                                    |
 | AB-006 | Catalog service owns lookup source                         | 005        | Implemented                       | Keep fixtures distinct from approved live prices         |
-| AB-007 | Outdoor-photo homepage and editorial product gallery       | 006        | Five visual passes reviewed locally; owner review and actual bakery photos pending | Incorporate owner feedback; replace concepts when originals are supplied |
+| AB-007 | Outdoor-photo homepage and editorial product gallery       | 006        | Current five-step carousel rethink and final multi-size review complete locally; owner review and actual bakery photos pending | Incorporate owner feedback; replace concepts when originals are supplied |
 | AB-008 | Menu filters, search, empty state                          | 006        | Implemented; phone keyboard and live result status checked | Verify on approved deployed revision                     |
 | AB-009 | Static product routes and allergen caution                 | 006        | Implemented                       | Approve recipes before ordering launch                   |
 | AB-010 | Persist sanitized product selections only                  | 004        | Implemented; storage and keyboard quantities browser-checked | Keep personal details out of persisted state             |
@@ -28,12 +28,12 @@
 | AB-017 | Google order-sheet schema / setup function                 | 004        | Blocked: external setup           | Owner creates private Sheet and sets Script Property     |
 | AB-018 | Apps Script validation / locking / idempotency             | 016        | Implemented, undeployed           | Tests, owner deployment                                  |
 | AB-019 | Adapter never accepts opaque response as success           | 016,018    | Implemented                       | Real-browser CORS test                                   |
-| AB-020 | Lint, typecheck, tests, build in CI                        | 001        | `afde023` passed GitHub Actions validation | Verify CI after future source changes                    |
+| AB-020 | Lint, typecheck, tests, build in CI                        | 001        | `de6f061` passed GitHub Actions; local commit `5e6066d` passed `npm run check` | Run CI on the approved source delivery |
 | AB-021 | Static export and project base path validation                | 002,020    | Local export verified; public host not approved | Owner selects an assessed host; then verify its `/AngelsBakery/` path mapping |
-| AB-022 | Photo rotation, gallery, responsive / reduced motion       | 007        | Implemented; local route sweep checked | Verify on approved current-source deployment             |
-| AB-023 | Actual website journey / negative cases verified           | 008–015    | In progress                       | Fresh deployed desktop/mobile validation                 |
+| AB-022 | Photo rotation, gallery, responsive / reduced motion       | 007        | Implemented; latest carousel verified at five viewport sizes locally | Verify on approved current-source deployment             |
+| AB-023 | Actual website journey / negative cases verified           | 008–015    | Local journeys and all 17 base-path routes reverified; public Pages auto-deployed an unapproved root export | Resolve Pages configuration; then verify on an approved host |
 | AB-024 | Real order reaches private Sheet exactly once              | 017–019    | Blocked: configuration / approval | Deploy Google service, approve menu, verify test request |
-| AB-025 | Main-branch handoff / operational docs                     | All        | Five-pass follow-up delivered in `afde023`; launch gates remain | Approve a commercial host and business details; verify deployed journey |
+| AB-025 | Main-branch handoff / operational docs                     | All        | Latest carousel, retention gate, mobile fit and root export are committed locally in `5e6066d`, not on `origin/main`; Pages auto-published an unapproved snapshot | Resolve Pages configuration and host choice before source delivery |
 
 ## Redesign delivery — 2026-09-23
 
@@ -203,7 +203,7 @@
 
 ## Current-source readiness recheck — 2026-10-12
 
-- `npm run check` passed on the current local tree: lint, typecheck, 19 tests, 20 exported HTML files, base-path/metadata verification and 18 decoded images. GitHub Actions `Validate` passed for the five-pass source commit `afde023` (run [38214140151](https://github.com/SoftStrangeStudio/AngelsBakery/actions/runs/38214140151)) and its tracker follow-up `754c9a7` (run [38214268719](https://github.com/SoftStrangeStudio/AngelsBakery/actions/runs/38214268719)). A later short-window carousel fit correction is being delivered separately and needs its own CI run.
+- `npm run check` passed on the current local tree: lint, typecheck, 19 tests, 20 exported HTML files, base-path/metadata verification and 18 decoded images. GitHub Actions `Validate` passed for `afde023` (run [38214140151](https://github.com/SoftStrangeStudio/AngelsBakery/actions/runs/38214140151)), tracker follow-up `754c9a7` (run [38214268719](https://github.com/SoftStrangeStudio/AngelsBakery/actions/runs/38214268719)), and current pushed source `de6f061` (run [38215201521](https://github.com/SoftStrangeStudio/AngelsBakery/actions/runs/38215201521)). The latest local root export is refreshed but uncommitted while the Pages configuration awaits an owner decision.
 - Production dependency audit is clean. The full audit still reports five high-severity paths through dev-only `braces@3.0.3` in the Next ESLint toolchain; the current advisory lists no patched release. The suggested forced fix downgrades `eslint-config-next` to 14.2.35, so it was not applied. Full evidence is in `docs/validation.md`.
 - The post-build local preview returned HTTP 200 on port 3001; browser errors/warnings were zero and the 1280×720 page/strip widths both matched the viewport. Screenshot: `output/soft-strange-bakery-home-windowed-1280x720-post-check.png`.
 - Fresh direct browser requests to all 17 customer routes returned HTTP 200 with titles, H1s, `noindex, nofollow`, and base-prefixed assets. The 390×844 menu showed seven cards with no overflow. Reduced motion disabled the scenic/carousel animations while keeping Next navigation usable. Restored the normal-motion homepage at 1280×720 with an empty cart; details are in `docs/validation.md`.
@@ -228,3 +228,23 @@
 - Responsive evidence at 1280×720, 768×1024, 390×844 and 320×568 showed exact viewport/document-width matches. `/menu/`, `/menu/snickerdoodles/` and `/order/` each rendered at 320px with the expected title, main landmark and H1.
 - `npm run publish:root` passed lint, typecheck, 19 existing tests, the static build/export verification for 20 HTML pages and 18 referenced-image decodes. The root export was refreshed. Reduced-motion review at 390×844 confirmed 0s scene/carousel transitions, no card/story transforms, and working carousel navigation.
 - GitHub Actions `Validate` passed for pushed `afde023cae7accdcd709de32f9eed5444fdf6870` (run [38214140151](https://github.com/SoftStrangeStudio/AngelsBakery/actions/runs/38214140151)). No public deployment or live-order test occurred; AB-021/023/024 and owner/host approval gates remain open.
+- Current status — 2026-10-12: a later push triggered GitHub’s separate `pages build and deployment` system workflow (run [38215201236](https://github.com/SoftStrangeStudio/AngelsBakery/actions/runs/38215201236)). The public URL now displays Soft Strange Bakery, but that deployment used the root export from `de6f061` and omits the latest short-window carousel CSS correction. The workspace root export has since been refreshed locally and remains uncommitted. The public deployment was not approved; the Pages configuration needs an owner decision before any further publishing push.
+
+## Server ordering retention gate — 2026-10-12
+
+- The Apps Script server now fails closed unless `retentionDays` is a positive whole number. Added existing-harness cases for missing, zero, negative, fractional, and non-numeric values; the process still requires manual record-retention handling and does not delete customer data automatically.
+- `npm run check` passed (lint, typecheck, 20 tests, production build, 20-page export verification, 18 image decodes). Root export refreshed and port 3001 returned HTTP 200. Local-only; not pushed because the Pages deployment setting is unresolved.
+
+## Product page phone fit — 2026-10-12
+
+- The product preview-box action now fits inside the 390×844 first screen; the 320px layout remains overflow-free. Full `npm run check` passed and the repository-root export was refreshed.
+- Local screenshot: `output/playwright/soft-strange-bakery/soft-strange-bakery-product-mobile-390x844.png`. No push was made because it would trigger the unresolved Pages deployment.
+
+## Carousel rethink — Pass 1 — 2026-10-12
+
+- User feedback: the carousel still feels too streamlined. Began a new five-step rethink; details and user-intent readback are in `.agent/INTENT.md` and `.agent/THOUGHTS.md`.
+- The carousel now opens paused, with rotation available by Play. A loose paper ground and more irregular pastry heights make the hero feel less like a timed storefront slider. All seven selection buttons, Previous/Next, swipe and keyboard remain available.
+- Rechecked 1280×720, 768×1024, 390×844 and 320×568; each document width matches its viewport. Next advanced at 320px; Play/Pause toggled; reduced-motion navigation worked with a 0s transition.
+- `npm run check` passed: lint, typecheck, 20 tests, static build/export verification and 18 image decodes. Local root export refreshed; no push/deploy. The later bullets in this entry close the carousel rethink locally.
+- Pass 2 refined the selected-name note with an uneven paper shape and irregular selector marks; Pass 3 gave arrows and corner actions a slight hand-set angle. Final browser review at 1536×900, 1280×720, 768×1024, 390×844 and 320×568 found no overflow. Reduced-motion Next still works at 320px with a 0s transition. `npm run check` passed after styling and the root export is refreshed locally. Final screenshot set is under `output/playwright/soft-strange-bakery/`; this carousel rethink is complete locally, not deployed.
+- Shared-carousel follow-up: checked `/menu/` at 1280×720 and 390×844, then corrected its 320px category filters to a balanced two-by-two layout. At 320×568 all filters fit above the fold; Muffins selection returned two cards and the document remained 320px wide. Full `npm run check` passed; root export refreshed locally.

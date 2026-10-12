@@ -55,12 +55,15 @@ function config_() {
   const c = Object.fromEntries(
     rows_("Settings").map((r) => [String(r[0]), String(r[1])]),
   );
+  const retentionDays = Number(c.retentionDays);
   if (
     c.orderingEnabled !== "true" ||
     !c.pickupLocation ||
     !c.timezone ||
     c.menuApproved !== "true" ||
-    c.privacyApproved !== "true"
+    c.privacyApproved !== "true" ||
+    !Number.isSafeInteger(retentionDays) ||
+    retentionDays < 1
   )
     throw new Error("NOT_OPEN");
   return c;

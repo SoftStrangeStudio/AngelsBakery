@@ -20,7 +20,9 @@ const subscribeMotion = (notify: () => void) => {
 export function usePastryCarouselViewModel(products: Product[]) {
   const [position, setPosition] = useState(0);
   const activeIndex = wrapIndex(position, products.length);
-  const [paused, setPaused] = useState(false);
+  // Treat the pastry display like a page in a baking journal: people turn it
+  // deliberately, with rotation available only when they ask for it.
+  const [paused, setPaused] = useState(true);
   const [hovered, setHovered] = useState(false);
   const [viewerOpen, setViewerOpen] = useState(false);
   const reducedMotion = useSyncExternalStore(subscribeMotion,

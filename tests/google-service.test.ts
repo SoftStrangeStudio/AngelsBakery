@@ -47,6 +47,7 @@ function harness(capacity = 2) {
       ["privacyApproved", "true"],
       ["pickupLocation", "Test pickup"],
       ["timezone", "Etc/UTC"],
+      ["retentionDays", "90"],
     ],
   };
   let locked = false;
@@ -183,6 +184,16 @@ test("server closed gate rejects even if client is enabled", () => {
   h.data.Settings[1][1] = "false";
   assert.equal(h.submit(h.payload()).code, "NOT_OPEN");
   assert.equal(h.data.Orders.length, 1);
+});
+test("server stays closed until a positive whole-day retention period is configured", () => {
+  for (const retentionDays of ["", "0", "-1", "1.5", "not-a-number"]) {
+    const h = harness();
+    const setting = h.data.Settings.find((row) => row[0] === "retentionDays");
+    assert.ok(setting);
+    setting[1] = retentionDays;
+    assert.equal(h.submit(h.payload()).code, "NOT_OPEN");
+    assert.equal(h.data.Orders.length, 1);
+  }
 });
 test("per-email rate limit bounds abuse", () => {
   const h = harness(10);

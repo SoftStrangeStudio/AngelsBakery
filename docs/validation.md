@@ -397,3 +397,65 @@
 - A fresh 1280×720 browser capture showed the short-window pastry cutouts clipped by the top of the framed hero. Reduced cutout scale only at short desktop heights and lowered the stage within the same compact hero. The selected cutout now stays inside the hero (measured y=121 to 278 within hero y=112 to 286); the Saturday menu still begins in the first screen.
 - Browser layout widths matched 1280, 768, 390 and 320 CSS-pixel viewports. Shared a refreshed 1280×720 frame and a native 390×844 frame in the conversation. The mobile rules were unchanged.
 - `npm run check` passed after the source change: lint, typecheck, 19 tests, 20 exported HTML pages and 18 image decodes. This check does not establish deployed behavior or business approval.
+
+## Automatic Pages deployment observed — 2026-10-12
+
+- Pushing `de6f061241e81e44e2bd17c5e8fc79524736f2fc` triggered GitHub's `pages build and deployment` system workflow. Its `deploy` job completed successfully in run [38215201236](https://github.com/SoftStrangeStudio/AngelsBakery/actions/runs/38215201236); the separate `Validate` workflow also passed in run [38215201521](https://github.com/SoftStrangeStudio/AngelsBakery/actions/runs/38215201521).
+- A read-only browser check of `https://softstrangestudio.github.io/AngelsBakery/` showed the Soft Strange Bakery title, Saturday bake-sale content and current brand. The page has `noindex, nofollow` and prices remain “coming soon.” The page is not an approved commercial host. That deployment used CSS asset `5e26c9450577a6e0.css` from the root export at `de6f061`, which predates the latest short-window carousel correction; the workspace export was refreshed locally afterward and now links `6be4ce3d39f2589c.css`.
+- No Pages settings, deployment configuration or rollback was changed after discovering this. The owner must decide how to resolve the Pages setting before another publishing push; do not treat the public URL as launch approval or deployed validation.
+- Refreshed the local root export from the validated build with `node scripts/sync-root-export.mjs`. The new CSS asset linked by `index.html` contains the corrected short-window carousel rule. The refreshed export is local only and remains uncommitted; it was not republished.
+
+## Dependency audit recheck — 2026-10-12
+
+- `npm audit --omit=dev --audit-level=moderate` reports zero production dependency vulnerabilities.
+- `npm audit --audit-level=moderate` still reports five high findings through `eslint-config-next` → `@next/eslint-plugin-next` → `fast-glob` → `micromatch` → `braces`. GitHub's reviewed [GHSA-vfj7-8cjw-p6xm](https://github.com/advisories/GHSA-vfj7-8cjw-p6xm) covers `braces <=3.0.3` and lists no patched version; npm still lists `3.0.3` as latest. npm's forced fix would downgrade `eslint-config-next` to `14.2.35`, a breaking change, so it was not applied.
+
+## Refreshed root export route QA — 2026-10-12
+
+- Served the refreshed repository-root export through a temporary MIME-aware handler mapping `/AngelsBakery/` to the export root. Home, menu, Snickerdoodles, order, privacy, icon, the current CSS asset and a JavaScript chunk returned HTTP 200; a missing route returned HTTP 404. Exported customer pages retained `noindex, nofollow`.
+- Opened the static homepage in the in-app browser. The page hydrated and displayed the corrected short-window collage; with autoplay paused, Next changed the selected bake from Snickerdoodles to Sugar Cookies. Shared the 1280×720 static-export frame in chat.
+- Stopped the temporary handler. The headless dev preview at `http://localhost:3001/AngelsBakery/` remains HTTP 200. This validates the local export only, not the unapproved public Pages host.
+
+## Server ordering retention gate — 2026-10-12
+
+- The Apps Script server now requires `retentionDays` to be a positive whole number before accepting an order; missing, zero, negative, fractional, and non-numeric values keep ordering closed. Record retention remains a manual operator process, with no automatic customer-data deletion.
+- Added coverage to the existing Google service harness for each invalid setting. `npm run check` passed: lint, typecheck, all 20 tests, production build, 20 exported HTML pages, and 18 decoded images. The root export was refreshed from validated `out/`; localhost:3001 returned HTTP 200.
+- This change remains local and uncommitted while the Pages configuration is unresolved.
+- Pass 2 made the selected-name note and seven selector marks less regular. At 1536×900, 1280×720, 768×1024, 390×844 and 320×568, document widths match their viewport and the note remains legible. `npm run check` passed again. Screenshots are under `output/playwright/soft-strange-bakery/soft-strange-bakery-carousel-pass2-*`.
+- Pass 3 gave the arrow and corner controls a subtle hand-set angle, with names, accessible labels and actions unchanged. Final browser review at 1536×900, 1280×720, 768×1024, 390×844 and 320×568 found exact document/viewport width matches. At 320px with reduced motion enabled, Next advanced to Sugar Cookies and transition duration was 0s. `npm run check` passed after styling; the root export was synced locally and localhost:3001 returned 200. Final screenshots are `output/playwright/soft-strange-bakery/soft-strange-bakery-carousel-final-*.png`.
+- Keyboard `ArrowRight` advanced from Sugar Cookies to Peanut Butter Cookies while paused. Opening the selected photo moved focus to “Close image”; Escape closed it and restored focus to the selected-pastry button.
+
+## Carousel rethink — Pass 1 — 2026-10-12
+
+- Changed the carousel to start paused; the existing Play button opts into timed rotation. Added a soft irregular paper ground and staggered the selected bake and neighboring treats to loosen the storefront-like row. All seven bakes and existing controls remain.
+- Browser frames at 1280×720, 768×1024, 390×844 and 320×568 matched viewport width. At 320px, Next advanced to Sugar Cookies. Play/Pause toggled correctly; under reduced motion, Next remained usable and transition duration was 0s.
+- Screenshots: `output/soft-strange-bakery-carousel-pass1-window-1280x720.png`, `output/soft-strange-bakery-carousel-pass1-tablet-768x1024.png`, `output/soft-strange-bakery-carousel-pass1-mobile-390x844.png`, `output/soft-strange-bakery-carousel-pass1-small-mobile-320x568.png`.
+- `npm run check` passed (lint, typecheck, 20 tests, 20 exported HTML pages, 18 decoded images). Root export refreshed from `out/`; localhost:3001 remains the local preview. Not deployed.
+
+## Public-host and branch state recheck — 2026-10-12
+
+- `git ls-remote origin refs/heads/main` returned `de6f061241e81e44e2bd17c5e8fc79524736f2fc`, matching local `main`/`origin/main`. Current local carousel and retention-gate changes remain uncommitted.
+- A read-only GET of the Pages URL still returns the Soft Strange Bakery title, `noindex`, and CSS asset `5e26c9450577a6e0.css` from the unapproved `de6f061` root export. The latest local export uses a different CSS hash. No hosting setting, source ref or public deployment was changed during this check.
+
+## Dependency audit recheck — 2026-10-12
+
+- Re-ran `npm audit --omit=dev --audit-level=moderate`: zero production vulnerabilities.
+- The full audit still reports five high findings through the dev-only chain `eslint-config-next` → `@next/eslint-plugin-next` → `fast-glob` → `micromatch` → `braces@3.0.3`. `npm view braces version` still reports `3.0.3`; npm's suggested force fix downgrades `eslint-config-next` to `14.2.35`. No breaking downgrade was applied.
+
+## Current local customer-route sweep — 2026-10-12
+
+- Requested all 17 customer routes from `http://localhost:3001/AngelsBakery/`. Every route returned HTTP 200 and contained a title, H1 and `noindex` robots metadata. This confirms current local route delivery only; it does not verify the public host.
+- Served the current production `out/` export through a temporary local `/AngelsBakery/` path mapper. All 17 routes and 44 homepage assets returned HTTP 200, including Next CSS/JS, the icon, outdoor imagery, all seven product cutouts, and all seven scene images. The temporary port-3002 server was stopped; the port-3001 dev preview remains active. This is local static-host evidence, not public deployment validation.
+- Shared-carousel browser review on `/menu/` passed at 1280×720 and 390×844. At 320×568 the category controls previously wrapped three-plus-one; a narrow-phone rule now lays them out two-by-two above the fold. Muffins still selects two products, and document width remains 320px. `npm run check` passed and the static root export was refreshed.
+- Verified the narrow-phone rule in the exported stylesheet `a574450eb14a1257.css` served under `/AngelsBakery/`. The exported menu, stylesheet, home, product, order and privacy routes returned HTTP 200 through a temporary static mapping; the temporary port-3002 server was stopped.
+
+## Product page phone fit — 2026-10-12
+
+- At 390×844, the product image crop and top spacing now bring “Add to preview box” into the first screen (button bounds y=767–820, with 24px beneath it). At 320×568, the page stays exactly 320px wide without horizontal overflow; the action remains below the fold at that shorter viewport.
+- `npm run check` passed: lint, typecheck, all 20 tests, production build, 20 exported HTML pages and 18 decoded images. The checked-in root export was refreshed from `out/`; the local preview on port 3001 returned HTTP 200.
+- Screenshot: `output/playwright/soft-strange-bakery/soft-strange-bakery-product-mobile-390x844.png`. This source/export update is local only; `main` still triggers GitHub Pages publication, and the host decision remains unresolved.
+
+## Customer route recheck — 2026-10-12
+
+- Re-requested all 17 customer pages on the current localhost:3001 preview. Every `/AngelsBakery/` route returned HTTP 200 with a title, main landmark, H1 and `noindex, nofollow`.
+- This is current local runtime evidence only; the public host and deployed revision remain unapproved/unverified.

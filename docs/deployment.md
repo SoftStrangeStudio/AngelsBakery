@@ -2,13 +2,13 @@
 
 Existing validation URL: https://softstrangestudio.github.io/AngelsBakery/
 
-Read-only check on 2026-10-12 found that this URL still serves the September 23, 2026 “Angel’s Bakery” snapshot, not the current Soft Strange Bakery source in this checkout. The returned HTML had no `noindex` directive, and `/AngelsBakery/icon.svg` returned 404. Do not treat the existing deployment as current-source validation; the local static export is the verified rebrand artifact so far.
+On 2026-10-12, a read-only check initially found the September 23 “Angel’s Bakery” snapshot. A later push of `de6f061241e81e44e2bd17c5e8fc79524736f2fc` unexpectedly triggered GitHub’s Pages system workflow (run [38215201236](https://github.com/SoftStrangeStudio/AngelsBakery/actions/runs/38215201236)). A subsequent read-only check found Soft Strange Bakery at this URL, served from the root export in `de6f061`. That deployment is unapproved and does not include the latest local changes. Do not treat it as production or current-source validation.
 
-This repository contains Angel’s actual customer-facing bakery website. GitHub's current [Pages limits](https://docs.github.com/en/pages/getting-started-with-github-pages/github-pages-limits) do not allow free hosting for an online business or a site primarily directed at facilitating commercial transactions. **Do not publish this bakery site to GitHub Pages, even with ordering disabled.** The Pages deployment workflow was removed from this checkout so a source push cannot publish it. The existing public Pages snapshot remains unchanged until the hosting decision is made.
+This repository contains Angel’s actual customer-facing bakery website. GitHub's current [Pages limits](https://docs.github.com/en/pages/getting-started-with-github-pages/github-pages-limits) do not allow free hosting for an online business or a site primarily directed at facilitating commercial transactions. **Do not publish this bakery site to GitHub Pages, even with ordering disabled.** The custom Pages workflow was removed, but that did not prevent repository Pages settings from triggering the system workflow. Treat future pushes as capable of republishing until the owner resolves that configuration. The public URL currently shows the unapproved Soft Strange Bakery snapshot from `de6f061`.
 
 Select and approve a suitable commercial host before public deployment. Validate the static export locally in the meantime. Before real orders are accepted, configure the approved host and Google ordering connection, then complete the business and receipt checks. Do not enable live ordering until those gates pass.
 
-The committed source on `main` is the September 23, 2026 snapshot. The Soft Strange Bakery changes in the current checkout are uncommitted and are not part of that published source yet.
+`origin/main` currently points to `de6f061`. The local checkout contains later carousel, retention-gate, mobile product-fit, and refreshed root-export changes that are not on `origin/main`. Do not imply that the public site includes them.
 
 ## Read-only release gate recheck — 2026-10-11
 
@@ -23,7 +23,7 @@ The committed source on `main` is the September 23, 2026 snapshot. The Soft Stra
 - A temporary local Pages-style mapper served the prepared root export under `/AngelsBakery/`: home, Snickerdoodles deep link, font and icon returned HTTP 200, and the export includes `404.html`. The homepage reports the Soft Strange Bakery title and `noindex, nofollow`; 1280px and 390px render widths match their viewports.
 - All 17 customer routes also passed direct-load through that mapper at 1280×800 and 390×844 (34 HTTP 200s, one `main` and a page heading each, no horizontal overflow or page errors). An unknown path returned HTTP 404 with the custom bakery recovery page.
 - `.github/workflows/deploy-pages.yml` previously published the bakery on every push to `main`. Removed that deployment workflow; `.github/workflows/validate.yml` continues to run checks on pushes and pull requests without publishing a site.
-- This is local preparation only. The checkout remains uncommitted, no push/deployment occurred, and the public URL still serves the older Angel’s Bakery snapshot. Do not deploy to Pages; keep AB-021 and AB-023 open until a suitable commercial host is approved and the current revision is verified there.
+- This was local preparation only at the time. Later, the `de6f061` push triggered the Pages system workflow despite the removed custom deploy workflow; see the current status above. Keep AB-021 and AB-023 open until a suitable commercial host is approved and the current revision is verified there.
 
 ## Commercial host shortlist — 2026-10-12
 
@@ -40,7 +40,7 @@ No provider is selected or approved yet. These are candidates for the owner to c
 - Keep `basePath: "/AngelsBakery"` in `next.config.ts` unless the owner explicitly approves a different public URL. `next build` emits files such as `out/index.html` and `out/menu/index.html`, while generated URLs include `/AngelsBakery/`; the host must serve those files under that prefix, using a tested static rewrite or an equivalent prefix-mounted deployment.
 - Set the public build variable `NEXT_PUBLIC_SITE_URL` to the approved origin only (for example, `https://bakery.example`, with no path). The app appends `/AngelsBakery/` when building `metadataBase`. Until the host is selected, the local build omits an absolute Open Graph image URL instead of pointing social previews at the retired GitHub Pages origin.
 - Do not assume a successful upload to the host root is enough. Before switching DNS or enabling indexing, deploy a preview and verify all 17 customer routes, nested product links, the icon, fonts, images, `noindex`, and the guarded order flow under `/AngelsBakery/` on desktop and mobile.
-- Preserve the current local preview and ordering safeguards during host evaluation. No account, credential, billing, domain, source push, public deployment, or indexing setting was changed by this research.
+- Preserve the current local preview and ordering safeguards during host evaluation. No account, credential, billing, domain or indexing setting was changed by this research. The later source push/public Pages workflow is documented above; do not infer that the host is approved.
 
 ### Current recommendation
 

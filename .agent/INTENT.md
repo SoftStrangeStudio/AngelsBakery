@@ -97,3 +97,15 @@ Latest local review: the first short-window collage still clipped the pastry cut
 - 2026-10-12 static export route check: a temporary local static handler returned the exported home, direct product route, and base-path JavaScript asset successfully. An unknown route returned HTTP 404 with the exported bakery recovery page and menu link. This strengthens local export evidence, but is not commercial-host deployment evidence; AB-021 remains open for host selection and AB-023 remains open for deployed validation.
 - 2026-10-12 production polish: added a small cookie-and-sparkle icon using the existing sage and paper palette. Next’s exported icon URL includes `/AngelsBakery/`; the static-browser homepage and direct product page had zero console errors, carousel interaction worked, and mobile width measured 390/390px.
 - 2026-10-12 windowed-fit follow-up: reduced desktop hero from 260–340px to 250–300px, carousel product art from 190–270px to 170–230px, and carousel height from 132px to 120px. At 1280×720, the masthead, full info strip and next-section heading now fit before the cards; mobile retains its wrapped ticker. Captures: `output/soft-strange-bakery-windowed-1280x720.png`, `output/soft-strange-bakery-windowed-1536x900.png`, `output/soft-strange-bakery-mobile-390x844-current.png`.
+
+## Carousel rethink — 2026-10-12
+
+User readback: the carousel still makes the page feel too streamlined. Keep the same bake-sale copy and seven treats, but make browsing feel like leafing through a baking journal.
+
+1. Default to a still display; make rotation opt-in. **Complete.**
+2. Add a less regular still-life ground and stagger the supporting bakes. **Complete; checked at window, tablet, phone and small-phone sizes.**
+3. Attach the selected name to the collage as a handwritten bake note; soften the selector marks. **Complete.**
+4. Give the controls a casual journal rhythm while preserving Previous/Next, direct selection, swipe and keyboard access. **Complete.**
+5. Recheck crop, fit, selection and reduced-motion behavior across all target sizes after the visual passes. **Complete:** five sizes fit, and reduced-motion navigation remains functional.
+
+The first implementation and its screenshots are recorded in `THOUGHTS.md`; the full project validation passed. Local preview stays on port 3001.

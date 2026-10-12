@@ -7,7 +7,7 @@ import { AddToBox, ProductCard } from "@/components/product-card";
 import { catalogService } from "@/services/catalog-service";
 export function ProductView({ product }: { product: Product }) {
   return (
-    <section className="section">
+    <section className="section product-page">
       <Link className="text-link back-link" href="/menu/"><ArrowLeft size={16} /> Back to Saturday’s menu</Link>
       <div className="product-detail">
         <div className={`detail-art ${product.image}`}>

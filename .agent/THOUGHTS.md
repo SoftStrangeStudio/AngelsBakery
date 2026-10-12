@@ -276,3 +276,30 @@ The screenshot does look badly fit, but the current local preview has already be
 ### Readback
 
 - Agree that the attached layout is not fitting well. Keep the compact windowed treatment as the current target; compare future feedback to these fresh frames. No wording or CSS change was needed for this recheck.
+
+## 2026-10-12 — Carousel still feels too streamlined
+
+### User direction
+
+- “The acrousell shodu be changed I htink it is msakign it seem too stremalined”
+
+### Readback and five strategic changes
+
+Keep the seven bakes and the familiar controls, but let the opening feel like someone arranged treats on a table and is sharing them from a journal. Avoid making the carousel feel like a timed storefront ad.
+
+1. **Make browsing intentional:** default to a still display; rotation is an explicit Play action. (Implemented.)
+2. **Loosen the still life:** layer a quiet, irregular paper/linen ground and offset the supporting pastries around the selected bake. (Implemented; responsive review complete.)
+3. **Make the selected name a handwritten bake note:** keep the title attached visually to the collage and soften its selector marks. (Implemented.)
+4. **Carry the journal rhythm into the control area:** keep Previous/Next, direct selection, swipe, and keyboard behavior while making the controls feel less like a polished progress strip. (Implemented.)
+5. **Recheck every crop and motion state:** compare window, tablet, phone and small phone; verify selection, opt-in rotation, reduced motion, and no horizontal overflow. (Complete.)
+
+### Pass 1 evidence
+
+- Changed autoplay to opt-in and added a loose paper-toned surface behind the pastry cluster, with less regular vertical spacing. Copy, product order, all seven direct selections, and touch/keyboard actions remain intact.
+- `Next baked good` selected Sugar Cookies at 320px; Play changed the accessible control to Pause, Pause stopped rotation, and reduced-motion Next still selected the next bake with a 0s transition. Page width remained 320px.
+- Screens: `output/soft-strange-bakery-carousel-pass1-window-1280x720.png`, `output/soft-strange-bakery-carousel-pass1-tablet-768x1024.png`, `output/soft-strange-bakery-carousel-pass1-mobile-390x844.png`, `output/soft-strange-bakery-carousel-pass1-small-mobile-320x568.png`.
+- `npm run check` passed (lint, typecheck, 20 tests, production build, 20 exported pages, 18 decoded images). The root export was refreshed locally; no push or deploy.
+- Pass 2 refined the selected-name paper and selector marks, making them less regular like a note and crumbs. Reviewed 1536×900, 1280×720, 768×1024, 390×844 and 320×568; no collision or horizontal overflow appeared. `npm run check` passed again. Screens are under `output/playwright/soft-strange-bakery/soft-strange-bakery-carousel-pass2-*`.
+- Pass 3 loosened the arrow and corner-action alignment to echo the handmade collage without changing labels or actions. Final review covered 1536×900, 1280×720, 768×1024, 390×844 and 320×568; page width matched each viewport. At 320px with reduced motion, Next changed the bake and transition duration stayed at 0s. `npm run check` passed after the styling pass, the root export was refreshed locally, and localhost:3001 returned 200.
+- Final captures: `output/playwright/soft-strange-bakery/soft-strange-bakery-carousel-final-wide-1536x900.png`, `output/playwright/soft-strange-bakery/soft-strange-bakery-carousel-final-window-1280x720.png`, `output/playwright/soft-strange-bakery/soft-strange-bakery-carousel-final-tablet-768x1024.png`, `output/playwright/soft-strange-bakery/soft-strange-bakery-carousel-final-mobile-390x844.png`, and `output/playwright/soft-strange-bakery/soft-strange-bakery-carousel-final-small-mobile-320x568.png`.
+- Keyboard ArrowRight moved to Peanut Butter Cookies while paused. The image viewer focused Close; Escape closed it and restored focus to that bake’s picture button.
