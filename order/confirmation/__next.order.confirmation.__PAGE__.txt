@@ -1,30 +1,51 @@
 1:"$Sreact.fragment"
-2:I[1304,[],"ClientPageRoot"]
-3:I[4159,["500","static/chunks/500-b13bb91f5a6311b6.js","437","static/chunks/437-c2a899dc75460308.js","159","static/chunks/159-5ea3832263789acb.js","227","static/chunks/app/order/confirmation/page-f9a7941eef267c92.js"],"ConfirmationView"]
-6:I[484,[],"OutletBoundary"]
-7:"$Sreact.suspense"
-b:I[484,[],"ViewportBoundary"]
-c:I[484,[],"MetadataBoundary"]
-e:I[7121,[],""]
-f:I[4581,[],""]
-13:I[1549,["500","static/chunks/500-b13bb91f5a6311b6.js","437","static/chunks/437-c2a899dc75460308.js","177","static/chunks/app/layout-584b56091b45cf9f.js"],"BakeryProvider"]
-14:I[3288,["500","static/chunks/500-b13bb91f5a6311b6.js","437","static/chunks/437-c2a899dc75460308.js","177","static/chunks/app/layout-584b56091b45cf9f.js"],"Header"]
-15:I[8500,["500","static/chunks/500-b13bb91f5a6311b6.js","437","static/chunks/437-c2a899dc75460308.js","418","static/chunks/418-e91e5238de121ba5.js","974","static/chunks/app/page-178f8ce55d5eaaab.js"],""]
-16:I[3288,["500","static/chunks/500-b13bb91f5a6311b6.js","437","static/chunks/437-c2a899dc75460308.js","177","static/chunks/app/layout-584b56091b45cf9f.js"],"Footer"]
-:HL["/AngelsBakery/_next/static/css/039ef8d103d05c56.css","style"]
-a:X
+2:"static/chunks/500-fc3b64d9ff4a32a7.js"
+3:"static/chunks/app/layout-22f945b0c540f0b3.js"
+4:I[1549,["500","$2","177","$3"],"BakeryProvider"]
+5:"static/chunks/437-4c699ddef72eafd8.js"
+6:"static/chunks/554-b6721ab1468f388c.js"
+7:"static/chunks/app/page-f96b2bd03c1477f4.js"
+8:I[8500,["500","$2","437","$5","554","$6","974","$7"],""]
+9:I[1553,["500","$2","177","$3"],"HeaderCartLink"]
+a:I[7121,[],""]
+b:I[4581,[],""]
+:HL["/AngelsBakery/_next/static/css/bf8a338b607ead48.css","style"]
 11:X
+15:X
+15:C
+19:[["children",{"s":"__PAGE__","h":160,"d":{"r":"$L1a","p":"$@1b","v":null,"s":"$11"}}]]
+16:[["children",{"s":"confirmation","h":96,"d":{"r":"$L17","p":"$@18","v":"$15","s":"$11"},"c":"$Q19"}]]
+12:[["children",{"s":"order","h":96,"d":{"r":"$L13","p":"$@14","v":"$15","s":"$11"},"c":"$Q16"}]]
+0:{"t":{"t":{"s":"","h":80,"d":{"r":["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/AngelsBakery/_next/static/css/bf8a338b607ead48.css","precedence":"next"}]],["$","html",null,{"lang":"en","data-scroll-behavior":"smooth","children":["$","body",null,{"children":["$","$L4",null,{"children":[[["$","a",null,{"className":"skip-link","href":"#main","children":"Skip to content"}],["$","header",null,{"children":[["$","div",null,{"className":"announcement","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":13,"height":13,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-sparkles","aria-hidden":"true","children":[["$","path","1s2grr",{"d":"M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"}],["$","path","1rf3ol",{"d":"M20 2v4"}],["$","path","gwowj6",{"d":"M22 4h-4"}],["$","circle","6kqj1y",{"cx":"4","cy":"20","r":"2"}],"$undefined"]}]," ","Saturday Bake Sale · Every Saturday · 4–7 PM"," ",["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":13,"height":13,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-sparkles","aria-hidden":"true","children":[["$","path","1s2grr",{"d":"M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"}],["$","path","1rf3ol",{"d":"M20 2v4"}],["$","path","gwowj6",{"d":"M22 4h-4"}],["$","circle","6kqj1y",{"cx":"4","cy":"20","r":"2"}],"$undefined"]}]]}],["$","div",null,{"className":"header","children":[["$","$L8",null,{"className":"wordmark brand-wordmark","href":"/","aria-label":"Soft Strange Bakery home","children":[["$","span",null,{"className":"brand-script","children":"Soft Strange"}],["$","span",null,{"className":"brand-kicker","children":"BAKERY"}]]}],["$","$L9",null,{}]]}]]}]],["$","main",null,{"id":"main","tabIndex":-1,"children":["$","$La",null,{"parallelRouterKey":"children","template":["$","$Lb",null,{}],"notFound":[["$","section",null,{"className":"section empty-state","children":[["$","p",null,{"className":"eyebrow","children":"JUST A FEW CRUMBS HERE"}],["$","h1",null,{"children":"This treat wandered off."}],["$","p",null,{"children":"Let’s find you something lovely instead."}],["$","$L8",null,{"className":"button primary","href":"/menu/","children":"Back to the menu"}]]}],[]]}]}],["$","footer",null,{"className":"footer","children":[["$","div",null,{"className":"footer-top","children":[["$","div",null,{"children":[["$","$L8",null,{"href":"/","className":"wordmark footer-wordmark","children":[["$","span",null,{"className":"brand-script","children":"Soft Strange"}],["$","span",null,{"className":"brand-kicker","children":"BAKERY"}]]}],["$","p",null,{"children":["Saturday Bake Sale",["$","br",null,{}],"Every Saturday · 4–7 PM"]}]]}],["$","div",null,{"children":[["$","p",null,{"className":"eyebrow","children":"SATURDAY AT ANGEL’S"}],["$","$L8",null,{"href":"/menu/","children":["This Saturday’s menu ",["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-arrow-up-right","aria-hidden":"true","children":[["$","path","1tivn9",{"d":"M7 7h10v10"}],["$","path","1vkiza",{"d":"M7 17 17 7"}],"$undefined"]}]]}],["$","$L8",null,{"href":"/pickup/","children":["Bake sale information ",["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-arrow-up-right","aria-hidden":"true","children":[["$","path","1tivn9",{"d":"M7 7h10v10"}],["$","path","1vkiza",{"d":"M7 17 17 7"}],"$undefined"]}]]}],["$","$L8",null,{"href":"/faq/","children":["Good questions ",["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-arrow-up-right","aria-hidden":"true","children":[["$","path","1tivn9",{"d":"M7 7h10v10"}],"$Lc","$undefined"]}]]}]]}],"$Ld"]}],"$Le","$Lf"]}]]}]}]}]]}],"p":"$@10","v":null,"s":"$11"},"c":"$Q12"},"h":{"r":"$L1c","p":"$@1d","v":null,"s":"$11"}},"a":"$@1e","u":"$@1f","b":"qaeVJIwTXhXHhbYXJHIqS"}
+20:I[1304,[],"ClientPageRoot"]
+21:"static/chunks/822-941c985a6f7af752.js"
+22:"static/chunks/app/order/confirmation/page-608b829204fd64cc.js"
+23:"ConfirmationView"
+24:I[1822,["500","$2","437","$5","822","$21","227","$22"],"$23"]
+27:I[484,[],"OutletBoundary"]
+28:"$Sreact.suspense"
+2a:"ViewportBoundary"
+2b:I[484,[],"$2a"]
+2c:"MetadataBoundary"
+2d:I[484,[],"$2c"]
+2e:I[6869,[],"IconMark"]
+c:["$","path","1vkiza",{"d":"M7 17 17 7"}]
+d:["$","div",null,{"children":[["$","p",null,{"className":"eyebrow","children":"A LITTLE HELLO"}],["$","p",null,{"children":"Have something sweet in mind?"}],["$","$L8",null,{"href":"/contact/","children":["Let’s talk treats ",["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-arrow-up-right","aria-hidden":"true","children":[["$","path","1tivn9",{"d":"M7 7h10v10"}],["$","path","1vkiza",{"d":"M7 17 17 7"}],"$undefined"]}]]}]]}]
+e:["$","div",null,{"className":"footer-bottom","children":[["$","span",null,{"children":["© ",2026," Soft Strange Bakery"]}],["$","span",null,{"children":["Made with a little extra ",["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":13,"height":13,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-heart","aria-label":"love","children":[["$","path","mvr1a0",{"d":"M2 9.5a5.5 5.5 0 0 1 9.591-3.676.56.56 0 0 0 .818 0A5.49 5.49 0 0 1 22 9.5c0 2.29-1.5 4-3 5.5l-5.492 5.313a2 2 0 0 1-3 .019L5 15c-1.5-1.5-3-3.2-3-5.5"}],"$undefined"]}]]}],["$","$L8",null,{"href":"/privacy/","children":"Privacy & your information"}]]}]
+f:["$","p",null,{"className":"preview-footnote","children":"Saturday menu confirmed · Prices, ingredients, pickup location and reservations are still being finalized · Editorial imagery is not photography of the bakery’s actual products."}]
+13:["$","$1","c",{"children":[null,["$","$La",null,{"parallelRouterKey":"children","template":["$","$Lb",null,{}]}]]}]
+17:["$","$1","c",{"children":[null,["$","$La",null,{"parallelRouterKey":"children","template":["$","$Lb",null,{}]}]]}]
+1a:["$","$1","c",{"children":[["$","$L20",null,{"Component":"$24","serverProvidedParams":{"searchParams":{},"params":{},"promises":["$@25","$@26"]}}],null,["$","$L27",null,{"children":["$","$28",null,{"name":"Next.MetadataOutlet","children":"$@29"}]}]]}]
+1c:["$","$1","h",{"children":[null,["$","$L2b",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","$L2d",null,{"children":[["$","div",null,{"hidden":true,"children":["$","$28",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Your request | Soft Strange Bakery"}],["$","meta","1",{"name":"description","content":"Flaky pastries, happy little desserts, and something lovely to look forward to. Explore Soft Strange Bakery’s preview collection."}],["$","meta","2",{"name":"robots","content":"noindex, nofollow"}],["$","meta","3",{"property":"og:title","content":"Soft Strange Bakery — A little baked happiness"}],["$","meta","4",{"property":"og:description","content":"Good things come to those who treat."}],["$","meta","5",{"name":"twitter:card","content":"summary"}],["$","meta","6",{"name":"twitter:title","content":"Soft Strange Bakery — A little baked happiness"}],["$","meta","7",{"name":"twitter:description","content":"Good things come to those who treat."}],["$","link","8",{"rel":"icon","href":"/AngelsBakery/icon.svg?9073d30a5ddbaac4","type":"image/svg+xml","sizes":"any"}],["$","$L2e","9",{}]]}]}],null]}],null]}]
+25:{}
+26:"$1a:props:children:0:props:serverProvidedParams:params"
+29:null
+1f:true
+11:300
 11:C
-0:{"buildId":"DEb3YSCJ06oIU84arDWbM","data":[{"rsc":["$","$1","c",{"children":[["$","$L2",null,{"Component":"$3","serverProvidedParams":{"searchParams":{},"params":{},"promises":["$@4","$@5"]}}],null,["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]]}],"isPartial":"$@9","staleTime":"$a","varyParams":null},{"rsc":["$","$1","h",{"children":[null,["$","$Lb",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$Lc",null,{"children":["$","$7",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Your request | Angel’s Bakery"}],["$","meta","1",{"name":"description","content":"Flaky pastries, happy little desserts, and something lovely to look forward to. Explore Angel’s Bakery’s preview collection."}],["$","meta","2",{"name":"robots","content":"noindex, nofollow"}],["$","meta","3",{"property":"og:title","content":"Angel’s Bakery — A little baked happiness"}],["$","meta","4",{"property":"og:description","content":"Good things come to those who treat."}],["$","meta","5",{"property":"og:image","content":"https://softstrangestudio.github.io/AngelsBakery/AngelsBakery/images/scenes/snickerdoodles.webp"}],["$","meta","6",{"property":"og:image:width","content":"1000"}],["$","meta","7",{"property":"og:image:height","content":"750"}],["$","meta","8",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","9",{"name":"twitter:title","content":"Angel’s Bakery — A little baked happiness"}],["$","meta","10",{"name":"twitter:description","content":"Good things come to those who treat."}],["$","meta","11",{"name":"twitter:image","content":"https://softstrangestudio.github.io/AngelsBakery/AngelsBakery/images/scenes/snickerdoodles.webp"}],["$","meta","12",{"name":"twitter:image:width","content":"1000"}],["$","meta","13",{"name":"twitter:image:height","content":"750"}]]}]}]}],null]}],"isPartial":"$@d","staleTime":"$a","varyParams":null},{"rsc":["$","$1","c",{"children":[null,["$","$Le",null,{"parallelRouterKey":"children","template":["$","$Lf",null,{}]}]]}],"isPartial":"$@10","staleTime":"$a","varyParams":"$11"},{"rsc":["$","$1","c",{"children":[null,["$","$Le",null,{"parallelRouterKey":"children","template":["$","$Lf",null,{}]}]]}],"isPartial":"$@12","staleTime":"$a","varyParams":"$11"},{"rsc":["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/AngelsBakery/_next/static/css/039ef8d103d05c56.css","precedence":"next"}]],["$","html",null,{"lang":"en","children":["$","body",null,{"children":["$","$L13",null,{"children":[["$","$L14",null,{}],["$","main",null,{"id":"main","children":["$","$Le",null,{"parallelRouterKey":"children","template":["$","$Lf",null,{}],"notFound":[["$","section",null,{"className":"section empty-state","children":[["$","p",null,{"className":"eyebrow","children":"JUST A FEW CRUMBS HERE"}],["$","h1",null,{"children":"This treat wandered off."}],["$","p",null,{"children":"Let’s find you something lovely instead."}],["$","$L15",null,{"className":"button primary","href":"/menu/","children":"Back to the menu"}]]}],[]]}]}],["$","$L16",null,{}]]}]}]}]]}],"isPartial":"$@17","staleTime":"$a","varyParams":null}],"isUpgradeableISRFallback":false,"a":"$@18","rootVaryParams":null,"needsRuntimeRequest":"$@19"}
-4:{}
-5:"$0:data:0:rsc:props:children:0:props:serverProvidedParams:params"
-8:null
-a:300
-19:true
-a:C
-18:0
-d:"$undefined"
+1e:0
+18:"$undefined"
+14:"$undefined"
+1d:"$undefined"
+1b:"$undefined"
 10:"$undefined"
-12:"$undefined"
-17:"$undefined"
-9:"$undefined"

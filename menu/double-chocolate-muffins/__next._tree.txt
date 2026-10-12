@@ -1,2 +1,5 @@
-:HL["/AngelsBakery/_next/static/css/039ef8d103d05c56.css","style"]
-0:{"tree":{"name":"","param":null,"prefetchHints":4176,"slots":{"children":{"name":"menu","param":null,"prefetchHints":4192,"slots":{"children":{"name":"product","param":{"type":"d","key":"double-chocolate-muffins","siblings":[]},"prefetchHints":4192,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":4256,"slots":null}}}}}}},"staleTime":300,"buildId":"DEb3YSCJ06oIU84arDWbM"}
+:HL["/AngelsBakery/_next/static/css/bf8a338b607ead48.css","style"]
+3:[["children",{"s":"__PAGE__","h":160}]]
+2:[["children",{"s":{"n":"product","t":"d","k":"double-chocolate-muffins","s":[]},"h":65632,"c":"$Q3"}]]
+1:[["children",{"s":"menu","h":131168,"c":"$Q2"}]]
+0:{"b":"qaeVJIwTXhXHhbYXJHIqS","t":{"t":{"s":"","h":131152,"c":"$Q1"}}}

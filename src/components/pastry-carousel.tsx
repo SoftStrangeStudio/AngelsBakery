@@ -35,6 +35,7 @@ export function PastryCarousel({ products }: { products: Product[] }) {
           const occurrence = Math.floor((vm.position + slot) / products.length);
           return <button key={`${product.id}:${occurrence}`} type="button"
             className={`arc-product arc-distance-${distance}${selected ? " is-selected" : ""}`}
+            data-slot={slot}
             style={{ "--slot": slot, "--drop": `${distance * distance * 15}px`, "--scale": [1, .69, .48, .32][distance] ?? .3, zIndex: 10 - distance } as CSSProperties}
             aria-label={selected ? `Open ${product.name} picture` : `Select ${product.name}`}
             aria-pressed={selected} onClick={() => selected ? openPicture() : vm.select(index)}>

@@ -1,2 +1,4 @@
-:HL["/AngelsBakery/_next/static/css/039ef8d103d05c56.css","style"]
-0:{"tree":{"name":"","param":null,"prefetchHints":4176,"slots":{"children":{"name":"info","param":{"type":"d","key":"faq","siblings":["_not-found","_global-error","menu","order"]},"prefetchHints":4192,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":4256,"slots":null}}}}},"staleTime":300,"buildId":"DEb3YSCJ06oIU84arDWbM"}
+:HL["/AngelsBakery/_next/static/css/bf8a338b607ead48.css","style"]
+2:[["children",{"s":"__PAGE__","h":160}]]
+1:[["children",{"s":{"n":"info","t":"d","k":"faq","s":["_not-found","_global-error","icon.svg","menu","order"]},"h":65632,"c":"$Q2"}]]
+0:{"b":"qaeVJIwTXhXHhbYXJHIqS","t":{"t":{"s":"","h":131152,"c":"$Q1"}}}

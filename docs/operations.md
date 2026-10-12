@@ -4,7 +4,7 @@ This repository is Angel’s actual website implementation. The current deployme
 
 ## Before ordering launch
 
-- Select an approved commercial host; GitHub Pages remains a temporary non-ordering validation deployment.
+- Select and approve a commercial host before any public bakery deployment. GitHub Pages is not an approved host for this customer-facing business site, and its deployment workflow has been removed from this checkout.
 - Approve products, pricing, currency, imagery, ingredients and cross-contact information.
 - Publish approved contact details, pickup address/timezone, cutoff rules, cancellations and payment arrangements.
 - Publish privacy contact, retention period and deletion process.

@@ -1,6 +1,9 @@
 import { notFound } from "next/navigation";
 import { catalogService } from "@/services/catalog-service";
 import { ProductView } from "@/views/product-view";
+// This static export only builds catalog products listed by the service.
+export const dynamicParams = false;
+
 export function generateStaticParams() {
   return catalogService.all().map((p) => ({ product: p.id }));
 }

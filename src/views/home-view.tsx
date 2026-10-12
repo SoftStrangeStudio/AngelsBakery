@@ -10,11 +10,15 @@ import { BakeryHero } from "@/components/bakery-hero";
 export function HomeView() {
   return (
     <>
-      <BakeryHero title="Angel’s Bakery Saturday bake sale" />
-      <div className="ribbon" aria-hidden="true"><span>Every Saturday</span><Sparkles /><span>4–7 PM</span><Sparkles /><span>Cookies · brownies · muffins</span><Sparkles /><span>Angel’s Bakery</span><Sparkles /></div>
+      <BakeryHero title="Soft Strange Bakery Saturday bake sale" featureEyebrow="THIS SATURDAY" featureHeadline="Fresh from Angel’s oven." />
+      <div className="ribbon" aria-hidden="true">
+        <span className="ribbon-item"><span className="ribbon-label">Every Saturday</span><Sparkles /></span>
+        <span className="ribbon-item"><span className="ribbon-label">4–7 PM</span><Sparkles /></span>
+        <span className="ribbon-item"><span className="ribbon-label">Cookies · brownies · muffins</span><Sparkles /></span>
+        <span className="ribbon-item"><span className="ribbon-label">Soft Strange Bakery</span></span>
+      </div>
       <section id="favorites" className="section favorites">
         <div className="section-heading">
-          <div><p className="eyebrow">THIS SATURDAY</p><h2>Fresh from <em>Angel’s oven.</em></h2></div>
           <Link className="text-link" href="/menu/">See the full Saturday menu <ArrowRight size={18} /></Link>
         </div>
         <p className="section-intro">Seven bake-sale favorites: cookies, brownies and muffins. Prices and reservations will be published after final approval.</p>
@@ -31,14 +35,14 @@ export function HomeView() {
       </section>
       <section className="story-section section">
         <Parallax className="story-art">
-          <div className="story-arch"><Image src={sceneAsset("brownies")} alt="Editorial image of Angel’s Bakery brownies" width={700} height={500} /></div>
+          <div className="story-arch"><Image src={sceneAsset("brownies")} alt="Editorial image of Soft Strange Bakery brownies" width={1000} height={750} /></div>
           <span className="story-tag handwritten">Saturday treats.<br />A little extra joy.</span>
           <span className="story-star" aria-hidden="true">✳</span>
         </Parallax>
         <div className="story-copy">
           <p className="eyebrow">HELLO, SWEET THING.</p>
           <h2>A little bakery.<br />A whole lot of <em>heart.</em></h2>
-          <p>Angel’s Bakery brings cookies, brownies and muffins together for a weekly Saturday bake sale.</p>
+          <p>Soft Strange Bakery brings cookies, brownies and muffins together for a weekly Saturday bake sale.</p>
           <p>Stop by between 4 and 7 PM, find something sweet, and take a little Saturday happiness home with you.</p>
           <Link className="text-link" href="/about/">A little about Angel’s <ArrowRight size={18} /></Link>
         </div>

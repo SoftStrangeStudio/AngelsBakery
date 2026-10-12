@@ -1,6 +1,9 @@
 import { notFound } from "next/navigation";
 import { InfoView } from "@/views/info-view";
 const pages = ["pickup", "about", "faq", "contact", "privacy"] as const;
+// This static export only builds the defined information routes.
+export const dynamicParams = false;
+
 export function generateStaticParams() {
   return pages.map((info) => ({ info }));
 }

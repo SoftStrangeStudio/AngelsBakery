@@ -15,7 +15,7 @@ export function AddToBox({
   const { state, dispatch } = useBakery();
   const quantity =
     state.items.find((i) => i.productId === product.id)?.quantity || 0;
-  const unavailable = !orderingEnabled || quantity >= 12 || !state.hydrated;
+  const unavailable = quantity >= 12 || !state.hydrated;
   return (
     <button
       className={large ? "button primary" : "add-button"}
@@ -23,7 +23,7 @@ export function AddToBox({
       aria-label={
         orderingEnabled
           ? `Add ${product.name} to your box`
-          : `${product.name} pricing and reservations coming soon`
+          : `Add ${product.name} to your preview box`
       }
       onClick={() =>
         dispatch({
@@ -37,7 +37,7 @@ export function AddToBox({
       {quantity >= 12 ? <Check size={20} /> : <Plus size={20} />}
       {large &&
         (!orderingEnabled
-          ? "Reservations open after pricing is confirmed"
+          ? "Add to preview box"
           : quantity >= 12
             ? "Your box is full of this one"
             : "Add to Saturday box")}
@@ -49,7 +49,12 @@ export function ProductCard({ product }: { product: Product }) {
     <article className={`product-card ${product.image}`}>
       <div className="product-art">
         <Link href={`/menu/${product.id}/`} tabIndex={-1} aria-hidden="true">
-          <Image src={sceneAsset(product.id)} alt="" width={650} height={450} />
+          <Image
+            src={sceneAsset(product.id)}
+            alt=""
+            fill
+            sizes="(max-width: 760px) 90vw, 45vw"
+          />
         </Link>
         <span className="product-category">{product.category}</span>
         <AddToBox product={product} />

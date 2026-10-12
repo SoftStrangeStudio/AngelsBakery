@@ -1,6 +1,6 @@
 import type { Product } from "../domain/types";
 
-// Real Angel’s Bakery bake-sale catalog. Prices remain unpublished until Angel approves them.
+// Soft Strange Bakery's confirmed bake-sale catalog. Prices remain unpublished until Angel approves them.
 // Generated concept cutouts; matching scenes use the stable product ID.
 export const products: Product[] = [
   {

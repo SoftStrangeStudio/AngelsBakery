@@ -1,36 +1,23 @@
-"use client";
 import Link from "next/link";
-import Image from "next/image";
-import { usePathname } from "next/navigation";
-import { useState } from "react";
-import { ArrowUpRight, Heart, Menu, ShoppingBag, Sparkles, X } from "lucide-react";
-import { useBakery } from "@/view-models/bakery-provider";
-import { orderingEnabled, asset } from "@/lib/config";
+import { ArrowUpRight, Heart, Sparkles } from "lucide-react";
+import { orderingEnabled } from "@/lib/config";
+import { HeaderCartLink } from "@/components/header-cart-link";
 export function Header() {
-  const [open, setOpen] = useState(false);
-  const { count } = useBakery();
-  const path = usePathname();
   return (
     <>
       <a className="skip-link" href="#main">Skip to content</a>
-      <div className="announcement">
-        <Sparkles size={13} aria-hidden="true" />{" "}
-        Saturday Bake Sale · Every Saturday · 4–7 PM{" "}
-        <Sparkles size={13} aria-hidden="true" />
-      </div>
-      <header className="header">
-        <Link className="wordmark brand-wordmark" href="/" aria-label="Angel’s Bakery home"><Image src={asset("brand/brand-primary")} alt="Angel’s Bakery — two dog mascots" width={640} height={640} priority /></Link>
-        <nav aria-label="Main navigation" className={open ? "nav open" : "nav"}>
-          {[["/menu/", "Saturday menu"],["/about/", "About Angel’s"],["/pickup/", "Bake sale info"]].map(([href, label]) => (
-            <Link key={href} href={href} aria-current={path === href || path === href.slice(0, -1) ? "page" : undefined} onClick={() => setOpen(false)}>{label}</Link>
-          ))}
-        </nav>
-        <div className="header-actions">
-          <Link className="bag-link" href="/order/" onClick={() => setOpen(false)}>
-            <ShoppingBag size={18} aria-hidden="true" />
-            <span>{orderingEnabled ? "Your box" : "Saturday box"}</span><b>{count}</b>
+      <header>
+        <div className="announcement">
+          <Sparkles size={13} aria-hidden="true" />{" "}
+          Saturday Bake Sale · Every Saturday · 4–7 PM{" "}
+          <Sparkles size={13} aria-hidden="true" />
+        </div>
+        <div className="header">
+          <Link className="wordmark brand-wordmark" href="/" aria-label="Soft Strange Bakery home">
+            <span className="brand-script">Soft Strange</span>
+            <span className="brand-kicker">BAKERY</span>
           </Link>
-          <button className="icon-button mobile-toggle" onClick={() => setOpen(!open)} aria-label={open ? "Close navigation" : "Open navigation"} aria-expanded={open}>{open ? <X /> : <Menu />}</button>
+          <HeaderCartLink />
         </div>
       </header>
     </>
@@ -41,7 +28,10 @@ export function Footer() {
     <footer className="footer">
       <div className="footer-top">
         <div>
-          <Link href="/" className="wordmark footer-wordmark"><Image src={asset("brand/brand-small")} alt="Angel’s Bakery dog mascots" width={100} height={100} />Angel’s<span>BAKERY</span></Link>
+          <Link href="/" className="wordmark footer-wordmark">
+            <span className="brand-script">Soft Strange</span>
+            <span className="brand-kicker">BAKERY</span>
+          </Link>
           <p>Saturday Bake Sale<br />Every Saturday · 4–7 PM</p>
         </div>
         <div>
@@ -56,7 +46,7 @@ export function Footer() {
         </div>
       </div>
       <div className="footer-bottom">
-        <span>© {new Date().getFullYear()} Angel’s Bakery</span>
+        <span>© {new Date().getFullYear()} Soft Strange Bakery</span>
         <span>Made with a little extra <Heart size={13} aria-label="love" /></span>
         <Link href="/privacy/">Privacy & your information</Link>
       </div>

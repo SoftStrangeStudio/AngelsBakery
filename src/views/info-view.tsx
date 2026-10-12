@@ -5,7 +5,7 @@ import { asset } from "@/lib/config";
 export const faqs = [
   [
     "When is the bake sale?",
-    "Angel’s Bakery holds its bake sale every Saturday from 4:00 PM to 7:00 PM.",
+    "Soft Strange Bakery holds its bake sale every Saturday from 4:00 PM to 7:00 PM.",
   ],
   [
     "Can I reserve an order yet?",
@@ -45,7 +45,7 @@ export function InfoView({
               <em>Sweet Saturdays.</em>
             </h1>
             <p className="lead">
-              Angel’s Bakery is centered around a simple weekly bake sale every
+              Soft Strange Bakery is centered around a simple weekly bake sale every
               Saturday from 4–7 PM.
             </p>
             <p>
@@ -64,8 +64,9 @@ export function InfoView({
           <div className="about-photo">
             <Image
               src={asset("scenes/snickerdoodles")}
-              alt="Warm editorial spread of Angel’s Saturday bake-sale menu"
+              alt="Warm editorial spread of Soft Strange Bakery’s Saturday bake-sale menu"
               fill
+              loading="eager"
               sizes="(max-width: 760px) 100vw, 45vw"
             />
           </div>

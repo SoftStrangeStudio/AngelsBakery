@@ -11,7 +11,7 @@ const photos = [
 export function ScenicBackdrop() {
   return (
     <div className="scenic-backdrop" aria-hidden="true">
-      {photos.map((photo, index) => (
+      {photos.map((photo) => (
         <Image
           className="scenic-frame"
           key={photo.file}
@@ -19,7 +19,7 @@ export function ScenicBackdrop() {
           alt=""
           fill
           sizes="100vw"
-          priority={index === 0}
+          loading="eager"
           style={{ objectPosition: photo.position }}
         />
       ))}

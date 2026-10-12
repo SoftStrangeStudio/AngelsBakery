@@ -12,15 +12,29 @@ async function walk(dir) {
 }
 const files = await walk(root);
 const errors = [];
-for (const file of files.filter((f) => f.endsWith(".html"))) {
+const htmlFiles = files.filter((f) => f.endsWith(".html"));
+let openGraphImages = 0;
+for (const file of htmlFiles) {
   const html = await readFile(file, "utf8");
+  const relativeFile = path.relative(root, file);
+  if (!/<meta\b(?=[^>]*\bname="robots")(?=[^>]*\bcontent="noindex,\s*nofollow")[^>]*>/i.test(html)) {
+    errors.push(`${relativeFile}: missing pre-launch noindex metadata`);
+  }
+  if (html.includes("softstrangestudio.github.io/AngelsBakery")) {
+    errors.push(`${relativeFile}: references the retired GitHub Pages origin`);
+  }
+
   for (const match of html.matchAll(
     /(?:href|src)="([^"#?]+)(?:[?#][^"]*)?"/g,
   )) {
     const url = match[1];
     if (!url.startsWith("/")) continue;
+    if (url.includes("/AngelsBakery/AngelsBakery/")) {
+      errors.push(`${relativeFile}: duplicated base path in ${url}`);
+      continue;
+    }
     if (!url.startsWith("/AngelsBakery/")) {
-      errors.push(`${path.relative(root, file)}: unprefixed URL ${url}`);
+      errors.push(`${relativeFile}: unprefixed URL ${url}`);
       continue;
     }
     const relative = decodeURIComponent(url.slice("/AngelsBakery/".length));
@@ -29,7 +43,43 @@ for (const file of files.filter((f) => f.endsWith(".html"))) {
       const info = await stat(local);
       if (info.isDirectory()) await stat(path.join(local, "index.html"));
     } catch {
-      errors.push(`${path.relative(root, file)}: missing ${url}`);
+      errors.push(`${relativeFile}: missing ${url}`);
+    }
+  }
+
+  for (const match of html.matchAll(
+    /<meta\b(?=[^>]*\bproperty="og:image")(?=[^>]*\bcontent="([^"]+)")[^>]*>/gi,
+  )) {
+    openGraphImages += 1;
+    let imageUrl;
+    try {
+      imageUrl = new URL(match[1]);
+    } catch {
+      errors.push(`${relativeFile}: Open Graph image must be an absolute URL`);
+      continue;
+    }
+    if (imageUrl.protocol !== "https:") {
+      errors.push(`${relativeFile}: Open Graph image must use HTTPS`);
+    }
+    if (imageUrl.hostname === "softstrangestudio.github.io") {
+      errors.push(`${relativeFile}: Open Graph image uses the retired GitHub Pages host`);
+    }
+    const basePathCount = imageUrl.pathname
+      .split("/")
+      .filter((segment) => segment === "AngelsBakery").length;
+    if (!imageUrl.pathname.startsWith("/AngelsBakery/") || basePathCount !== 1) {
+      errors.push(`${relativeFile}: Open Graph image has an invalid /AngelsBakery/ path: ${imageUrl.pathname}`);
+      continue;
+    }
+    const imageFile = path.join(
+      root,
+      decodeURIComponent(imageUrl.pathname.slice("/AngelsBakery/".length)),
+    );
+    try {
+      const info = await stat(imageFile);
+      if (!info.isFile()) errors.push(`${relativeFile}: Open Graph image is not a file: ${imageUrl.pathname}`);
+    } catch {
+      errors.push(`${relativeFile}: missing Open Graph image ${imageUrl.pathname}`);
     }
   }
 }
@@ -38,5 +88,5 @@ if (errors.length) {
   process.exit(1);
 }
 console.log(
-  `Verified local URLs across ${files.filter((f) => f.endsWith(".html")).length} exported HTML files.`,
+  `Verified base-path URLs and noindex across ${htmlFiles.length} exported HTML files; ${openGraphImages} absolute Open Graph images validated.`,
 );

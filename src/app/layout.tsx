@@ -1,33 +1,42 @@
 import type { Metadata } from "next";
 import { BakeryProvider } from "@/view-models/bakery-provider";
 import { Header, Footer } from "@/components/site-shell";
+import { basePath } from "@/lib/config";
 import "./globals.css";
+const publicOrigin = process.env.NEXT_PUBLIC_SITE_URL?.trim().replace(/\/+$/, "");
+const publicMetadataBase = publicOrigin
+  ? new URL(`${publicOrigin}${basePath}/`)
+  : undefined;
 export const metadata: Metadata = {
-  metadataBase: new URL("https://softstrangestudio.github.io/AngelsBakery/"),
+  metadataBase: publicMetadataBase,
   title: {
-    default: "Angel’s Bakery — A little baked happiness",
-    template: "%s | Angel’s Bakery",
+    default: "Soft Strange Bakery — A little baked happiness",
+    template: "%s | Soft Strange Bakery",
   },
   description:
-    "Flaky pastries, happy little desserts, and something lovely to look forward to. Explore Angel’s Bakery’s preview collection.",
+    "Flaky pastries, happy little desserts, and something lovely to look forward to. Explore Soft Strange Bakery’s preview collection.",
   openGraph: {
-    title: "Angel’s Bakery — A little baked happiness",
+    title: "Soft Strange Bakery — A little baked happiness",
     description: "Good things come to those who treat.",
-    images: [
-      { url: "/AngelsBakery/images/scenes/snickerdoodles.webp", width: 1000, height: 750 },
-    ],
+    ...(publicMetadataBase && {
+      images: [
+        { url: "images/scenes/snickerdoodles.webp", width: 1000, height: 750 },
+      ],
+    }),
   },
-  robots: { index: true, follow: true },
+  // This build is currently the temporary Pages preview; enable indexing only
+  // when the approved commercial host and customer-facing details are ready.
+  robots: { index: false, follow: false },
 };
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en">
+    <html lang="en" data-scroll-behavior="smooth">
       <body>
         <BakeryProvider>
           <Header />
-          <main id="main">{children}</main>
+          <main id="main" tabIndex={-1}>{children}</main>
           <Footer />
         </BakeryProvider>
       </body>

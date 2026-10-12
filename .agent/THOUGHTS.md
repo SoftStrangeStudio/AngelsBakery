@@ -1,0 +1,268 @@
+# Soft Strange Bakery — Thought Pack
+
+Purpose: Preserve the user's design direction in their own words, with enough context to carry it into later iterations. This is a direction log, not the implementation task tracker; current work and launch gates live in `current.md` and `docs/task-tracker.md`.
+
+## 2026-10-12 — Carousel feels too streamlined
+
+### User direction
+
+- “The acrousell shodu be changed I htink it is msakign it seem too stremalined”
+- “I don;t liek this also start woring passes wehre you revie and thinkg thorugh 5 new stargete chagnes please eplxain”
+
+### Evidence supplied
+
+- Two windowed homepage screenshots: one makes the landscape and pastry cutouts too large; the next compresses the facts ribbon to two large rows and shows an overly orderly carousel with a large centered name plate, evenly spaced products, and broad empty sky.
+
+### Readback
+
+The carousel's symmetry and large centered controls make the site read like a polished storefront instead of a personal baking journal. Keep the current wording and accessible carousel actions, but let the pastry display feel hand-arranged, lower the empty-sky emphasis, and use five deliberate visual passes rather than another sequence of isolated size tweaks.
+
+### Five-pass direction
+
+1. **Hand-assembled opening:** crop the outdoor image into a quiet paper-framed strip and loosen the pastry arrangement, title label and controls. (Implemented and reviewed.)
+2. **Small-batch journal rhythm:** make the Saturday facts feel like a compact note attached to the page, not a large promotional band; keep every phrase intact.
+3. **Bakery notebook menu:** give the featured bakes a slightly uneven, taped-in recipe-card rhythm, with their current names and descriptions unchanged.
+4. **Personal story pacing:** make the existing “This Saturday” and Angel’s story sections read like adjacent journal entries, using the words already on the page.
+5. **Across-screen coherence:** review the same handmade language at narrow phone, regular window, tablet and wide desktop sizes; remove any new clipping or over-scaling.
+
+### Status
+
+- Pass 1 moved the existing “THIS SATURDAY / Fresh from Angel’s oven.” heading into the hero, limited the visible cluster to three offset treats, and gave the selected bake a smaller handwritten note. The remaining products are still reachable through the seven-item controls.
+- Reviewed `output/soft-strange-bakery-pass1-window-1146x741-v2.png`, `output/soft-strange-bakery-pass1-window-1280x720.png`, `output/soft-strange-bakery-pass1-tablet-768x1024.png`, `output/soft-strange-bakery-pass1-mobile-390x844-final.png`, and `output/soft-strange-bakery-pass1-small-mobile-320x568-final.png`. All document widths match their viewports; controls fit inside the carousel at 320px.
+- `npm run check` passed (lint, typecheck, 19 existing tests, static export and image checks). Browser interaction advanced from Brownies to Blueberry Muffins with reduced motion enabled; the carousel transition and scenic animation both resolved to `0s`. The menu route was also reviewed at 1280×720.
+- Pass 1 is complete. Passes 2–5 remain for the facts strip, featured-bake cards, story rhythm and a final across-screen review.
+
+## 2026-10-12 — Windowed fit still needs work
+
+### User direction
+
+- “See how it fits here is notgood?”
+
+### Evidence supplied
+
+- Attached windowed Chrome screenshot: the hero scene takes most of the visible page, while the Saturday info ribbon reaches and clips against the right edge.
+
+### Readback
+
+Preserve the existing bakery look and copy, but make the Saturday details feel intentionally grouped and fully visible in a narrow desktop window. Keep the same information accessible on mobile.
+
+### Status
+
+- Reworked the ribbon into four content groups. It stays on one centered line at 1280px and wider, and forms two rows at 1024px and phone widths. Copy stays intact. Verified 1024×768, 1280×720, 1560×900, 390×844 and 320×568; every viewport matched document width. `npm run check` passed.
+
+## Earlier directions — ongoing build and feedback loop
+
+- User asked to inspect Soft Strange Studio in the GitHub workspace and adapt the bakery into Soft Strange Bakery.
+- User asked for headless local development, noting port 3000 was occupied; the preview has been served at `http://localhost:3001/AngelsBakery/`.
+- User will continue sending thoughts and wants the site updated as those thoughts arrive, with those thoughts tracked in `.agent/` and reflected back during work.
+- User asked for conversational replies, frequent state/workflow updates, and frequent screenshots in the chat across the needed aspect ratios, including mobile; the first frame was requested before further feedback.
+- User asked that work stay exclusively on Soft Strange Bakery and continue toward production readiness.
+
+### Readback
+
+Treat this as an iterative design/build session: keep the bakery preview available, show current work in progress and responsive screenshots, capture every new steering point, and continue on the bakery only. “Production ready” means completing source and customer-journey work while keeping the separate business approval, commercial hosting, and live-ordering gates in `docs/task-tracker.md` visible. A local preview does not clear those gates.
+
+### Status
+
+- Captured from the ongoing session context on 2026-10-11; reflected in `.agent/pointer.md` and `.agent/INTENT.md`.
+
+## 2026-10-11 — Window fit and tone
+
+### User direction
+
+- “in windowed mode it doens fit”
+- “also the screen and evyeirng is jsut too big”
+- “it doesn tfeel homey enough it feels too professional”
+- “it needs to feel alsmost put toghet erliek a blog”
+- “But dont overhaul or chagne the wordign too much jsut reworkd the stylgin slithgly”
+- “Be sure toe track all intente and reflec thtem back to be as you work”
+
+### Evidence supplied
+
+- User attached a windowed Chrome screenshot of `http://localhost:3001/AngelsBakery/` (2026-10-11). At the visible window size, the outdoor hero and pastry carousel take up most of the page; the bake-sale ribbon continues beyond the right edge. The user says the overall fit is not good.
+
+### Readback
+
+Keep the current site and its copy recognizable. Make the first screen fit a regular window, reduce the overall scale, and shift the styling toward a warm, personal baking blog rather than a polished professional storefront. Use restrained presentation changes, and show how each direction is reflected as work proceeds.
+
+### Status
+
+- Captured and acknowledged; styling work is in progress.
+
+## 2026-10-11 — Window-fit screenshot follow-up
+
+### User direction
+
+- “See how it fits here is notgood?”
+
+### Evidence supplied
+
+- Referred to the same attached windowed Chrome view. It showed the pastry scene and carousel dominating the available height, with the bake-sale strip running beyond the visible window.
+
+### Readback
+
+The latest compact layout is closer, but the carousel still owns too much of the first screen, especially on phone and menu views. Reduce its vertical footprint another step while keeping the current content and wording in place, then recheck a short phone, windowed desktop, and wide desktop.
+
+### Status
+
+- Implemented another small scale reduction in the shared hero and carousel. Captured windowed 1280×800, wide 1920×1080, tablet 768×1024, mobile 390×844, and short mobile 375×667; the full check passed and the preview is back at port 3001.
+
+## 2026-10-12 — Windowed-fit screenshot review
+
+### User direction
+
+- “See how it fits here is notgood?”
+
+### Evidence supplied
+
+- The attached windowed Chrome view again showed the outdoor scene and pastry carousel taking most of the available browser height, with the ticker cut at the right edge.
+
+### Readback
+
+The current homepage still feels oversized in a regular window. Keep the same bakery copy and handmade studio-derived styling, but lower the hero/carousel scale another step so the next section appears sooner and the ticker remains fully visible.
+
+### Status
+
+- Reduced desktop hero height and carousel art. At 1280×720 the masthead, full carousel, info strip and next-section heading are visible; 390×844 retains its wrapped ticker and selected-bake focus.
+
+## 2026-10-12 — Latest windowed-fit check
+
+### User direction
+
+- “See how it fits here is notgood?”
+
+### Evidence supplied and rechecked
+
+- The attached Chrome window still gave most of its visible page to the masthead, scenic pastry display and ticker. I reproduced the page at 1536×780; the featured menu began around 452px and its cards around 664px, leaving only their top edges in view.
+
+### Readback
+
+Keep the handmade header and current copy, but compress the hero/carousel stack and the gap before the menu when the desktop window is short. Preserve the phone layout and keep all ticker text visible.
+
+### Status
+
+- Added a short-desktop-only sizing adjustment. At 1536×780 the featured cards now begin around 612px instead of 664px; the hero/carousel stack is 218px + 106px instead of 250px + 120px. At 1280×720 the cards begin around 606px. At 390×844 the mobile hero remains 304px, carousel 118px, and document width 390px. Screenshots are in `output/windowed-1536x780-after-followup.png`, `output/windowed-1280x720-after-followup.png`, and `output/mobile-390x844-after-followup.png`; `npm run check` passed.
+
+## 2026-10-12 — Attached window fit still feels wrong
+
+### User direction
+
+- “See how it fits here is notgood?”
+
+### Evidence supplied and rechecked
+
+- The attached browser frame again shows an older oversized bakery render. Rechecked the current menu at 1280×720: before this refinement the first product cards began at about y=515, leaving too little of each card in view.
+
+### Readback
+
+- Keep the bakery's copy and handmade visual language, but make the short-window menu feel composed and easier to enter. Reduce the menu-only hero and close the first-screen gaps; keep the homepage hero unchanged. Also ensure a safe preview result reads as a calm status rather than an error.
+
+### Status
+
+- Short desktop menu cards now begin at y≈469 at 1280×720. The home hero is unchanged. The mobile preview result now uses a soft sage status style and assistive-technology status role; the preview remains explicitly non-ordering.
+
+## 2026-10-11 — Attached window-fit follow-up
+
+### User direction
+
+- “See how it fits here is notgood?”
+
+### Evidence supplied
+
+- The attached Chrome frame again shows the local bakery homepage in a resized window. The hero and floating pastries take up most of the view, making the rest of the page feel pushed down.
+
+### Readback
+
+- Keep the page’s words and handmade style, but make the first window feel balanced and keep the featured pastry name clear against the carousel artwork.
+
+### Status
+
+- The compact desktop sizing remains in place. A small paper-backed caption was added to keep long pastry names readable over the cutout art. Captured 1024×768, 1280×720, and 390×844 frames; all page widths match their viewports.
+
+## 2026-10-12 — Repeated window-fit screenshot
+
+### User direction
+
+- “See how it fits here is notgood?”
+
+### Evidence supplied and compared
+
+- The attached Chrome frame is dated Oct 11 and shows the earlier oversized layout: the scenic image and cutout pastries dominate the available window, and the Saturday ribbon continues off the right edge.
+- Compared it with a fresh local render at 1536×780, 1280×720, 1024×768, and 390×844. The compact version brings the first menu cards into the desktop window; the ribbon fits on desktop and wraps on mobile.
+
+### Readback
+
+- The screenshot's fit is not good. Keep the reduced hero scale and wrap the information ribbon so the window reads as a composed page instead of a clipped strip. Preserve copy and the handmade styling.
+
+### Status
+
+- Current localhost preview shows the compact layout. Fresh captures: `output/soft-strange-bakery-windowed-1536x780-latest.png`, `output/soft-strange-bakery-windowed-1280x720-latest.png`, `output/soft-strange-bakery-laptop-1024x768-latest.png`, and `output/soft-strange-bakery-mobile-390x844-latest.png`.
+
+## Additions
+
+Append each new user thought with its date, exact wording where practical, context/evidence, and a short readback. Do not silently turn an inference into a user-approved decision.
+
+## 2026-10-12 — Attached window fit compared with the current preview
+
+### User direction
+
+- “See how it fits here is notgood?”
+
+### Evidence supplied and rechecked
+
+- The attached Chrome screenshot shows the oversized scenic hero and a ticker clipped at the right edge. It matches an earlier render, not the current localhost stylesheet.
+- Recaptured the current homepage at 1536×780, 1280×720, 390×844, and 1920×1080. At 1536×780 the hero is 218px tall, carousel is 106px, the ticker fits, and featured cards begin around y=612. At 1280×720 the full ticker and featured card images enter the frame. At 390px the ticker wraps and the document stays 390px wide.
+
+### Readback
+
+The screenshot does look badly fit, but the current local preview has already been compacted since that image was made. Keep the existing short-window layout; use the fresh captures as the reference for any next fit feedback. No wording change is needed.
+
+### Status
+
+- Captured current desktop, wide, and mobile frames. No CSS change was needed for this comparison.
+
+## 2026-10-12 — Windowed fit still needs more room for the menu
+
+### User direction
+
+- “See how it fits here is notgood?”
+
+### Evidence supplied and rechecked
+
+- The attached older browser view still makes the scenic pastry display dominate the window. In the current 1280×720 preview, the first featured cards started around y=606, leaving only their upper portion visible.
+
+### Readback
+
+- Keep the page copy and phone layout as they are, but shorten the scenic/carousel stack again for short desktop windows so more of the Saturday menu is visible before scrolling.
+
+### Status
+
+- Reduced the short-window hero to 196px and carousel to 92px; the featured cards now start at y=568 in 1280×720 and y=574 in 1536×780. At 390×844 the phone hero remains 304px and carousel 118px; desktop and phone widths match their viewports. Fresh captures are in `output/soft-strange-bakery-windowed-1280x720-followup-2.png`, `output/soft-strange-bakery-windowed-1536x780-followup-2.png`, `output/soft-strange-bakery-phone-390x844-followup-2.png`, and `output/soft-strange-bakery-small-phone-320x740-followup-2.png`.
+
+## 2026-10-12 — Recheck the windowed screenshot
+
+### User direction
+
+- “See how it fits here is notgood?”
+
+### Evidence supplied and rechecked
+
+- The new attached Chrome view still shows the large scenic/product presentation and the ticker extending past the visible window. The current source had already been reduced from that older view, but a fresh 1536×780 capture still left the featured cards beginning at y=664 before this adjustment.
+
+### Readback
+
+- The first desktop window needs a tighter masthead and pastry display so the Saturday menu appears sooner. Keep the same copy, handmade styling, and phone layout.
+
+### Status
+
+- Added a short-desktop-only compact setting for the announcement, masthead, carousel, and menu spacing. Featured cards now begin at y=514 at 1536×780 and y=504 at 1280×720. The 390×844 phone layout remains 390px wide with its existing hero and wrapped ticker. Captures are `output/soft-strange-bakery-windowed-feedback-1536x780.png`, `output/soft-strange-bakery-windowed-feedback-1280x720.png`, and `output/soft-strange-bakery-mobile-feedback-390x844.png`.
+
+### Current-state comparison — 2026-10-12
+
+- Rechecked the supplied screenshot against the running local preview at 1180×720, 1560×910, and 390×844.
+- The supplied frame shows the older oversized state with the info strip cut off. In the current preview, the 1180px desktop frame is 1180px wide with a 168px hero, 76px carousel, and 46px strip; at 1560px the strip fits with room on both sides. The phone frame is 390/390px wide with the existing 304px hero, 118px carousel, and wrapped 73px strip.
+- Current captures: `output/soft-strange-bakery-windowed-current-1280x720.png`, `output/soft-strange-bakery-windowed-before-1180x720.png`, `output/soft-strange-bakery-windowed-before-1560x910.png`, and `output/soft-strange-bakery-feedback-mobile-390x844.png`.
+
+### Readback
+
+- Agree that the attached layout is not fitting well. Keep the compact windowed treatment as the current target; compare future feedback to these fresh frames. No wording or CSS change was needed for this recheck.

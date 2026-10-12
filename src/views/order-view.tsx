@@ -22,10 +22,18 @@ export function OrderView({ review = false }: { review?: boolean }) {
   const router = useRouter();
   const [attempted, setAttempted] = useState(false);
   const { state, dispatch, total } = vm;
+  const previewResult = vm.error?.startsWith("This is a preview.") ?? false;
   if (!state.hydrated)
     return (
       <section className="section empty-state" aria-busy="true">
-        <p>Making room for something lovely…</p>
+        <h1>
+          {review ? (
+            <>One last <em>little look.</em></>
+          ) : (
+            <>Your box of <em>joy.</em></>
+          )}
+        </h1>
+        <p role="status">Making room for something lovely…</p>
       </section>
     );
   if (!state.items.length)
@@ -139,7 +147,10 @@ export function OrderView({ review = false }: { review?: boolean }) {
                 />
               </label>
               {vm.error && (
-                <p className="form-error" role="alert">
+                <p
+                  className={previewResult ? "preview-result" : "form-error"}
+                  role={previewResult ? "status" : "alert"}
+                >
                   {vm.error}
                 </p>
               )}
@@ -167,7 +178,18 @@ export function OrderView({ review = false }: { review?: boolean }) {
               onSubmit={(e) => {
                 e.preventDefault();
                 setAttempted(true);
-                if (vm.canReview) router.push("/order/review/");
+                if (!vm.canReview) {
+                  const firstInvalid = (
+                    ["name", "email", "phone"] as const
+                  ).find((key) => vm.customerErrors[key]);
+                  if (firstInvalid) {
+                    requestAnimationFrame(() =>
+                      document.getElementById(`${firstInvalid}-input`)?.focus(),
+                    );
+                  }
+                  return;
+                }
+                router.push("/order/review/");
               }}
             >
               <section className="form-section">
@@ -237,6 +259,7 @@ export function OrderView({ review = false }: { review?: boolean }) {
                           ? "Email address"
                           : "Phone (optional)"}
                       <input
+                        id={`${key}-input`}
                         required={key !== "phone"}
                         type={
                           key === "email"
@@ -332,7 +355,9 @@ export function OrderView({ review = false }: { review?: boolean }) {
                 />
                 <div>
                   <Link href={`/menu/${product.id}/`}>{product.name}</Link>
-                  <span>{money(product.price)}</span>
+                  <span>
+                    {orderingEnabled ? money(product.price) : "Price coming soon"}
+                  </span>
                   <div className="quantity-control">
                     <button
                       aria-label={`Remove one ${product.name}`}
@@ -363,7 +388,7 @@ export function OrderView({ review = false }: { review?: boolean }) {
                     </button>
                   </div>
                 </div>
-                <b>{money(product.price * item.quantity)}</b>
+                {orderingEnabled && <b>{money(product.price * item.quantity)}</b>}
               </div>
             );
           })}
@@ -371,8 +396,8 @@ export function OrderView({ review = false }: { review?: boolean }) {
             Room for one more? <Plus size={15} />
           </Link>
           <div className="total">
-            <span>{orderingEnabled ? "Estimated total" : "Sample total"}</span>
-            <strong>{money(total)}</strong>
+            <span>{orderingEnabled ? "Estimated total" : "Price coming soon"}</span>
+            <strong>{orderingEnabled ? money(total) : "To be confirmed"}</strong>
           </div>
           <p className="field-help">
             Final price and any applicable tax confirmed by the bakery before

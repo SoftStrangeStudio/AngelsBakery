@@ -2,7 +2,7 @@
 
 Implemented but **not deployed or connected to a live Sheet**. No credentials were invented; no real customer entries were created.
 
-Before production configuration, move ordering to an approved host that permits commercial transactions. GitHub Pages is only the non-ordering design preview; its workflow ignores live-order variables and forces ordering off. References below to an origin / build mean the approved production host, not permission to launch sales on Pages.
+Before production configuration, move ordering to an approved host that permits commercial transactions. GitHub Pages is not an approved preview or production host for this customer-facing site, and its deployment workflow has been removed from this checkout. References below to an origin / build mean the approved production host, not permission to launch sales on Pages.
 
 1. Bakery owner creates a new **private** Google Sheet and an Apps Script project in their authorized account.
 2. Copy `google-apps-script/Code.js`. Enable manifest editing and copy `appsscript.json`.
@@ -15,7 +15,7 @@ Before production configuration, move ordering to an approved host that permits 
 9. Copy the deployment **`/exec`** URL, not `/dev`. It is public configuration.
 10. In a separate test deployment / test Sheet, enable server settings and test with synthetic details. Verify the browser reads redirect responses from the approved production origin. Content Service redirects to `script.googleusercontent.com`; never hide CORS failure with `mode: no-cors`.
 11. Verify one row per request; identical ID/payload retries return the original receipt; changed payload with same ID is rejected; a separate request from the same browser within five seconds returns `RATE_LIMITED`; full/expired dates reject writes. Compare the row and receipt.
-12. Approve public menu/contact/pickup/privacy/FAQ copy. In the approved production host's build settings, set `NEXT_PUBLIC_ORDER_ENDPOINT` and `NEXT_PUBLIC_ORDERING_ENABLED=true`, enable the production server, then rebuild. The Pages preview stays disabled.
+12. Approve public menu/contact/pickup/privacy/FAQ copy. In the approved production host's build settings, set `NEXT_PUBLIC_ORDER_ENDPOINT` and `NEXT_PUBLIC_ORDERING_ENABLED=true`, enable the production server, then rebuild. GitHub Pages is not a preview or production target for this site.
 
 ## Schema
 

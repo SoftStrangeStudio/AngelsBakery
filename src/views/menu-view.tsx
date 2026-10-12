@@ -12,7 +12,7 @@ export function MenuView() {
   );
   return (
     <>
-    <BakeryHero title="Angel’s Bakery Saturday menu" />
+    <BakeryHero title="Soft Strange Bakery Saturday menu" className="menu-hero" />
     <section id="favorites" className="section menu-page">
       <div className="section-heading"><h2>Saturday menu</h2></div>
       <div className="menu-tools">
@@ -24,7 +24,10 @@ export function MenuView() {
         <label className="search"><span className="sr-only">Find a treat</span><input type="search" placeholder="Find your favorite…" value={query} onChange={(e) => setQuery(e.target.value)} /></label>
       </div>
       <p className="menu-note">Saturday menu · Every Saturday 4–7 PM · Reservations remain closed until pricing is confirmed</p>
-      <div className="product-grid menu-grid" aria-live="polite">{list.map((p) => <ProductCard key={p.id} product={p} />)}</div>
+      <p className="sr-only" role="status">
+        {list.length === 0 ? "No treats match your search." : `${list.length} ${list.length === 1 ? "treat" : "treats"} shown.`}
+      </p>
+      <div className="product-grid menu-grid">{list.map((p) => <ProductCard key={p.id} product={p} />)}</div>
       {!list.length && (
         <div className="empty-state"><h2>No crumbs here.</h2><p>Try another search, or make room for something new.</p><button className="button secondary" onClick={() => { setQuery(""); setCategory("Everything"); }}>Show every treat</button></div>
       )}
