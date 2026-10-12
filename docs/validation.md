@@ -391,3 +391,9 @@
 - At 390×844 with reduced motion, scene and carousel transition durations were 0s; the featured-card and story transforms were `none`; Next advanced the carousel. Preference was restored afterward.
 - `npm run publish:root` passed lint, typecheck, 19 existing tests, static export checks for 20 HTML pages, and 18 referenced-image decodes; the root export was refreshed. Screenshots: `output/soft-strange-bakery-pass4-journal-full-1280.png`, `output/soft-strange-bakery-pass5-reduced-motion-mobile-390x844.png`, and the four `output/soft-strange-bakery-pass2-final-*.png` viewport frames.
 - The five-pass source and refreshed static export were delivered in `afde023cae7accdcd709de32f9eed5444fdf6870`. GitHub Actions `Validate` passed in run [38214140151](https://github.com/SoftStrangeStudio/AngelsBakery/actions/runs/38214140151). No public deployment, owner-approved business details, or live order/receipt test was performed.
+
+## Short-window carousel fit — 2026-10-12
+
+- A fresh 1280×720 browser capture showed the short-window pastry cutouts clipped by the top of the framed hero. Reduced cutout scale only at short desktop heights and lowered the stage within the same compact hero. The selected cutout now stays inside the hero (measured y=121 to 278 within hero y=112 to 286); the Saturday menu still begins in the first screen.
+- Browser layout widths matched 1280, 768, 390 and 320 CSS-pixel viewports. Shared a refreshed 1280×720 frame and a native 390×844 frame in the conversation. The mobile rules were unchanged.
+- `npm run check` passed after the source change: lint, typecheck, 19 tests, 20 exported HTML pages and 18 image decodes. This check does not establish deployed behavior or business approval.

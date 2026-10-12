@@ -8,6 +8,8 @@ Refine the existing Soft Strange Bakery website in place through five visual rev
 
 Latest screenshot readback: the carousel is too orderly and makes the page feel streamlined. Break the symmetry, reduce the blank-sky emphasis, and keep the bakery facts readable without giving them a large promotional footprint.
 
+Latest local review: the first short-window collage still clipped the pastry cutouts against the hero's top edge. Keep the compact first screen, but fit the whole loose cluster inside the paper frame.
+
 ## Ongoing collaboration intent
 
 - Adapt the Soft Strange Studio design language already reviewed for the bakery.

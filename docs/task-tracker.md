@@ -9,7 +9,7 @@
 
 | Task   | Outcome / acceptance                                       | Dependency | Status                            | Next action                                              |
 | ------ | ---------------------------------------------------------- | ---------- | --------------------------------- | -------------------------------------------------------- |
-| AB-001 | Next.js, React, TypeScript app builds                      | None       | Implemented; CI re-verification required | Verify Actions on current `main` after stylesheet repair |
+| AB-001 | Next.js, React, TypeScript app builds                      | None       | Implemented; GitHub Actions passed | Keep build verification in CI |
 | AB-002 | Export respects /AngelsBakery assets and links             | 001        | Implemented                       | Verify deployed deep links                               |
 | AB-003 | Views / view-models / services / domain separated          | 001        | Implemented                       | Maintain boundaries                                      |
 | AB-004 | Typed catalog, cart, customer, pickup, request, receipt    | 003        | Implemented                       | Review approved catalog                                  |
@@ -203,7 +203,7 @@
 
 ## Current-source readiness recheck — 2026-10-12
 
-- `npm run check` passed on the current local tree: lint, typecheck, 19 tests, 20 exported HTML files, base-path/metadata verification and 18 decoded images. This is not GitHub Actions evidence; AB-001 and AB-020 still need CI verification after source delivery.
+- `npm run check` passed on the current local tree: lint, typecheck, 19 tests, 20 exported HTML files, base-path/metadata verification and 18 decoded images. GitHub Actions `Validate` passed for the five-pass source commit `afde023` (run [38214140151](https://github.com/SoftStrangeStudio/AngelsBakery/actions/runs/38214140151)) and its tracker follow-up `754c9a7` (run [38214268719](https://github.com/SoftStrangeStudio/AngelsBakery/actions/runs/38214268719)). A later short-window carousel fit correction is being delivered separately and needs its own CI run.
 - Production dependency audit is clean. The full audit still reports five high-severity paths through dev-only `braces@3.0.3` in the Next ESLint toolchain; the current advisory lists no patched release. The suggested forced fix downgrades `eslint-config-next` to 14.2.35, so it was not applied. Full evidence is in `docs/validation.md`.
 - The post-build local preview returned HTTP 200 on port 3001; browser errors/warnings were zero and the 1280×720 page/strip widths both matched the viewport. Screenshot: `output/soft-strange-bakery-home-windowed-1280x720-post-check.png`.
 - Fresh direct browser requests to all 17 customer routes returned HTTP 200 with titles, H1s, `noindex, nofollow`, and base-prefixed assets. The 390×844 menu showed seven cards with no overflow. Reduced motion disabled the scenic/carousel animations while keeping Next navigation usable. Restored the normal-motion homepage at 1280×720 with an empty cart; details are in `docs/validation.md`.

@@ -2642,8 +2642,8 @@ body {
 
 @media (min-width: 761px) and (max-height: 850px) {
   .immersive-hero { min-height: clamp(174px, 22svh, 210px); }
-  .arc-carousel { --arc-size: clamp(140px, 15vw, 184px); --arc-step: clamp(108px, 13vw, 156px); height: 112px; }
-  .arc-stage { inset: -42px 0 30px; }
+  .arc-carousel { --arc-size: clamp(132px, 12vw, 160px); --arc-step: clamp(108px, 13vw, 156px); height: 112px; }
+  .arc-stage { inset: -42px 0 0; }
   .arc-controls { bottom: 0; }
   .arc-caption { padding-block: 4px 2px; }
   .arc-caption > p { font-size: 15px; }

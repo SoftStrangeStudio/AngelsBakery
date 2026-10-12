@@ -9,6 +9,12 @@
 - Screenshots: `output/soft-strange-bakery-pass4-journal-full-1280.png`, `output/soft-strange-bakery-pass5-reduced-motion-mobile-390x844.png`, and `output/soft-strange-bakery-pass2-final-{window,tablet,mobile,small-mobile}-*.png`.
 - The five-pass styling changes are delivered in `afde023` on `origin/main`; GitHub Actions `Validate` succeeded for that commit (run 38214140151). The approved-host, business-content, live-ordering and deployed-route gates remain open.
 
+## Short-window carousel fit — 2026-10-12
+
+- A fresh 1280×720 capture showed the pastry art starting above the hero's top edge. Kept the hero compact, reduced cutout size at short desktop heights, and lowered the stage so the full loose cluster stays inside the framed opening.
+- Rechecked at 1280×720 and responsive widths 768, 390, and 320. Document width matched each viewport. The 390×844 in-app browser capture still shows the full mobile composition; carousel selection and motion controls are unchanged.
+- `npm run check` passed after the CSS change: lint, typecheck, 19 tests, static build/export of 20 HTML pages, and 18 image decodes. This follow-up is local pending push/Actions; the previously delivered five-pass source and tracker commits have passing Actions runs.
+
 ## Five-pass visual rethink — Pass 1, hand-assembled opening — 2026-10-12
 
 - Latest user readback: the centered, evenly spaced carousel feels too streamlined; the windowed screenshot also gives too much space to empty sky and an oversized facts strip.
